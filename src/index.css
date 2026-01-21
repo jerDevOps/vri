@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #E7EDEA;
+}
+::-webkit-scrollbar-thumb {
+    background: #030D4F;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #FFC52C;
+}
+
+/* Utility for reveal on scroll */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.glass-nav {
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(3, 13, 79, 0.1);
+}
+
+.hero-overlay {
+    background: linear-gradient(135deg, rgba(3, 13, 79, 0.92) 0%, rgba(3, 13, 79, 0.85) 100%);
+}
