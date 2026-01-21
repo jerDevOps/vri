@@ -6,10 +6,10 @@ export const MOCK_DATA = {
         { id: 4, label: 'Convenios Internacionales', value: 52, icon: 'fa-handshake' },
     ],
     quickAccess: [
-        { id: 1, title: 'Convocatorias Activas', desc: 'Fondos concursables y oportunidades.', icon: 'fa-bullhorn', color: 'bg-unap-navy', text: 'text-white' },
-        { id: 2, title: 'Repositorio de Tesis', desc: 'Producción intelectual UNAP.', icon: 'fa-database', color: 'bg-unap-yellow', text: 'text-unap-navy' },
-        { id: 3, title: 'Revistas Científicas', desc: 'Publicaciones indexadas.', icon: 'fa-newspaper', color: 'bg-unap-skyBlue', text: 'text-unap-navy' },
-        { id: 4, title: 'Eventos', desc: 'Seminarios y talleres.', icon: 'fa-calendar-check', color: 'bg-unap-red', text: 'text-white' },
+        { id: 1, title: 'Convocatorias Activas', desc: 'Fondos concursables y oportunidades.', icon: 'fa-bullhorn', color: 'bg-unap-navy', text: 'text-white', url: '#' },
+        { id: 2, title: 'Repositorio de Tesis', desc: 'Producción intelectual UNAP.', icon: 'fa-database', color: 'bg-unap-yellow', text: 'text-unap-navy', url: 'https://repositorio.unap.edu.pe/home' },
+        { id: 3, title: 'Revistas Científicas', desc: 'Publicaciones indexadas.', icon: 'fa-newspaper', color: 'bg-unap-skyBlue', text: 'text-unap-navy', url: 'https://revistas.unap.edu.pe/epg/index.php/investigaciones/index' },
+        { id: 4, title: 'Eventos', desc: 'Seminarios y talleres.', icon: 'fa-calendar-check', color: 'bg-unap-red', text: 'text-white', url: 'https://vriunap.pe/cursos/' },
     ],
     news: [
         {

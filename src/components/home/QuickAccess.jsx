@@ -7,9 +7,12 @@ const QuickAccess = () => {
             <div className="container mx-auto px-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {MOCK_DATA.quickAccess.map((item, idx) => (
-                        <div
+                        <a
                             key={item.id}
-                            className="bg-white p-8 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer group border border-gray-100 reveal"
+                            href={item.url || '#'}
+                            target={item.url?.startsWith('http') ? "_blank" : "_self"}
+                            rel="noopener noreferrer"
+                            className="bg-white p-8 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer group border border-gray-100 reveal block"
                             style={{ transitionDelay: `${idx * 100}ms` }}
                         >
                             <div className={`${item.color} w-14 h-14 rounded-2xl flex items-center justify-center text-white text-2xl mb-6 shadow-lg group-hover:rotate-6 transition-transform duration-300`}>
@@ -26,7 +29,7 @@ const QuickAccess = () => {
                                     Acceder <i className="fas fa-arrow-right ml-2 text-xs"></i>
                                 </span>
                             </div>
-                        </div>
+                        </a>
                     ))}
                 </div>
             </div>

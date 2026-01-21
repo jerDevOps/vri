@@ -31,12 +31,13 @@ const Hero = () => {
                         Promovemos el conocimiento científico, la innovación tecnológica y el desarrollo social.
                     </p>
 
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 animate-slide-up max-w-2xl mx-auto lg:mx-0" style={{ animationDelay: '0.2s' }}>
+                    <div className="grid grid-cols-2 sm:grid-cols-5 gap-5 animate-slide-up max-w-2xl mx-auto lg:mx-0" style={{ animationDelay: '0.2s' }}>
                         {[
                             { name: 'Instituto de Investigación', link: '#', icon: 'src/assets/dii.png' },
                             { name: 'Innovación y Transferencia', link: 'https://transparencia.unap.edu.pe/web/', icon: 'src/assets/innova.png' },
                             { name: 'INCUNALAB', link: 'https://www.incunalab.com/', icon: 'src/assets/incunalab.png' },
-                            { name: 'Bienes y Servicios', link: 'https://www.facebook.com/dpbsunap/?locale=hi_IN', icon: 'src/assets/bienes.png' }
+                            { name: 'Bienes y Servicios', link: 'https://www.facebook.com/dpbsunap/?locale=hi_IN', icon: 'src/assets/bienes.png' },
+                            { name: 'PGI', link: 'https://pgi.vriunap.pe/home', icon: 'src/assets/pgi.png' },
                         ].map((item, index) => (
                             <a
                                 key={index}

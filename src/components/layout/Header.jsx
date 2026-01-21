@@ -1,5 +1,42 @@
 import React, { useState, useEffect } from 'react';
 
+const MobileMenuItem = ({ item, depth = 0 }) => {
+    const [isOpen, setIsOpen] = useState(false);
+    const hasSubItems = (item.dropdownItems && item.dropdownItems.length > 0) || (item.subItems && item.subItems.length > 0);
+    const subItems = item.dropdownItems || item.subItems;
+
+    return (
+        <div className="w-full border-b border-gray-50 last:border-0">
+            <div
+                className={`flex items-center justify-between px-6 py-3 cursor-pointer hover:bg-gray-50 transition-colors ${depth > 0 ? 'pl-10' : ''}`}
+                onClick={() => hasSubItems && setIsOpen(!isOpen)}
+            >
+                <a
+                    href={item.href || '#'}
+                    className={`text-gray-700 font-medium hover:text-unap-blue ${depth > 0 ? 'text-sm' : ''}`}
+                    onClick={(e) => {
+                        if (hasSubItems) {
+                            e.preventDefault();
+                        }
+                    }}
+                >
+                    {item.label}
+                </a>
+                {hasSubItems && (
+                    <i className={`fas fa-chevron-down text-xs transition-transform duration-300 ${isOpen ? 'rotate-180' : ''} opacity-40`}></i>
+                )}
+            </div>
+            {hasSubItems && isOpen && (
+                <div className="bg-gray-50/50">
+                    {subItems.map((sub, idx) => (
+                        <MobileMenuItem key={idx} item={sub} depth={depth + 1} />
+                    ))}
+                </div>
+            )}
+        </div>
+    );
+};
+
 const DropdownMenu = ({ items, isSub = false }) => (
     <div className={`absolute ${isSub ? 'top-0 left-full border-l-2' : 'top-full left-0 border-t-2'} w-64 bg-white shadow-2xl rounded-lg py-2 border-unap-gold z-50`}>
         {items.map((item, index) => (
@@ -45,6 +82,88 @@ const Header = ({ onSearchClick }) => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    const navLinks = [
+        { label: 'Inicio', href: '/' },
+        { label: 'Publicaciones', href: '#', hasDropdown: true, dropdownItems: [{ label: 'Revistas Científicas', href: '#' }] },
+        {
+            label: 'VRI',
+            href: '#',
+            hasDropdown: true,
+            dropdownItems: [
+                {
+                    label: 'Actividades',
+                    href: '#',
+                    subItems: [
+                        { label: 'Posters', href: '#' },
+                        { label: 'Cronograma de Actividades', href: '#' }
+                    ]
+                },
+                { label: 'Noticias y Eventos', href: '#' }
+            ]
+        },
+        { label: 'Nosotros', href: '#' },
+        { label: 'Convocatorias', href: '#' },
+        {
+            label: 'Direcciones',
+            href: '#',
+            hasDropdown: true,
+            dropdownItems: [
+                { label: 'Comité Institucional de Ética', href: '#', subItems: [{ label: 'Comité', href: '#' }, { label: 'Reglamentos', href: '#' }, { label: 'Investigación', href: '#' }, { label: 'Cronograma', href: '#' }, { label: 'Proyectos', href: '#' }] },
+                {
+                    label: 'Instituto de Investigación',
+                    href: '#',
+                    subItems: [
+                        {
+                            label: 'Como investigamos',
+                            href: '#',
+                            subItems: [
+                                { label: 'Grupos', href: '#' },
+                                { label: 'Semilleros', href: '#' },
+                                { label: 'Institutos', href: '#' },
+                                { label: 'RENACYT', href: '#' }
+                            ]
+                        },
+                        { label: 'Sub Unidad de publicaciones', href: '#' },
+                        { label: 'Repositorio', href: '#' },
+                        { label: 'Plataforma de Gestión de la Investigación', href: '#' }
+                    ]
+                },
+                {
+                    label: 'Innovación y Transferencia', href: '#', subItems: [
+                        { label: 'Patentes', href: '#' }, { label: 'Transferencia', href: '#' }, { label: 'Vinculación Empresarial', href: '#' }]
+                },
+                {
+                    label: 'Incubadora de Empresas', href: '#', subItems: [
+                        { label: 'Equipos', href: '#' },
+                        { label: 'Iniciativas', href: '#' }
+                    ]
+                }
+            ]
+        },
+        {
+            label: 'Normativa y Gestión',
+            href: '#',
+            hasDropdown: true,
+            dropdownItems: [
+                { label: 'Publicaciones', href: '#' },
+                { label: 'Reglamentos', href: '#' }
+            ]
+        },
+        { label: 'Noticias', href: '#' },
+        {
+            label: 'Servicios',
+            href: '#',
+            hasDropdown: true,
+            dropdownItems: [
+                { label: 'FEDU', href: '#' },
+                { label: 'Repositorio', href: '#' },
+                { label: 'Cursos y Eventos', href: '#' },
+                { label: 'Plataforma de Gestión de la Investigación', href: '#' },
+                { label: 'Turniting', href: '#' }
+            ]
+        }
+    ];
+
     return (
         <header className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'glass-nav py-2 shadow-lg text-gray-800' : 'bg-transparent py-4 text-white'}`}>
             <div className="container mx-auto px-4">
@@ -56,62 +175,16 @@ const Header = ({ onSearchClick }) => {
 
                     {/* Desktop Nav */}
                     <nav className={`hidden lg:flex items-center gap-1 ${scrolled ? 'text-gray-600' : 'text-white'}`}>
-                        <NavLink href="#" hasDropdown dropdownItems={[{ label: 'Revistas Científicas', href: '#' }]}>Publicaciones</NavLink>
-                        <NavLink href="#" hasDropdown dropdownItems={[
-                            {
-                                label: 'Actividades',
-                                href: '#',
-                                subItems: [
-                                    { label: 'Posters', href: '#' },
-                                    { label: 'Cronograma de Actividades', href: '#' }
-                                ]
-                            },
-                            { label: 'Noticias y Eventos', href: '#' }
-                        ]}>VRI</NavLink>
-                        <NavLink href="#">Nosotros</NavLink>
-                        <NavLink href="#">Convocatorias</NavLink>
-                        <NavLink href="#" hasDropdown dropdownItems={[
-                            { label: 'Comité Institucional de Ética', href: '#', subItems: [{ label: 'Comité', href: '#' }, { label: 'Reglamentos', href: '#' }, { label: 'Investigación', href: '#' }, { label: 'Cronograma', href: '#' }, { label: 'Proyectos', href: '#' }] },
-                            {
-                                label: 'Instituto de Investigación',
-                                href: '#',
-                                subItems: [
-                                    {
-                                        label: 'Como investigamos',
-                                        href: '#',
-                                        subItems: [
-                                            { label: 'Grupos', href: '#' },
-                                            { label: 'Semilleros', href: '#' },
-                                            { label: 'Institutos', href: '#' },
-                                            { label: 'RENACYT', href: '#' }
-                                        ]
-                                    },
-                                    { label: 'Sub Unidad de publicaciones', href: '#' },
-                                    { label: 'Repositorio', href: '#' },
-                                    { label: 'Plataforma de Gestión de la Investigación', href: '#' }
-                                ]
-                            },
-                            {
-                                label: 'Innovación y Transferencia', href: '#', subItems: [
-                                    { label: 'Patentes', href: '#' }, { label: 'Transferencia', href: '#' }, { label: 'Vinculación Empresarial', href: '#' }]
-                            },
-                            {
-                                label: 'Incubadora de Empresas', href: '#', subItems: [
-                                    { label: 'Equipos', href: '#' },
-                                    { label: 'Iniciativas', href: '#' }
-                                ]
-                            }
-                        ]}>Direcciones</NavLink>
-                        <NavLink href="#" hasDropdown dropdownItems={[
-                            { label: 'Publicaciones', href: '#' },
-                            { label: 'Reglamentos', href: '#' }]}>Normativa y Gestión</NavLink>
-                        <NavLink href="#">Noticias</NavLink>
-                        <NavLink href="#" hasDropdown dropdownItems={[
-                            { label: 'FEDU', href: '#' },
-                            { label: 'Repositorio', href: '#' },
-                            { label: 'Cursos y Eventos', href: '#' },
-                            { label: 'Plataforma de Gestión de la Investigación', href: '#' },
-                            { label: 'Turniting', href: '#' }]}>Servicios</NavLink>
+                        {navLinks.map((link, idx) => (
+                            <NavLink
+                                key={idx}
+                                href={link.href}
+                                hasDropdown={link.hasDropdown}
+                                dropdownItems={link.dropdownItems}
+                            >
+                                {link.label}
+                            </NavLink>
+                        ))}
                         <div className={`w-px h-6 mx-3 ${scrolled ? 'bg-gray-300' : 'bg-white/30'}`}></div>
 
                         <button onClick={onSearchClick} className={`p-2 rounded-full transition-colors ${scrolled ? 'hover:bg-gray-100' : 'hover:bg-white/20'}`}>
@@ -131,11 +204,9 @@ const Header = ({ onSearchClick }) => {
 
             {/* Mobile Menu Overlay */}
             {mobileMenuOpen && (
-                <div className="absolute top-full left-0 w-full bg-white shadow-xl lg:hidden animate-fade-in border-t border-gray-100 flex flex-col py-2">
-                    {['Inicio', 'Direcciones', 'Publicaciones', 'Normativa', 'Servicios', 'Convocatorias'].map((item) => (
-                        <a key={item} href="#" className="px-6 py-3 text-gray-700 font-medium hover:bg-blue-50 hover:text-unap-blue border-b border-gray-50 last:border-0">
-                            {item}
-                        </a>
+                <div className="absolute top-full left-0 w-full bg-white shadow-xl lg:hidden animate-fade-in border-t border-gray-100 flex flex-col py-2 max-h-[80vh] overflow-y-auto">
+                    {navLinks.map((link, idx) => (
+                        <MobileMenuItem key={idx} item={link} />
                     ))}
                 </div>
             )}

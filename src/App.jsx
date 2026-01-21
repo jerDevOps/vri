@@ -7,6 +7,7 @@ import Footer from './components/layout/Footer';
 
 // Home Components
 import Hero from './components/home/Hero';
+import AboutSection from './components/home/AboutSection';
 import QuickAccess from './components/home/QuickAccess';
 import NewsSection from './components/home/NewsSection';
 import CallsAndDirections from './components/home/CallsAndDirections';
@@ -27,6 +28,7 @@ function App() {
 
       <main className="flex-grow">
         <Hero />
+        <AboutSection />
         <QuickAccess />
         <NewsSection />
         <CallsAndDirections />
