@@ -17,15 +17,11 @@ const Hero = () => {
             </div>
 
             <div className="relative z-10 container mx-auto px-4 grid lg:grid-cols-12 gap-12 items-center">
-                <div className="lg:col-span-8 text-center lg:text-left">
-                    <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-unap-yellow/20 border border-unap-yellow text-unap-yellow text-sm font-bold mb-6 backdrop-blur-sm animate-fade-in">
-                        <span className="w-2 h-2 rounded-full bg-unap-red animate-pulse"></span>
-                        Convocatorias 2026 abiertas
-                    </span>
+                <div className="lg:col-span-7 text-center lg:text-left">
 
-                    <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white leading-tight mb-6 animate-slide-up font-serif drop-shadow-lg">
+                    <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold leading-tight mb-6 animate-slide-up font-serif drop-shadow-lg animate-title-fill">
                         Investigación que <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-unap-yellow via-white to-unap-skyBlue">
+                        <span>
                             Transforma el Futuro
                         </span>
                     </h1>
@@ -35,33 +31,44 @@ const Hero = () => {
                         Promovemos el conocimiento científico, la innovación tecnológica y el desarrollo social.
                     </p>
 
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-slide-up" style={{ animationDelay: '0.2s' }}>
-                        <button className="bg-unap-yellow hover:bg-yellow-400 text-unap-navy font-bold px-8 py-3 rounded-lg shadow-lg shadow-yellow-500/30 transition-all duration-300 transform hover:-translate-y-0.5 text-base">
-                            Ver Convocatorias
-                        </button>
-                        <button className="bg-transparent border-2 border-white text-white hover:bg-white/10 font-semibold px-8 py-3 rounded-lg backdrop-blur-sm transition-all text-base">
-                            Explorar Líneas
-                        </button>
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 animate-slide-up max-w-2xl mx-auto lg:mx-0" style={{ animationDelay: '0.2s' }}>
+                        {[
+                            { name: 'Instituto de Investigación', link: '#', icon: 'src/assets/dii.png' },
+                            { name: 'Innovación y Transferencia', link: 'https://transparencia.unap.edu.pe/web/', icon: '/src/assets/innova.png' },
+                            { name: 'INCUNALAB', link: 'https://www.incunalab.com/', icon: 'src/assets/incunalab.png' },
+                            { name: 'Bienes y Servicios', link: 'https://www.facebook.com/dpbsunap/?locale=hi_IN', icon: 'src/assets/bienes.png' }
+                        ].map((item, index) => (
+                            <a
+                                key={index}
+                                href={item.link}
+                                className={`group flex flex-col items-center p-4 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 hover:bg-unap-yellow/20 hover:border-unap-yellow/50 transition-all duration-300 transform hover:-translate-y-1 text-center animate-float ${index === 1 ? 'delay-100' : index === 2 ? 'delay-200' : index === 3 ? 'delay-300' : ''}`}
+                            >
+                                <div className="w-24 h-24 mb-4 rounded-full bg-white/5 flex items-center justify-center overflow-hidden transition-all duration-500 border border-white/10 group-hover:border-unap-yellow/50 group-hover:shadow-[0_0_30px_rgba(255,197,44,0.4)]">
+                                    <img
+                                        src={item.icon}
+                                        alt={item.name}
+                                        className="w-full h-full object-contain p-3 transition-transform duration-500 group-hover:scale-115"
+                                    />
+                                </div>
+                                <span className="text-[10px] font-bold text-white uppercase tracking-wider leading-tight group-hover:text-unap-yellow transition-colors">
+                                    {item.name}
+                                </span>
+                            </a>
+                        ))}
                     </div>
                 </div>
 
-                {/* Hero Statistics Card */}
-                <div className="lg:col-span-4 hidden lg:block animate-slide-up" style={{ animationDelay: '0.3s' }}>
-                    <div className="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl shadow-2xl">
-                        <h3 className="text-white font-semibold mb-6 border-b border-white/10 pb-2">Impacto en Cifras</h3>
-                        <div className="space-y-6">
-                            {MOCK_DATA.stats.map((stat) => (
-                                <div key={stat.id} className="flex items-center gap-4 group cursor-default">
-                                    <div className="w-12 h-12 rounded-lg bg-unap-yellow/20 flex items-center justify-center text-unap-yellow text-xl group-hover:scale-110 transition-transform duration-300">
-                                        <i className={`fas ${stat.icon}`}></i>
-                                    </div>
-                                    <div>
-                                        <div className="text-2xl font-bold text-white">{stat.value}+</div>
-                                        <div className="text-xs text-white/80 uppercase tracking-wide">{stat.label}</div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
+                {/* Hero Video Section */}
+                <div className="lg:col-span-5 hidden lg:block animate-slide-up" style={{ animationDelay: '0.3s' }}>
+                    <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-2xl transition-transform duration-500 hover:scale-[1.02]">
+                        <iframe
+                            className="absolute inset-0 w-full h-full"
+                            src="https://www.youtube.com/embed/eUcmIoieemc?autoplay=0&mute=1&loop=1&playlist=eUcmIoieemc"
+                            title="YouTube video player"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowFullScreen
+                        ></iframe>
                     </div>
                 </div>
             </div>

@@ -3,22 +3,25 @@
 @tailwind utilities;
 
 @layer base {
-  body {
-    @apply font-sans;
-  }
+    body {
+        @apply font-sans;
+    }
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
     width: 8px;
 }
+
 ::-webkit-scrollbar-track {
     background: #E7EDEA;
 }
+
 ::-webkit-scrollbar-thumb {
     background: #030D4F;
     border-radius: 4px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
     background: #FFC52C;
 }
@@ -29,6 +32,7 @@
     transform: translateY(30px);
     transition: all 0.8s ease-out;
 }
+
 .reveal.active {
     opacity: 1;
     transform: translateY(0);
@@ -40,6 +44,64 @@
     border-bottom: 1px solid rgba(3, 13, 79, 0.1);
 }
 
+
 .hero-overlay {
-    background: linear-gradient(135deg, rgba(3, 13, 79, 0.92) 0%, rgba(3, 13, 79, 0.85) 100%);
+    background: linear-gradient(#030d4fd2, rgba(0, 15, 71, 0.6)), url("/src/assets/portada.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+@keyframes titleFill {
+
+    0%,
+    25% {
+        background-position: 100% 0;
+    }
+
+    40%,
+    75% {
+        background-position: 0% 0;
+    }
+
+    90%,
+    100% {
+        background-position: 100% 0;
+    }
+}
+
+.animate-title-fill {
+    background: linear-gradient(90deg, #FFC52C 50%, #FFFFFF 50%);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: titleFill 8s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+.delay-100 {
+    animation-delay: 1.5s;
+}
+
+.delay-200 {
+    animation-delay: 3s;
+}
+
+.delay-300 {
+    animation-delay: 4.5s;
 }
