@@ -16,16 +16,16 @@ const AboutSection = () => {
                     <div className="w-24 h-1.5 bg-unap-gold mx-auto rounded-full"></div>
                 </div>
 
-                <div className="grid lg:grid-cols-2 gap-12 items-start max-w-6xl mx-auto">
+                <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
                     {/* Left Column: Mission and Results */}
-                    <div className="space-y-8 reveal" style={{ transitionDelay: '0.2s' }}>
-                        <div className="bg-white p-8 rounded-3xl shadow-xl shadow-blue-900/5 border border-blue-50 transition-all hover:shadow-2xl">
+                    <div className="reveal h-full" style={{ transitionDelay: '0.2s' }}>
+                        <div className="bg-white p-10 rounded-[2rem] border border-blue-50 transition-all duration-300 shadow-blue-900/5 hover:shadow-2xl hover:-translate-y-1 h-full flex flex-col">
                             <p className="text-gray-700 text-lg leading-relaxed mb-8 first-letter:text-5xl first-letter:font-bold first-letter:text-unap-blue first-letter:mr-3 first-letter:float-left">
                                 El Vicerrectorado de Investigación es el órgano rector de la generación y contribución en investigación científica,
                                 así como del desarrollo tecnológico e innovación de nuestra <span className="font-bold text-unap-blue">Universidad Nacional del Altiplano</span>.
                             </p>
 
-                            <div className="grid gap-4">
+                            <div className="grid gap-4 mt-auto">
                                 {[
                                     { text: 'Docentes Investigadores Renacyt', icon: 'fa-user-check', color: 'text-unap-gold', bg: 'bg-unap-gold/10' },
                                     { text: 'Investigación formativa en estudiantes (Pregrado)', icon: 'fa-graduation-cap', color: 'text-unap-blue', bg: 'bg-unap-blue/10' },
@@ -43,40 +43,35 @@ const AboutSection = () => {
                     </div>
 
                     {/* Right Column: Digital Identity/Tech */}
-                    <div className="reveal" style={{ transitionDelay: '0.4s' }}>
-                        <div className="relative group h-full">
-                            {/* Decorative Glow */}
-                            <div className="absolute -inset-1 bg-gradient-to-r from-unap-blue to-unap-gold rounded-[2rem] blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
-
-                            <div className="relative bg-white p-10 rounded-[2rem] shadow-2xl border border-white h-full flex flex-col justify-center">
-                                <div className="flex items-center gap-4 mb-6">
-                                    <div className="w-16 h-16 bg-unap-blue rounded-2xl flex items-center justify-center text-white text-3xl shadow-lg shadow-blue-200 group-hover:rotate-6 transition-transform">
-                                        <i className="fas fa-fingerprint"></i>
-                                    </div>
-                                    <div>
-                                        <h3 className="text-2xl font-bold text-unap-blue">Identidad Digital VRI</h3>
-                                        <span className="text-unap-gold text-sm font-black tracking-widest uppercase">Innovación Tecnológica</span>
-                                    </div>
+                    <div className="reveal h-full" style={{ transitionDelay: '0.4s' }}>
+                        <div className="bg-white p-10 rounded-[2rem] border border-blue-50 transition-all duration-300 shadow-blue-900/5 hover:shadow-2xl hover:-translate-y-1 h-full flex flex-col justify-center">
+                            <div className="flex items-center gap-4 mb-6">
+                                <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-lg shadow-blue-200 group-hover:rotate-6 transition-transform overflow-hidden p-2">
+                                    <img src="/vrionly.png" alt="VRI Logo" className="w-full h-full object-contain" />
                                 </div>
+                                <div>
+                                    <h3 className="text-2xl font-bold text-unap-blue">Identidad Digital VRI</h3>
+                                    <span className="text-unap-gold text-sm font-black tracking-widest uppercase">Innovación Tecnológica</span>
+                                </div>
+                            </div>
 
-                                <p className="text-gray-600 leading-relaxed mb-8 text-lg">
-                                    Nuestras plataformas están interconectadas para brindar facilidad de uso y acceso seguro.
-                                    Integramos tecnologías de vanguardia como <span className="text-unap-blue font-bold">OpenID</span> e <span className="text-unap-blue font-bold">IDaaS</span> (Identidad como servicio), siendo pioneros tecnológicos a nivel nacional.
-                                </p>
+                            <p className="text-gray-600 leading-relaxed mb-8 text-lg">
+                                Nuestras plataformas están interconectadas para brindar facilidad de uso y acceso seguro.
+                                Integramos tecnologías de vanguardia como <span className="text-unap-blue font-bold">OpenID</span> e <span className="text-unap-blue font-bold">IDaaS</span> (Identidad como servicio), siendo pioneros tecnológicos a nivel nacional.
+                            </p>
 
-                                <div className="space-y-4">
-                                    <div className="flex items-center gap-4 p-4 rounded-xl bg-blue-50/50 border border-blue-100">
-                                        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-green-500 flex items-center justify-center text-white text-xs">
-                                            <i className="fas fa-check"></i>
-                                        </div>
-                                        <p className="text-gray-700 font-medium text-sm">Acceso seguro y confiable para docentes y estudiantes.</p>
+                            <div className="space-y-4">
+                                <div className="flex items-center gap-4 p-4 rounded-xl bg-blue-50/50 border border-blue-100">
+                                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-green-500 flex items-center justify-center text-white text-xs">
+                                        <i className="fas fa-check"></i>
                                     </div>
-                                    <div className="flex items-center gap-4 p-4 rounded-xl bg-gold-50/10 border border-unap-gold/20">
-                                        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-unap-gold flex items-center justify-center text-white text-xs">
-                                            <i className="fas fa-shield-alt"></i>
-                                        </div>
-                                        <p className="text-gray-700 font-medium text-sm">Ecosistema digital unificado bajo una sola identidad.</p>
+                                    <p className="text-gray-700 font-medium text-sm">Acceso seguro y confiable para docentes y estudiantes.</p>
+                                </div>
+                                <div className="flex items-center gap-4 p-4 rounded-xl bg-gold-50/10 border border-unap-gold/20">
+                                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-green-500 flex items-center justify-center text-white text-xs">
+                                        <i className="fas fa-shield-alt"></i>
                                     </div>
+                                    <p className="text-gray-700 font-medium text-sm">Ecosistema digital unificado bajo una sola identidad.</p>
                                 </div>
                             </div>
                         </div>

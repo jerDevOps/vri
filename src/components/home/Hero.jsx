@@ -13,7 +13,7 @@ const Hero = () => {
                     alt="University Campus"
                 />
                 <div className="absolute inset-0 hero-overlay"></div>
-                <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-gray-50 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-gray-50 to-transparent"></div>
             </div>
 
             <div className="relative z-10 container mx-auto px-4 grid lg:grid-cols-12 gap-12 items-center">
