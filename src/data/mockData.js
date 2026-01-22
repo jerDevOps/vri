@@ -14,37 +14,72 @@ export const MOCK_DATA = {
     news: [
         {
             id: 1,
-            title: 'UNAP logra financiamiento histórico para 15 proyectos',
-            category: 'Institucional',
-            date: '20 Ene, 2026',
-            excerpt: 'El Vicerrectorado de Investigación anuncia los ganadores del concurso anual de proyectos con inversión en equipamiento de punta.',
-            image: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-            badgeColor: 'bg-unap-blue'
+            title: 'I Expo Investigación Estudianttil',
+            category: 'Investigación',
+            date: '20 Dic, 2025',
+            excerpt: 'La Universidad Nacional del Altiplano, comprometida con la promoción de la investigación formativa y el fortalecimiento del pensamiento científico, organiza la Expo Investigación Estudiantil UNA 2025, con el propósito de divulgar los resultados de los trabajos de investigación realizados por los estudiantes y fomentar su participación activa en la generación de conocimiento orientado al desarrollo sostenible de la región y del país.',
+            image: 'https://vriunap.pe/cursos/includes/pdfs/Expo-investi2025.jpg',
+            badgeColor: 'bg-unap-blue',
+            url: 'https://vriunap.pe/'
         },
         {
             id: 2,
-            title: 'Hallazgo científico en plantas medicinales andinas',
-            category: 'Investigación',
+            title: 'XI Concurso: Mi proyecto de Tesis en un Póster y Póster Científico',
+            category: 'Institucional',
             date: '18 Ene, 2026',
-            excerpt: 'Investigadores del Instituto de Altura descubren propiedades antioxidantes únicas en especies nativas.',
-            image: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-            badgeColor: 'bg-unap-green'
+            excerpt: 'La iniciativa busca potenciar la etapa de elaboración de las tesis, promoviendo una sólida cultura de investigación que contribuya al avance del conocimiento en diversas áreas académicas, impulsando el trabajo en equipo y la colaboración multidisciplinaria.',
+            image: 'https://portal.unap.edu.pe/sites/default/files/2025-12/bb.jpg',
+            badgeColor: 'bg-unap-green',
+            url: 'https://vriunap.pe/'
         },
         {
             id: 3,
-            title: 'Convocatoria de becas internacionales 2026',
+            title: 'III Congreso de Iniciación Científica en la UNA PUNO',
             category: 'Movilidad',
-            date: '15 Ene, 2026',
-            excerpt: 'Abiertas las postulaciones para estancias de investigación en universidades de Europa y Norteamérica.',
-            image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-            badgeColor: 'bg-unap-gold'
+            date: '16 Dic, 2025',
+            excerpt: 'La Universidad Nacional del Altiplano de Puno, inauguró el “III Congreso de Iniciación Científica”, un espacio académico diseñado para fomentar y visibilizar la investigación formativa. El evento, que se desarrollará durante los días 15 y 16 de diciembre, es organizado por la Universidad Nacional del Altiplano Puno, a través de su Vicerrectorado de Investigación y congregará a la comunidad universitaria en torno a la divulgación del conocimiento.',
+            image: 'https://scontent.flim20-1.fna.fbcdn.net/v/t39.30808-6/600994171_1295983405900701_1326655095269647153_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=Mh5vVCY032oQ7kNvwGWgaS7&_nc_oc=Adm8awH-OdDJ2ogDk2We6OOYRFfkjiAz9-ikJi-dTRO8Nb1GzPQ7NkP16aNcpkG0bzQ&_nc_zt=23&_nc_ht=scontent.flim20-1.fna&_nc_gid=eySZbEgujB7c2oEHs3tj9Q&oh=00_Afobmpmk-CnPwnGG-IwHXOJ2W6uprtT2gbVeSO2skzLfjQ&oe=69782BC5',
+            badgeColor: 'bg-unap-gold',
+            url: 'https://vriunap.pe/'
         },
     ],
     calls: [
-        { id: 1, title: 'Fondos FEDU 2026 - Investigación Básica', closeDate: '2026-02-28', type: 'Investigación', state: 'Activa' },
-        { id: 2, title: 'Publicación de Libros Universitarios', closeDate: '2026-03-15', type: 'Publicación', state: 'Activa' },
-        { id: 3, title: 'Semilleros de Investigación - Fase I', closeDate: '2026-01-30', type: 'Capacitación', state: 'Por vencer' },
-        { id: 4, title: 'Equipamiento de Laboratorios', closeDate: '2026-04-10', type: 'Infraestructura', state: 'Activa' },
+        {
+            id: 1,
+            title: 'Convocatoria 2025: Docente Investigador - UNA PUNO',
+            closeDate: '31-Ene-2026',
+            type: 'Investigación',
+            state: 'Activa',
+            url: 'https://vriunap.pe/sigiu/login/',
+            basesUrl: 'https://drive.google.com/file/d/1SriGeCgw-AfkWRhTjBmg2SpcYCKCBCDk/view?fbclid=IwY2xjawPfR4tleHRuA2FlbQIxMABicmlkETFub09Ta2RHRDQwR1liSGZSc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHvnGmDQ0EaAuUSxF8u_UJgleIEqzuX7xlHRJn2WYPQrwlO1mpNkJuq24NGuK_aem_4lveUr0U7NAWuGL2NsxeaA'
+        },
+        {
+            id: 2,
+            title: 'I Expo Investigación Estudiantil UNA PUNO 2025',
+            closeDate: '10-Dic-2025',
+            type: 'Publicación',
+            state: 'Cerrado',
+            url: 'https://vriunap.pe/',
+            basesUrl: '#'
+        },
+        {
+            id: 3,
+            title: 'Concurso Póster Científico UNA PUNO',
+            closeDate: '10-Dic-2025',
+            type: 'Capacitación',
+            state: 'Cerrado',
+            url: 'https://vriunap.pe/',
+            basesUrl: 'https://vriunap.pe/'
+        },
+        {
+            id: 4,
+            title: 'Concurso mi Proyecto de Tesis en un Póster',
+            closeDate: '10-Dic-2025',
+            type: 'Concurso',
+            state: 'Cerrado',
+            url: 'https://vriunap.pe/',
+            basesUrl: 'https://vriunap.pe/'
+        },
     ],
     directions: [
         { id: 1, title: 'Ética en Investigación', icon: 'fa-scale-balanced', desc: 'Comité de Ética' },

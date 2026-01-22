@@ -11,7 +11,7 @@ const CallsAndDirections = () => {
                     {/* Calls List */}
                     <div className="lg:w-2/3">
                         <SectionTitle
-                            title="Convocatorias Vigentes"
+                            title="Convocatorias"
                             subtitle="Postula a fondos concursables y oportunidades de desarrollo."
                         />
                         <div className="space-y-4">
@@ -22,8 +22,8 @@ const CallsAndDirections = () => {
                                     style={{ transitionDelay: `${idx * 100}ms` }}
                                 >
                                     {/* Status Box */}
-                                    <div className={`flex flex-col items-center justify-center p-3 rounded-xl min-w-[80px] ${call.state === 'Activa' ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-700'}`}>
-                                        <i className={`fas text-xl mb-1 ${call.state === 'Activa' ? 'fa-check-circle' : 'fa-clock'}`}></i>
+                                    <div className={`flex flex-col items-center justify-center p-3 rounded-xl min-w-[80px] ${call.state === 'Cerrado' ? 'bg-red-50 text-red-700' : 'bg-green-50 text-green-700'}`}>
+                                        <i className={`fas text-xl mb-1 ${call.state === 'Cerrado' ? 'fa-lock' : 'fa-check-circle'}`}></i>
                                         <span className="text-[10px] font-bold uppercase">{call.state}</span>
                                     </div>
 
@@ -37,9 +37,27 @@ const CallsAndDirections = () => {
                                         </div>
                                     </div>
 
-                                    <Button variant="secondary" className="whitespace-nowrap flex-shrink-0 text-sm">
-                                        <i className="fas fa-download mr-2"></i> Bases
-                                    </Button>
+                                    <div className="flex flex-wrap gap-3 justify-center">
+                                        <Button
+                                            variant={call.state === 'Cerrado' ? 'danger' : 'ingresar'}
+                                            className="whitespace-nowrap flex-shrink-0 text-sm"
+                                            href={call.state === 'Cerrado' ? null : call.url}
+                                            disabled={call.state === 'Cerrado'}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            {call.state === 'Cerrado' ? 'Cerrado' : 'Ingresar'}
+                                        </Button>
+                                        <Button
+                                            variant="secondary"
+                                            className="whitespace-nowrap flex-shrink-0 text-sm"
+                                            href={call.basesUrl || "#"}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            <i className="fas fa-file-pdf mr-2"></i> Bases
+                                        </Button>
+                                    </div>
                                 </div>
                             ))}
                         </div>

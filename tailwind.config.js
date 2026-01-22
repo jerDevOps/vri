@@ -9,6 +9,8 @@ export default {
       colors: {
         unap: {
           navy: '#030D4F',        // Azul marino - Principal institucional
+          blue: '#0056b3',        // Azul - Para botones y enlaces
+          green: '#22c55e',       // Verde - Para estados positivos y hover
           lightGray: '#E7EDEA',   // Gris claro - Fondos suaves
           yellow: '#FFC52C',      // Amarillo - Acentos y CTAs
           red: '#FB0C06',         // Rojo - Alertas y destacados
