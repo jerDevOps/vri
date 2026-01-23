@@ -13,7 +13,8 @@ const EventsSection = () => {
                 <div className="flex flex-col lg:flex-row items-center justify-center gap-12">
                     <div className="w-full max-w-3xl space-y-6">
                         {MOCK_DATA.events.map((evt) => (
-                            <div key={evt.id} className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col sm:flex-row items-center gap-8 group reveal">
+                            <div key={evt.id} className="bg-white rounded-2xl p-4 md:p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col sm:flex-row items-center gap-6 md:gap-8 group reveal">
+
                                 <div className="flex-shrink-0 w-24 h-24 bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl flex flex-col items-center justify-center border border-gray-200 group-hover:border-unap-blue group-hover:from-unap-blue group-hover:to-blue-700 transition-all group-hover:text-white">
                                     <span className="text-3xl font-bold leading-none">{evt.day}</span>
                                     <span className="text-xs font-bold uppercase tracking-widest mt-1">{evt.month}</span>

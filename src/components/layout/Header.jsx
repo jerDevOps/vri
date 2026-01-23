@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const MobileMenuItem = ({ item, depth = 0 }) => {
+const MobileMenuItem = ({ item, depth = 0, isIdi }) => {
     const [isOpen, setIsOpen] = useState(false);
     const hasSubItems = (item.dropdownItems && item.dropdownItems.length > 0) || (item.subItems && item.subItems.length > 0);
     const subItems = item.dropdownItems || item.subItems;
@@ -13,7 +13,7 @@ const MobileMenuItem = ({ item, depth = 0 }) => {
             >
                 <a
                     href={item.href || '#'}
-                    className={`text-gray-700 font-medium hover:text-unap-blue ${depth > 0 ? 'text-sm' : ''}`}
+                    className={`text-gray-700 font-medium ${isIdi ? 'hover:text-[#149C68]' : 'hover:text-unap-blue'} ${depth > 0 ? 'text-sm' : ''}`}
                     onClick={(e) => {
                         if (hasSubItems) {
                             e.preventDefault();
@@ -29,7 +29,7 @@ const MobileMenuItem = ({ item, depth = 0 }) => {
             {hasSubItems && isOpen && (
                 <div className="bg-gray-50/50">
                     {subItems.map((sub, idx) => (
-                        <MobileMenuItem key={idx} item={sub} depth={depth + 1} />
+                        <MobileMenuItem key={idx} item={sub} depth={depth + 1} isIdi={isIdi} />
                     ))}
                 </div>
             )}
@@ -37,20 +37,20 @@ const MobileMenuItem = ({ item, depth = 0 }) => {
     );
 };
 
-const DropdownMenu = ({ items, isSub = false }) => (
+const DropdownMenu = ({ items, isSub = false, isIdi }) => (
     <div className={`absolute ${isSub ? 'top-0 left-full border-l-2' : 'top-full left-0 border-t-2'} w-64 bg-white shadow-2xl rounded-lg py-2 border-unap-gold z-50`}>
         {items.map((item, index) => (
             <div key={index} className="relative px-1 [&:hover>div]:visible [&:hover>div]:opacity-100 [&:hover>div]:translate-x-0">
                 <a
                     href={item.href || '#'}
-                    className="flex items-center justify-between px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-unap-blue rounded-md transition-colors"
+                    className={`flex items-center justify-between px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 ${isIdi ? 'hover:text-[#149C68]' : 'hover:text-unap-blue'} rounded-md transition-colors`}
                 >
                     <span className="truncate mr-2">{item.label}</span>
                     {item.subItems && <i className="fas fa-chevron-right text-[10px] opacity-40"></i>}
                 </a>
                 {item.subItems && (
                     <div className="absolute top-0 left-full border-l-2 invisible opacity-0 translate-x-3 transition-all duration-200 z-50">
-                        <DropdownMenu items={item.subItems} isSub={true} />
+                        <DropdownMenu items={item.subItems} isSub={true} isIdi={isIdi} />
                     </div>
                 )}
             </div>
@@ -58,23 +58,25 @@ const DropdownMenu = ({ items, isSub = false }) => (
     </div>
 );
 
-const NavLink = ({ href, children, hasDropdown, dropdownItems = [] }) => (
+const NavLink = ({ href, children, hasDropdown, dropdownItems = [], isIdi }) => (
     <div className="relative h-full flex items-center [&:hover>div]:visible [&:hover>div]:opacity-100 [&:hover>div]:translate-y-0">
-        <a href={href} className="flex items-center text-sm font-medium hover:text-unap-blue transition-colors px-3 py-2 cursor-pointer">
+        <a href={href} className={`flex items-center text-sm font-medium ${isIdi ? 'hover:text-[#AEE637]' : 'hover:text-unap-blue'} transition-colors px-3 py-2 cursor-pointer`}>
             {children}
             {hasDropdown && <i className="fas fa-chevron-down ml-1 text-xs opacity-70"></i>}
         </a>
         {hasDropdown && dropdownItems.length > 0 && (
             <div className="absolute top-full left-0 invisible opacity-0 translate-y-2 transition-all duration-200 z-50">
-                <DropdownMenu items={dropdownItems} />
+                <DropdownMenu items={dropdownItems} isIdi={isIdi} />
             </div>
         )}
     </div>
 );
 
-const Header = ({ onSearchClick }) => {
+const Header = ({ onSearchClick, theme = 'default' }) => {
     const [scrolled, setScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+    const isIdi = theme === 'idi';
 
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -83,7 +85,7 @@ const Header = ({ onSearchClick }) => {
     }, []);
 
     const navLinks = [
-        { label: 'Inicio', href: '/' },
+        { label: 'Inicio', href: '#' },
         { label: 'Publicaciones', href: '#', hasDropdown: true, dropdownItems: [{ label: 'Revistas Científicas', href: '#' }] },
         {
             label: 'VRI',
@@ -111,7 +113,7 @@ const Header = ({ onSearchClick }) => {
                 { label: 'Comité Institucional de Ética', href: '#', subItems: [{ label: 'Comité', href: '#' }, { label: 'Reglamentos', href: '#' }, { label: 'Investigación', href: '#' }, { label: 'Cronograma', href: '#' }, { label: 'Proyectos', href: '#' }] },
                 {
                     label: 'Instituto de Investigación',
-                    href: '#',
+                    href: '#idi',
                     subItems: [
                         {
                             label: 'Como investigamos',
@@ -164,14 +166,28 @@ const Header = ({ onSearchClick }) => {
         }
     ];
 
+    const getHoverColor = () => isIdi ? 'hover:text-[#AEE637]' : 'hover:text-unap-blue';
+    const getMobileAccent = () => isIdi ? 'text-[#149C68]' : 'text-unap-blue';
+
     return (
-        <header className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'glass-nav py-2 shadow-lg text-gray-800' : 'bg-transparent py-4 text-white'}`}>
+        <header className={`fixed w-full z-50 transition-all duration-300 ${scrolled || mobileMenuOpen ? 'glass-nav py-2 shadow-lg text-gray-800' : 'bg-transparent py-4 text-white'}`}>
+
             <div className="container mx-auto px-4">
                 <div className="flex justify-between items-center">
-                    {/* Logo Area */}
                     <div className="flex items-center">
-                        <img src="src/assets/logovri.png" alt="Logo" className="h-16 w-auto object-contain" />
+                        <img
+                            src={isIdi ? "src/assets/logoidi.png" : "src/assets/logovri.png"}
+                            alt="Logo"
+                            className="h-12 md:h-16 w-auto object-contain"
+                        />
+                        {isIdi && (
+                            <div className="ml-4 pl-4 border-l border-white/30 hidden md:block">
+                                <span className="block text-xs font-bold uppercase tracking-tighter opacity-80 text-white">Instituto de</span>
+                                <span className="block text-sm font-black uppercase leading-none text-white">Investigación</span>
+                            </div>
+                        )}
                     </div>
+
 
                     {/* Desktop Nav */}
                     <nav className={`hidden lg:flex items-center gap-1 ${scrolled ? 'text-gray-600' : 'text-white'}`}>
@@ -181,6 +197,7 @@ const Header = ({ onSearchClick }) => {
                                 href={link.href}
                                 hasDropdown={link.hasDropdown}
                                 dropdownItems={link.dropdownItems}
+                                isIdi={isIdi}
                             >
                                 {link.label}
                             </NavLink>
@@ -195,7 +212,7 @@ const Header = ({ onSearchClick }) => {
                     {/* Mobile Toggle */}
                     <button
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                        className={`lg:hidden p-2 text-xl ${scrolled ? 'text-unap-blue' : 'text-white'}`}
+                        className={`lg:hidden p-2 text-xl ${scrolled ? getMobileAccent() : 'text-white'}`}
                     >
                         <i className={`fas ${mobileMenuOpen ? 'fa-times' : 'fa-bars'}`}></i>
                     </button>
@@ -206,7 +223,7 @@ const Header = ({ onSearchClick }) => {
             {mobileMenuOpen && (
                 <div className="absolute top-full left-0 w-full bg-white shadow-xl lg:hidden animate-fade-in border-t border-gray-100 flex flex-col py-2 max-h-[80vh] overflow-y-auto">
                     {navLinks.map((link, idx) => (
-                        <MobileMenuItem key={idx} item={link} />
+                        <MobileMenuItem key={idx} item={link} isIdi={isIdi} />
                     ))}
                 </div>
             )}

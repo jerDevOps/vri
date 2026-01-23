@@ -17,6 +17,13 @@ export default {
           skyBlue: '#CEECEF',     // Celeste pálido - Fondos secundarios
           white: '#ffffff',       // Blanco
           darkText: '#1f2937',    // Texto oscuro para contraste
+        },
+        idi: {
+          dark: '#383939',
+          green: '#149C68',       // Deep Green
+          accent: '#38C958',      // Vibrant Green
+          lime: '#AEE637',        // Lime
+          cream: '#FFFEDB',       // Pale Yellow
         }
       },
       fontFamily: {

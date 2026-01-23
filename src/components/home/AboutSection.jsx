@@ -19,8 +19,8 @@ const AboutSection = () => {
                 <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
                     {/* Left Column: Mission and Results */}
                     <div className="reveal h-full" style={{ transitionDelay: '0.2s' }}>
-                        <div className="bg-white p-10 rounded-[2rem] border border-blue-50 transition-all duration-300 shadow-blue-900/5 hover:shadow-2xl hover:-translate-y-1 h-full flex flex-col">
-                            <p className="text-gray-700 text-lg leading-relaxed mb-8 first-letter:text-5xl first-letter:font-bold first-letter:text-unap-blue first-letter:mr-3 first-letter:float-left">
+                        <div className="bg-white p-6 md:p-10 rounded-[2rem] border border-blue-50 transition-all duration-300 shadow-blue-900/5 hover:shadow-2xl hover:-translate-y-1 h-full flex flex-col">
+                            <p className="text-gray-700 text-base md:text-lg leading-relaxed mb-8 first-letter:text-5xl first-letter:font-bold first-letter:text-unap-blue first-letter:mr-3 first-letter:float-left">
                                 El Vicerrectorado de Investigación es el órgano rector de la generación y contribución en investigación científica,
                                 así como del desarrollo tecnológico e innovación de nuestra <span className="font-bold text-unap-blue">Universidad Nacional del Altiplano</span>.
                             </p>
@@ -32,10 +32,10 @@ const AboutSection = () => {
                                     { text: 'Investigación de tesistas (Pre y Posgrado)', icon: 'fa-file-alt', color: 'text-unap-gold', bg: 'bg-unap-gold/10' }
                                 ].map((item, i) => (
                                     <div key={i} className="flex items-center gap-4 p-4 rounded-2xl bg-gray-50 hover:bg-white hover:shadow-lg transition-all group border border-transparent hover:border-gray-100 cursor-default">
-                                        <div className={`w-12 h-12 rounded-xl bg-white shadow-sm flex items-center justify-center ${item.color} text-xl group-hover:scale-110 transition-transform`}>
+                                        <div className={`w-10 h-10 md:w-12 md:h-12 rounded-xl bg-white shadow-sm flex items-center justify-center ${item.color} text-lg md:text-xl group-hover:scale-110 transition-transform`}>
                                             <i className={`fas ${item.icon}`}></i>
                                         </div>
-                                        <span className="font-bold text-gray-800">{item.text}</span>
+                                        <span className="font-bold text-gray-800 text-sm md:text-base">{item.text}</span>
                                     </div>
                                 ))}
                             </div>
@@ -44,16 +44,17 @@ const AboutSection = () => {
 
                     {/* Right Column: Digital Identity/Tech */}
                     <div className="reveal h-full" style={{ transitionDelay: '0.4s' }}>
-                        <div className="bg-white p-10 rounded-[2rem] border border-blue-50 transition-all duration-300 shadow-blue-900/5 hover:shadow-2xl hover:-translate-y-1 h-full flex flex-col justify-center">
+                        <div className="bg-white p-6 md:p-10 rounded-[2rem] border border-blue-50 transition-all duration-300 shadow-blue-900/5 hover:shadow-2xl hover:-translate-y-1 h-full flex flex-col justify-center">
                             <div className="flex items-center gap-4 mb-6">
-                                <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-lg shadow-blue-200 group-hover:rotate-6 transition-transform overflow-hidden p-2">
+                                <div className="w-12 h-12 md:w-16 md:h-16 bg-white rounded-2xl flex items-center justify-center shadow-lg shadow-blue-200 group-hover:rotate-6 transition-transform overflow-hidden p-2">
                                     <img src="src/assets/vrionly.png" alt="VRI Logo" className="w-full h-full object-contain" />
                                 </div>
                                 <div>
-                                    <h3 className="text-2xl font-bold text-unap-blue">Identidad Digital VRI</h3>
-                                    <span className="text-unap-gold text-sm font-black tracking-widest uppercase">Innovación Tecnológica</span>
+                                    <h3 className="text-xl md:text-2xl font-bold text-unap-blue">Identidad Digital VRI</h3>
+                                    <span className="text-unap-gold text-[10px] md:text-sm font-black tracking-widest uppercase">Innovación Tecnológica</span>
                                 </div>
                             </div>
+
 
                             <p className="text-gray-600 leading-relaxed mb-8 text-lg">
                                 Nuestras plataformas están interconectadas para brindar facilidad de uso y acceso seguro.

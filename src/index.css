@@ -3,10 +3,24 @@
 @tailwind utilities;
 
 @layer base {
+
+    html,
     body {
         @apply font-sans;
+        overflow-x: hidden;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    *,
+    *:before,
+    *:after {
+        box-sizing: inherit;
     }
 }
+
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
@@ -51,24 +65,40 @@
     background-position: center;
 }
 
-@keyframes titleFill {
-    0% {
-        background-position: 100% 0;
+@keyframes revealText {
+    from {
+        opacity: 0;
+        clip-path: inset(0 100% 0 0);
+        transform: translateX(-20px);
     }
 
-    100% {
-        background-position: 0% 0;
+    to {
+        opacity: 1;
+        clip-path: inset(0 0 0 0);
+        transform: translateX(0);
     }
 }
 
-.animate-title-fill {
-    background: linear-gradient(90deg, #FFFFFF 33.3%, #0db8ec 33.3%, #0db8ec 66.6%, #FFFFFF 66.6%);
-    background-size: 300% 100%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: titleFill 5s ease-in-out infinite;
+.animate-reveal-text {
+    animation: revealText 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-slide-up {
+    animation: slideUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
 
 @keyframes float {
 
@@ -120,8 +150,9 @@
 }
 
 .animate-modern-reveal {
-    animation: slideUpFade 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    animation: slideUpFade 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
+
 
 @keyframes ripple {
     0% {
@@ -139,4 +170,23 @@
 
 .animate-ripple {
     animation: ripple 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* Scrollbar Hide Utility */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+/* Responsive adjustments for animations */
+@media (max-width: 768px) {
+    .reveal {
+        transform: translateY(20px);
+    }
 }

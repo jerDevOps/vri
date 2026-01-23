@@ -12,7 +12,8 @@ const QuickAccess = () => {
                             href={item.url || '#'}
                             target={item.url?.startsWith('http') ? "_blank" : "_self"}
                             rel="noopener noreferrer"
-                            className="bg-white p-8 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer group border border-gray-100 reveal block"
+                            className="bg-white p-6 md:p-8 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer group border border-gray-100 reveal block"
+
                             style={{ transitionDelay: `${idx * 100}ms` }}
                         >
                             <div className={`${item.color} w-14 h-14 rounded-2xl flex items-center justify-center text-white text-2xl mb-6 shadow-lg group-hover:rotate-6 transition-transform duration-300`}>

@@ -18,7 +18,7 @@ const CallsAndDirections = () => {
                             {MOCK_DATA.calls.map((call, idx) => (
                                 <div
                                     key={call.id}
-                                    className="group bg-white border border-gray-100 rounded-2xl p-6 hover:border-unap-blue/30 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col md:flex-row items-center gap-6 reveal"
+                                    className="group bg-white border border-gray-100 rounded-2xl p-4 md:p-6 hover:border-unap-blue/30 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col md:flex-row items-center gap-4 md:gap-6 reveal"
                                     style={{ transitionDelay: `${idx * 100}ms` }}
                                 >
                                     {/* Status Box */}

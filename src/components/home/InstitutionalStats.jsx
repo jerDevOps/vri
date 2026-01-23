@@ -67,24 +67,25 @@ const InstitutionalStats = () => {
                     centered
                 />
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8">
                     {[
                         { label: 'Inversión 2025', val: '12', prefix: 'S/ ', suffix: 'M', icon: 'fa-chart-line', color: 'text-unap-yellow' },
                         { label: 'Tesis Publicadas', val: '1450', prefix: '', suffix: '', icon: 'fa-graduation-cap', color: 'text-unap-skyBlue' },
                         { label: 'Artículos Indexados', val: '320', prefix: '', suffix: '', icon: 'fa-scroll', color: 'text-white' },
                         { label: 'Patentes Registradas', val: '12', prefix: '', suffix: '', icon: 'fa-award', color: 'text-unap-yellow' },
                     ].map((stat, idx) => (
-                        <div key={idx} className="p-8 text-center reveal">
-                            <div className={`text-4xl mb-4 ${stat.color}`}>
+                        <div key={idx} className="p-4 sm:p-8 text-center reveal">
+                            <div className={`text-2xl sm:text-4xl mb-3 sm:mb-4 ${stat.color}`}>
                                 <i className={`fas ${stat.icon}`}></i>
                             </div>
-                            <div className="text-4xl font-bold mb-2 font-serif text-white">
+                            <div className="text-xl sm:text-4xl font-bold mb-1 sm:mb-2 font-serif text-white whitespace-nowrap">
                                 {stat.prefix}<StatCounter value={stat.val} />{stat.suffix}
                             </div>
-                            <div className="text-unap-skyBlue text-sm uppercase tracking-wider font-medium">{stat.label}</div>
+                            <div className="text-unap-skyBlue text-[10px] sm:text-sm uppercase tracking-wider font-medium">{stat.label}</div>
                         </div>
                     ))}
                 </div>
+
             </div>
         </section>
     );
