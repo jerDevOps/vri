@@ -169,8 +169,8 @@ const Header = ({ onSearchClick }) => {
             <div className="container mx-auto px-4">
                 <div className="flex justify-between items-center">
                     {/* Logo Area */}
-                    <div className="flex items-center gap-3">
-                        <img src="src/assets/logovri.png" alt="Logo" className="h-12 w-auto object-contain" />
+                    <div className="flex items-center">
+                        <img src="src/assets/logovri.png" alt="Logo" className="h-16 w-auto object-contain" />
                     </div>
 
                     {/* Desktop Nav */}

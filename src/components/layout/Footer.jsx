@@ -1,20 +1,30 @@
 import React from 'react';
+import footerBg from '../../assets/portada_footer.jpg';
 
 const Footer = () => {
     return (
-        <footer className="bg-slate-900 border-t-[6px] border-unap-gold text-slate-300 pt-20 pb-10">
-            <div className="container mx-auto px-4">
+        <footer className="relative bg-slate-900 border-t-[6px] border-unap-gold text-slate-300 pt-20 pb-10 overflow-hidden">
+            {/* Background Image Overlay */}
+            <div
+                className="absolute inset-0 z-0 opacity-60"
+                style={{
+                    backgroundImage: `url(${footerBg})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat'
+                }}
+            >
+                <div className="absolute inset-0 bg-slate-900/60"></div>
+            </div>
+
+            <div className="container mx-auto px-4 relative z-10">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                     {/* Brand Column */}
-                    <div>
-                        <div className="flex items-center gap-3 mb-6 text-white">
-                            <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center text-unap-blue font-bold text-2xl shadow">U</div>
-                            <div>
-                                <h4 className="font-bold text-xl leading-none font-serif">VRI UNAP</h4>
-                                <span className="text-[10px] opacity-70 uppercase tracking-widest">Excelencia Académica</span>
-                            </div>
+                    <div className="flex flex-col items-center text-center">
+                        <div className="mb-6">
+                            <img src="/vrionly.png" alt="VRI UNAP" className="h-40 w-auto object-contain mx-auto" />
                         </div>
-                        <p className="text-sm leading-relaxed mb-6 text-slate-400">
+                        <p className="text-sm leading-relaxed mb-6 text-slate-400 max-w-xs">
                             Liderando la investigación científica en el altiplano peruano para el mundo. Innovación, ética y compromiso social.
                         </p>
                         <div className="flex gap-4">
@@ -66,24 +76,27 @@ const Footer = () => {
                         </ul>
                     </div>
 
-                    {/* Newsletter */}
+                    {/* Google Map */}
                     <div>
                         <h4 className="text-white font-bold mb-6 text-lg relative inline-block">
-                            Boletín VRI
+                            Ubicación
                             <span className="absolute -bottom-2 left-0 w-10 h-1 bg-unap-gold rounded-full"></span>
                         </h4>
-                        <p className="text-xs mb-4">Recibe las últimas convocatorias y noticias en tu correo.</p>
-                        <form className="space-y-3">
-                            <input
-                                type="email"
-                                placeholder="Ingresa tu correo"
-                                className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-unap-gold text-white transition-colors"
-                            />
-                            <button className="w-full bg-unap-gold hover:bg-yellow-600 text-white font-bold py-3 rounded-lg text-sm transition-colors shadow-lg">
-                                Suscribirme
-                            </button>
-                        </form>
+                        <div className="rounded-xl overflow-hidden shadow-2xl border border-slate-700 h-64 w-full group">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d309.5748635014625!2d-70.01685358809463!3d-15.824855255807098!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x915d69b86255bb29%3A0xe619a47a79d60362!2sVicerrectorado%20de%20Investigacion%20UNA%20Puno!5e1!3m2!1ses-419!2spe!4v1769138546450!5m2!1ses-419!2spe"
+                                width="100%"
+                                height="100%"
+                                style={{ border: 0 }}
+                                allowFullScreen=""
+                                loading="lazy"
+                                referrerPolicy="no-referrer-when-downgrade"
+                                title="Ubicación VRI UNAP"
+                                className="transition-all duration-500"
+                            ></iframe>
+                        </div>
                     </div>
+
                 </div>
 
                 <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500">

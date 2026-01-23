@@ -18,7 +18,7 @@ export const MOCK_DATA = {
             category: 'Investigación',
             date: '20 Dic, 2025',
             excerpt: 'La Universidad Nacional del Altiplano, comprometida con la promoción de la investigación formativa y el fortalecimiento del pensamiento científico, organiza la Expo Investigación Estudiantil UNA 2025, con el propósito de divulgar los resultados de los trabajos de investigación realizados por los estudiantes y fomentar su participación activa en la generación de conocimiento orientado al desarrollo sostenible de la región y del país.',
-            image: 'https://vriunap.pe/cursos/includes/pdfs/Expo-investi2025.jpg',
+            image: 'https://scontent.flim14-1.fna.fbcdn.net/v/t39.30808-6/600354191_1274914568003019_2305140449770710833_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGv-GCGuWk7kCcQm6-mcNxXRUkLdbDYMrBFSQt1sNgysF32v5glibWYBXTfJhKJBYdjNE_D4qse8Sn5caiKi6pR&_nc_ohc=OxLnLlupGCsQ7kNvwG7UUfp&_nc_oc=AdkZ7Ubv9bq0NW8Z2aBY4MwtaW1LtTzDyzoQuquebxyNG_B_Nczor4FMV-6Ek6XtqfU&_nc_zt=23&_nc_ht=scontent.flim14-1.fna&_nc_gid=73xrNQNfljm7w-8mwVKVbA&oh=00_AfrBoY6i411DUbkTxPzEHeK81BBh53_EohUfVHNmoFxTqQ&oe=6978BD27',
             badgeColor: 'bg-unap-blue',
             url: 'https://vriunap.pe/'
         },
@@ -35,7 +35,7 @@ export const MOCK_DATA = {
         {
             id: 3,
             title: 'III Congreso de Iniciación Científica en la UNA PUNO',
-            category: 'Movilidad',
+            category: 'Investigación',
             date: '16 Dic, 2025',
             excerpt: 'La Universidad Nacional del Altiplano de Puno, inauguró el “III Congreso de Iniciación Científica”, un espacio académico diseñado para fomentar y visibilizar la investigación formativa. El evento, que se desarrollará durante los días 15 y 16 de diciembre, es organizado por la Universidad Nacional del Altiplano Puno, a través de su Vicerrectorado de Investigación y congregará a la comunidad universitaria en torno a la divulgación del conocimiento.',
             image: 'https://scontent.flim20-1.fna.fbcdn.net/v/t39.30808-6/600994171_1295983405900701_1326655095269647153_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=Mh5vVCY032oQ7kNvwGWgaS7&_nc_oc=Adm8awH-OdDJ2ogDk2We6OOYRFfkjiAz9-ikJi-dTRO8Nb1GzPQ7NkP16aNcpkG0bzQ&_nc_zt=23&_nc_ht=scontent.flim20-1.fna&_nc_gid=eySZbEgujB7c2oEHs3tj9Q&oh=00_Afobmpmk-CnPwnGG-IwHXOJ2W6uprtT2gbVeSO2skzLfjQ&oe=69782BC5',

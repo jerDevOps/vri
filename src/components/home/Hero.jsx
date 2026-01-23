@@ -31,7 +31,7 @@ const Hero = () => {
                         Promovemos el conocimiento científico, la innovación tecnológica y el desarrollo social.
                     </p>
 
-                    <div className="grid grid-cols-2 sm:grid-cols-5 gap-5 animate-slide-up max-w-2xl mx-auto lg:mx-0" style={{ animationDelay: '0.2s' }}>
+                    <div className="group/dock flex flex-nowrap items-center justify-center lg:justify-start gap-4 sm:gap-8 mt-20 relative px-4 lg:px-0 overflow-x-visible">
                         {[
                             { name: 'Instituto de Investigación', link: '#', icon: 'src/assets/dii.png' },
                             { name: 'Innovación y Transferencia', link: 'https://transparencia.unap.edu.pe/web/', icon: 'src/assets/innova.png' },
@@ -42,25 +42,52 @@ const Hero = () => {
                             <a
                                 key={index}
                                 href={item.link}
-                                className={`group flex flex-col items-center p-4 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 hover:bg-unap-yellow/20 hover:border-unap-yellow/50 transition-all duration-300 transform hover:-translate-y-1 text-center animate-float ${index === 1 ? 'delay-100' : index === 2 ? 'delay-200' : index === 3 ? 'delay-300' : ''}`}
+                                className="group/item relative flex flex-col items-center flex-shrink-0 transition-all duration-500 group-hover/dock:opacity-30 hover:!opacity-100"
+                                style={{
+                                    animationDelay: `${0.4 + index * 0.1}s`,
+                                    animationFillMode: 'both',
+                                    width: '130px'
+                                }}
                             >
-                                <div className="w-24 h-24 mb-4 rounded-full bg-white/5 flex items-center justify-center overflow-hidden transition-all duration-500 border border-white/10 group-hover:border-unap-yellow/50 group-hover:shadow-[0_0_30px_rgba(255,197,44,0.4)]">
+                                {/* The Orb Container - Neutral/Metal Style */}
+                                <div className="relative w-24 h-24 sm:w-28 sm:h-28 flex items-center justify-center transition-transform duration-500 group-hover/dock:scale-90 group-hover/item:!scale-125">
+
+                                    {/* Waves Animation (Ripple) - High Visibility Neutral */}
+                                    <div className="absolute inset-0 rounded-full border-2 border-white/60 opacity-0 group-hover/item:animate-ripple pointer-events-none"></div>
+                                    <div className="absolute inset-0 rounded-full border border-white/40 opacity-0 group-hover/item:animate-ripple pointer-events-none" style={{ animationDelay: '0.4s' }}></div>
+
+                                    {/* Outer Neutral Ring */}
+                                    <div className="absolute inset-0 rounded-full border border-white/20 group-hover/item:border-white/50 transition-colors duration-500"></div>
+
+                                    {/* Glass Fill */}
+                                    <div className="absolute inset-1.5 rounded-full bg-white/5 backdrop-blur-md border border-white/10"></div>
+
+                                    {/* Icon - Grayscale to Color */}
                                     <img
                                         src={item.icon}
                                         alt={item.name}
-                                        className="w-full h-full object-contain p-3 transition-transform duration-500 group-hover:scale-115"
+                                        className="relative z-10 w-[60%] h-[60%] object-contain filter drop-shadow-2xl grayscale brightness-110 group-hover/item:grayscale-0 group-hover/item:brightness-125 transition-all duration-500 group-hover/item:rotate-3"
                                     />
+
+                                    {/* Professional Shine */}
+                                    <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/20 via-transparent to-transparent rounded-full pointer-events-none opacity-60"></div>
                                 </div>
-                                <span className="text-[10px] font-bold text-white uppercase tracking-wider leading-tight group-hover:text-unap-yellow transition-colors">
-                                    {item.name}
-                                </span>
+
+                                {/* Label Section - Stable Stable */}
+                                <div className="mt-8 flex flex-col items-center justify-start h-14">
+                                    <span className="text-[10px] font-bold text-white/50 uppercase tracking-[0.2em] leading-tight text-center transition-all duration-300 group-hover/item:text-white group-hover/item:opacity-100">
+                                        {item.name}
+                                    </span>
+                                    {/* Neutral Focus Line */}
+                                    <div className="mt-3 w-0 h-[1px] bg-white/60 group-hover/item:w-12 transition-all duration-500 ease-out"></div>
+                                </div>
                             </a>
                         ))}
                     </div>
                 </div>
 
                 {/* Hero Video Section */}
-                <div className="lg:col-span-5 hidden lg:block animate-slide-up" style={{ animationDelay: '0.3s' }}>
+                <div className="lg:col-span-12 xl:col-span-5 lg:mt-24 xl:mt-0 animate-modern-reveal" style={{ animationDelay: '1s' }}>
                     <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-2xl transition-transform duration-500 hover:scale-[1.02]">
                         <iframe
                             className="absolute inset-0 w-full h-full"

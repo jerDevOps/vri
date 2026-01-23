@@ -1,5 +1,57 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import SectionTitle from '../ui/SectionTitle';
+
+const StatCounter = ({ value, duration = 2000 }) => {
+    const [count, setCount] = useState(0);
+    const countRef = useRef(null);
+    const [hasStarted, setHasStarted] = useState(false);
+
+    const numericPart = value.replace(/[^0-9]/g, '');
+    const targetValue = parseInt(numericPart, 10);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting && !hasStarted) {
+                    setHasStarted(true);
+                }
+            },
+            { threshold: 0.1 }
+        );
+
+        if (countRef.current) {
+            observer.observe(countRef.current);
+        }
+
+        return () => observer.disconnect();
+    }, [hasStarted]);
+
+    useEffect(() => {
+        if (!hasStarted) return;
+
+        let startTimestamp = null;
+        const step = (timestamp) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+            const easedProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+            const currentCount = Math.floor(easedProgress * targetValue);
+
+            setCount(currentCount);
+
+            if (progress < 1) {
+                window.requestAnimationFrame(step);
+            }
+        };
+
+        window.requestAnimationFrame(step);
+    }, [hasStarted, targetValue, duration]);
+
+    return (
+        <span ref={countRef}>
+            {count.toLocaleString()}
+        </span>
+    );
+};
 
 const InstitutionalStats = () => {
     return (
@@ -17,16 +69,18 @@ const InstitutionalStats = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {[
-                        { label: 'Inversión 2025', val: 'S/ 12M', icon: 'fa-chart-line', color: 'text-unap-yellow' },
-                        { label: 'Tesis Publicadas', val: '1,450', icon: 'fa-graduation-cap', color: 'text-unap-skyBlue' },
-                        { label: 'Artículos Indexados', val: '320', icon: 'fa-scroll', color: 'text-white' },
-                        { label: 'Patentes Registradas', val: '12', icon: 'fa-award', color: 'text-unap-yellow' },
+                        { label: 'Inversión 2025', val: '12', prefix: 'S/ ', suffix: 'M', icon: 'fa-chart-line', color: 'text-unap-yellow' },
+                        { label: 'Tesis Publicadas', val: '1450', prefix: '', suffix: '', icon: 'fa-graduation-cap', color: 'text-unap-skyBlue' },
+                        { label: 'Artículos Indexados', val: '320', prefix: '', suffix: '', icon: 'fa-scroll', color: 'text-white' },
+                        { label: 'Patentes Registradas', val: '12', prefix: '', suffix: '', icon: 'fa-award', color: 'text-unap-yellow' },
                     ].map((stat, idx) => (
-                        <div key={idx} className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 text-center hover:bg-white/10 transition-colors reveal">
+                        <div key={idx} className="p-8 text-center reveal">
                             <div className={`text-4xl mb-4 ${stat.color}`}>
                                 <i className={`fas ${stat.icon}`}></i>
                             </div>
-                            <div className="text-4xl font-bold mb-2 font-serif">{stat.val}</div>
+                            <div className="text-4xl font-bold mb-2 font-serif text-white">
+                                {stat.prefix}<StatCounter value={stat.val} />{stat.suffix}
+                            </div>
                             <div className="text-unap-skyBlue text-sm uppercase tracking-wider font-medium">{stat.label}</div>
                         </div>
                     ))}
