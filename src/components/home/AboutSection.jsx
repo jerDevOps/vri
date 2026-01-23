@@ -47,7 +47,7 @@ const AboutSection = () => {
                         <div className="bg-white p-10 rounded-[2rem] border border-blue-50 transition-all duration-300 shadow-blue-900/5 hover:shadow-2xl hover:-translate-y-1 h-full flex flex-col justify-center">
                             <div className="flex items-center gap-4 mb-6">
                                 <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-lg shadow-blue-200 group-hover:rotate-6 transition-transform overflow-hidden p-2">
-                                    <img src="/vrionly.png" alt="VRI Logo" className="w-full h-full object-contain" />
+                                    <img src="src/assets/vrionly.png" alt="VRI Logo" className="w-full h-full object-contain" />
                                 </div>
                                 <div>
                                     <h3 className="text-2xl font-bold text-unap-blue">Identidad Digital VRI</h3>
