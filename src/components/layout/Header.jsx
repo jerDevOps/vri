@@ -180,12 +180,6 @@ const Header = ({ onSearchClick, theme = 'default' }) => {
                             alt="Logo"
                             className="h-12 md:h-16 w-auto object-contain"
                         />
-                        {isIdi && (
-                            <div className="ml-4 pl-4 border-l border-white/30 hidden md:block">
-                                <span className="block text-xs font-bold uppercase tracking-tighter opacity-80 text-white">Instituto de</span>
-                                <span className="block text-sm font-black uppercase leading-none text-white">Investigación</span>
-                            </div>
-                        )}
                     </div>
 
 
