@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { DII_SERVICES, DII_STATS, DII_METHODOLOGY } from '../data/diiData';
+import { MOCK_DATA } from '../data/mockData';
 
 const ServiceCard = ({ item }) => {
     const [activeTab, setActiveTab] = useState(null);
@@ -222,43 +223,49 @@ const ResearchInstitute = () => {
                 </div>
             </section>
 
-            {/* Featured Projects */}
+            {/* Noticias, Eventos e Hitos */}
             <section className="py-24 bg-[#149C68] text-white overflow-hidden relative">
                 <div className="container mx-auto px-4 relative z-10">
                     <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
                         <div>
-                            <h2 className="text-4xl font-bold mb-4">Proyectos Destacados</h2>
+                            <h2 className="text-4xl font-bold mb-4 uppercase tracking-tight">Noticias, Eventos e Hitos</h2>
                             <p className="text-[#FFFEDB]/80 max-w-xl text-lg">
-                                Investigaciones de alto impacto que están transformando nuestro entorno regional.
+                                Últimas actualizaciones, hitos institucionales y próximos eventos de nuestra comunidad científica.
                             </p>
                         </div>
                         <button className="px-8 py-3 bg-[#AEE637] text-[#383939] rounded-xl font-bold hover:bg-white transition-colors">
-                            Ver todos los proyectos
+                            Ver todo el boletín
                         </button>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {[1, 2, 3].map((item) => (
-                            <div key={item} className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl overflow-hidden group">
+                        {MOCK_DATA.news.slice(0, 3).map((item) => (
+                            <div key={item.id} className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl overflow-hidden group">
                                 <div className="h-56 relative overflow-hidden">
                                     <img
-                                        src={`https://images.unsplash.com/photo-${1500000000000 + item * 100}?q=80&w=800&auto=format&fit=crop`}
-                                        alt="Proyecto"
+                                        src={item.image}
+                                        alt={item.title}
                                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                                     />
-                                    <div className="absolute top-4 left-4 bg-[#AEE637] text-[#383939] px-3 py-1 rounded-full text-[10px] font-bold">
-                                        VIGENTE 2025
+                                    <div className={`absolute top-4 left-4 ${item.badgeColor} text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase`}>
+                                        {item.category}
                                     </div>
                                 </div>
                                 <div className="p-8">
+                                    <div className="flex items-center gap-3 text-[#AEE637] text-xs font-bold mb-3 uppercase">
+                                        <i className="far fa-calendar-alt"></i>
+                                        <span>{item.date}</span>
+                                    </div>
                                     <h4 className="text-xl font-bold mb-3 line-clamp-2">
-                                        Monitoreo de Calidad de Agua en la Cuenca del Lago Titicaca
+                                        {item.title}
                                     </h4>
                                     <p className="text-white/70 text-sm mb-6 line-clamp-3 leading-relaxed">
-                                        Desarrollo de sensores IoT para la detección temprana de metales pesados en ecosistemas altoandinos.
+                                        {item.excerpt}
                                     </p>
                                     <div className="flex items-center justify-between pt-6 border-t border-white/10">
-                                        <span className="text-xs font-medium text-[#AEE637] uppercase tracking-wider">Facultad de Ingeniería</span>
+                                        <a href={item.url} target="_blank" rel="noopener noreferrer" className="text-xs font-bold text-[#AEE637] uppercase tracking-wider hover:underline">
+                                            Leer más
+                                        </a>
                                         <button className="text-white hover:text-[#AEE637] transition-colors">
                                             <i className="fas fa-plus-circle text-2xl"></i>
                                         </button>
@@ -267,40 +274,58 @@ const ResearchInstitute = () => {
                             </div>
                         ))}
                     </div>
-                </div>
-            </section>
 
-            {/* Eventos Section */}
-            <section className="py-24 bg-[#FFFEDB]/20">
-                <div className="container mx-auto px-4">
-                    <div className="flex flex-col md:flex-row justify-between items-center mb-16 gap-6">
-                        <div className="text-center md:text-left">
-                            <h2 className="text-4xl font-bold text-[#383939] mb-2 uppercase tracking-tight">Eventos e Hitos</h2>
-                            <p className="text-gray-500 font-medium">Cronograma de actividades y logros del Instituto.</p>
-                        </div>
-                        <button className="px-8 py-3 bg-[#383939] text-white rounded-xl font-bold text-sm uppercase tracking-widest hover:bg-[#149C68] transition-all">
-                            Calendario Completo
-                        </button>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {[1, 2, 3].map((item) => (
-                            <div key={item} className="bg-white rounded-3xl shadow-lg border border-gray-100 overflow-hidden group">
-                                <div className="p-8">
-                                    <div className="flex items-center gap-3 text-[#149C68] text-xs font-bold mb-4 uppercase tracking-wider">
-                                        <i className="far fa-calendar-alt"></i>
-                                        <span>25 de Marzo, 2025</span>
+                    {/* Hitos y Próximos Eventos */}
+                    <div className="mt-20 pt-20 border-t border-white/10">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                            <div>
+                                <h3 className="text-2xl font-bold mb-8 flex items-center gap-3">
+                                    <div className="w-10 h-10 rounded-xl bg-[#AEE637] flex items-center justify-center text-[#383939]">
+                                        <i className="fas fa-trophy"></i>
                                     </div>
-                                    <h4 className="text-xl font-bold mb-6 text-[#383939] group-hover:text-[#149C68] transition-colors leading-snug">
-                                        I Congreso Internacional de Biotecnología Altiplánica
-                                    </h4>
-                                    <div className="flex items-center gap-2 text-gray-400 text-xs font-bold uppercase">
-                                        <i className="fas fa-map-marker-alt"></i>
-                                        <span>Auditorio Magno UNA Puno</span>
-                                    </div>
+                                    Hitos Institucionales
+                                </h3>
+                                <div className="space-y-6">
+                                    {[
+                                        { date: '2025', title: 'Liderazgo en Publicaciones Scopus', desc: 'Posicionados como la primera universidad del sur en indexaciones 2024.' },
+                                        { date: '2024', title: 'Acreditación Internacional', desc: 'Logro de estándares globales para 5 institutos de investigación.' }
+                                    ].map((hito, idx) => (
+                                        <div key={idx} className="flex gap-6 items-start bg-white/5 p-6 rounded-2xl border border-white/10">
+                                            <div className="text-2xl font-black text-[#AEE637]">{hito.date}</div>
+                                            <div>
+                                                <h4 className="font-bold mb-1">{hito.title}</h4>
+                                                <p className="text-sm text-white/60">{hito.desc}</p>
+                                            </div>
+                                        </div>
+                                    ))}
                                 </div>
                             </div>
-                        ))}
+                            <div>
+                                <h3 className="text-2xl font-bold mb-8 flex items-center gap-3">
+                                    <div className="w-10 h-10 rounded-xl bg-[#AEE637] flex items-center justify-center text-[#383939]">
+                                        <i className="fas fa-calendar"></i>
+                                    </div>
+                                    Próximos Eventos
+                                </h3>
+                                <div className="space-y-4">
+                                    {MOCK_DATA.events.slice(0, 3).map((event) => (
+                                        <div key={event.id} className="flex items-center gap-4 bg-white p-4 rounded-2xl text-[#383939] group hover:bg-[#AEE637] transition-all cursor-pointer">
+                                            <div className="w-16 h-16 rounded-xl bg-gray-100 flex flex-col items-center justify-center group-hover:bg-white transition-colors">
+                                                <span className="text-xs font-bold text-gray-400 group-hover:text-[#149C68] uppercase">{event.month}</span>
+                                                <span className="text-xl font-black text-[#149C68]">{event.day}</span>
+                                            </div>
+                                            <div className="flex-grow">
+                                                <h4 className="font-bold leading-tight line-clamp-1">{event.title}</h4>
+                                                <div className="flex items-center gap-3 text-xs text-gray-500 font-medium mt-1">
+                                                    <span><i className="far fa-clock mr-1"></i> {event.time}</span>
+                                                    <span><i className="fas fa-map-marker-alt mr-1"></i> {event.location}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>

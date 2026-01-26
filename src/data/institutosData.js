@@ -1,7 +1,7 @@
 export const INSTITUTOS_DATA = {
     about: {
         title: "¿Qué son los Institutos de Investigación?",
-        desc: "Los Institutos de Investigación de la UNA Puno son unidades académicas de alto nivel dedicadas a la generación, difusión y aplicación del conocimiento científico, tecnológico y humanístico. Estos espacios articulan a investigadores de diversas disciplinas para proponer soluciones innovadoras a los desafíos de la región y el país."
+        desc: "Los Institutos de Investigación de la UNA-Puno son centros destinados a promover y desarrollar la investigación científica, tecnológica y humanística, integrando a docentes y estudiantes de pre y posgrado. Cuentan con recursos humanos, materiales y financieros que permiten la realización de actividades investigativas con enfoque inter, intra y multidisciplinario, orientadas al avance del conocimiento, la innovación y la divulgación científica, en concordancia con la normativa universitaria vigente."
     },
     financiados2025: [
         {

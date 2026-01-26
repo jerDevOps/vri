@@ -1,7 +1,7 @@
 export const SEMILLEROS_DATA = {
     about: {
         title: "¿Qué son los Semilleros de Investigación?",
-        desc: "Los Semilleros de Investigación son espacios de formación activa conformados por estudiantes y docentes, cuyo objetivo es fomentar la cultura investigativa, el pensamiento crítico y la capacidad de innovación. A través del trabajo colaborativo, los integrantes desarrollan competencias científicas participando en proyectos que responden a problemáticas reales de la sociedad."
+        desc: "Los Semilleros de Investigación de la Universidad Nacional del Altiplano de Puno (UNA-Puno) son grupos de trabajo formados por estudiantes y docentes, con el objetivo de fomentar la investigación científica y tecnológica en diversas áreas del conocimiento. Estos semilleros permiten a los estudiantes participar activamente en proyectos de investigación, desarrollando sus habilidades investigativas y contribuyendo al avance del conocimiento en beneficio de la comunidad y el país."
     },
     reconocidos2025: [
         {

@@ -79,8 +79,8 @@ const DocenteRenacytCard = ({ data }) => {
 const Renacyt = () => {
     return (
         <div className="bg-[#fcfcfc] min-h-screen">
-            {/* Hero Section - Mas compacto */}
-            <section className="relative h-[45vh] flex items-center justify-center overflow-hidden pt-16">
+            {/* Hero Section */}
+            <section className="relative h-[60vh] flex items-center justify-center overflow-hidden pt-20">
                 <div className="absolute inset-0 z-0">
                     <img
                         src="src/assets/portada_renacyt.jpg"
@@ -88,27 +88,31 @@ const Renacyt = () => {
                         className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-[#149C68]/95 to-[#149C68]/60"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                 </div>
 
                 <div className="container mx-auto px-4 relative z-10 text-center">
-                    <span className="inline-block px-3 py-1 bg-[#AEE637] text-[#383939] rounded-full text-[10px] font-bold mb-4 uppercase tracking-widest animate-bounce">
+                    <span className="inline-block px-4 py-1 bg-[#AEE637] text-[#383939] rounded-full text-xs font-bold mb-6 uppercase tracking-wider animate-bounce">
                         Excelencia Investigativa
                     </span>
-                    <h1 className="text-4xl md:text-6xl font-black text-white mb-2 animate-modern-reveal">
+                    <h1 className="text-5xl md:text-7xl font-bold text-white mb-4 animate-modern-reveal">
                         Padrón de <span className="text-[#AEE637]">Investigadores</span>
                     </h1>
+                    <p className="text-xl md:text-2xl text-white/90 font-medium italic animate-fade-in">
+                        "Investigación que transforma el futuro"
+                    </p>
                 </div>
             </section>
 
-            {/* Quiénes Somos - Mas compacto */}
-            <section className="relative py-16 bg-white border-b border-gray-50">
+            {/* Quiénes Somos */}
+            <section className="relative py-20 bg-white border-b border-gray-50">
                 <div className="container mx-auto px-4 text-center">
-                    <div className="max-w-3xl mx-auto">
+                    <div className="max-w-4xl mx-auto">
                         <SectionTitle
                             title={RENACYT_DATA.about.title}
                             subtitle="UNA PUNO"
                         />
-                        <p className="text-lg text-gray-600 leading-relaxed font-medium">
+                        <p className="text-xl text-gray-600 leading-relaxed font-medium">
                             {RENACYT_DATA.about.desc}
                         </p>
                     </div>
