@@ -15,7 +15,7 @@ const FacultyHeader = ({ data }) => (
     <div className="flex items-center gap-4 mb-4">
         <div className="w-12 h-12 rounded-xl bg-white shadow-sm border border-gray-100 p-2 flex items-center justify-center overflow-hidden shrink-0 group-hover:scale-110 transition-transform">
             <img
-                src={data.logo || "/src/assets/logo_unap_gray.png"}
+                src={data.logo || "src/assets/logo_unap_gray.png"}
                 alt={data.facultad}
                 className="w-full h-full object-contain opacity-80"
                 onError={(e) => { e.target.src = "/src/assets/logo_unap_gray.png"; }}
@@ -83,7 +83,7 @@ const Renacyt = () => {
             <section className="relative h-[45vh] flex items-center justify-center overflow-hidden pt-16">
                 <div className="absolute inset-0 z-0">
                     <img
-                        src="/src/assets/portada_renacyt.jpg"
+                        src="src/assets/portada_renacyt.jpg"
                         alt="Fondo RENACYT"
                         className="w-full h-full object-cover"
                     />
