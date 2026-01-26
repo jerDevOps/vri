@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-export const useScrollReveal = () => {
+export const useScrollReveal = (dependency) => {
     useEffect(() => {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -14,5 +14,5 @@ export const useScrollReveal = () => {
         elements.forEach(el => observer.observe(el));
 
         return () => elements.forEach(el => observer.unobserve(el));
-    }, []);
+    }, [dependency]);
 };

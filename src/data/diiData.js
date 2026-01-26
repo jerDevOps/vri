@@ -66,7 +66,7 @@ export const DII_METHODOLOGY = [
         desc: "Constituyen una estrategia académica que promueve la investigación temprana vinculada al desarrollo social, ambiental y cultural del altiplano.",
         icon: "fa-seedling",
         color: "#22B573",
-        link: "#",
+        link: "#semilleros",
         linkText: "Unirse a Semillero"
     },
     {
@@ -77,8 +77,8 @@ export const DII_METHODOLOGY = [
         color: "#38C958",
         color2: "#8DC63F", // Usaré este para un efecto visual si es necesario, pero mantengamos la lógica de gradación en la propiedad color
         color: "#35D07F",
-        link: "#",
-        linkText: "Lista de Institutos"
+        link: "#institutos",
+        linkText: "Ver Institutos"
     },
     {
         id: 4,
@@ -86,7 +86,7 @@ export const DII_METHODOLOGY = [
         desc: "El RENACYT permite identificar a investigadores activos y fortalecer la investigación, innovación y desarrollo científico del país.",
         icon: "fa-user-graduate",
         color: "#AEE637",
-        link: "#grupos",
-        linkText: "Ver Grupos 2025"
+        link: "#renacyt",
+        linkText: "Ver Padrón"
     }
 ];

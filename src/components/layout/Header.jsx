@@ -85,7 +85,7 @@ const Header = ({ onSearchClick, theme = 'default' }) => {
     }, []);
 
     const navLinks = [
-        { label: 'Inicio', href: '#' },
+        { label: 'Inicio', href: '#/' },
         { label: 'Publicaciones', href: '#', hasDropdown: true, dropdownItems: [{ label: 'Revistas Científicas', href: '#' }] },
         {
             label: 'VRI',
@@ -119,10 +119,10 @@ const Header = ({ onSearchClick, theme = 'default' }) => {
                             label: 'Como investigamos',
                             href: '#',
                             subItems: [
-                                { label: 'Grupos', href: '#' },
-                                { label: 'Semilleros', href: '#' },
-                                { label: 'Institutos', href: '#' },
-                                { label: 'RENACYT', href: '#' }
+                                { label: 'Grupos', href: '#grupos' },
+                                { label: 'Semilleros', href: '#semilleros' },
+                                { label: 'Institutos', href: '#institutos' },
+                                { label: 'RENACYT', href: '#renacyt' }
                             ]
                         },
                         { label: 'Sub Unidad de publicaciones', href: '#' },
@@ -175,11 +175,13 @@ const Header = ({ onSearchClick, theme = 'default' }) => {
             <div className="container mx-auto px-4">
                 <div className="flex justify-between items-center">
                     <div className="flex items-center">
-                        <img
-                            src={isIdi ? "src/assets/logoidi.png" : "src/assets/logovri.png"}
-                            alt="Logo"
-                            className="h-12 md:h-16 w-auto object-contain"
-                        />
+                        <a href="#/" className="transition-transform hover:scale-105 active:scale-95">
+                            <img
+                                src={isIdi ? "src/assets/logoidi.png" : "src/assets/logovri.png"}
+                                alt="Logo"
+                                className="h-12 md:h-16 w-auto object-contain cursor-pointer"
+                            />
+                        </a>
                     </div>
 
 

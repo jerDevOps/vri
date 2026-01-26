@@ -16,7 +16,10 @@ import EventsSection from './components/home/EventsSection';
 
 // Pages
 import ResearchInstitute from './pages/ResearchInstitute';
+import Institutos from './pages/Institutos';
 import ResearchGroups from './pages/ResearchGroups';
+import Semilleros from './pages/Semilleros';
+import Renacyt from './pages/Renacyt';
 
 // UI Components
 import SearchModal from './components/ui/SearchModal';
@@ -24,22 +27,29 @@ import SearchModal from './components/ui/SearchModal';
 function App() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState('home');
-  useScrollReveal();
+  useScrollReveal(currentPage);
 
   useEffect(() => {
-    // Escuchar cambios en la URL (hash) si deseáramos usar react-router, 
-    // pero por ahora usaremos un simple manejador para la propuesta.
     const handleHashChange = () => {
       const hash = window.location.hash;
+
       if (hash === '#idi') {
         setCurrentPage('idi');
-        window.scrollTo(0, 0);
+      } else if (hash === '#institutos') {
+        setCurrentPage('institutos-lista');
       } else if (hash === '#grupos') {
         setCurrentPage('groups');
-        window.scrollTo(0, 0);
+      } else if (hash === '#semilleros') {
+        setCurrentPage('semilleros');
+      } else if (hash === '#renacyt') {
+        setCurrentPage('renacyt');
       } else {
+        // Cualquier otro hash o hash vacío vuelve al home
         setCurrentPage('home');
       }
+
+      // Asegurar que el scroll vuelva arriba y se limpien posibles estados de reveal
+      window.scrollTo(0, 0);
     };
 
     window.addEventListener('hashchange', handleHashChange);
@@ -52,7 +62,7 @@ function App() {
     <div className="flex flex-col min-h-screen">
       <Header
         onSearchClick={() => setSearchOpen(true)}
-        theme={(currentPage === 'idi' || currentPage === 'groups') ? 'idi' : 'default'}
+        theme={(currentPage === 'idi' || currentPage === 'groups' || currentPage === 'semilleros' || currentPage === 'institutos-lista' || currentPage === 'renacyt') ? 'idi' : 'default'}
       />
       <SearchModal isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
 
@@ -69,7 +79,10 @@ function App() {
           </>
         )}
         {currentPage === 'idi' && <ResearchInstitute />}
+        {currentPage === 'institutos-lista' && <Institutos />}
         {currentPage === 'groups' && <ResearchGroups />}
+        {currentPage === 'semilleros' && <Semilleros />}
+        {currentPage === 'renacyt' && <Renacyt />}
       </main>
 
       <Footer />

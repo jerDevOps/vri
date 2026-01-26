@@ -22,7 +22,9 @@ const Footer = () => {
                     {/* Brand Column */}
                     <div className="flex flex-col items-center text-center">
                         <div className="mb-6">
-                            <img src="src/assets/vrionly.png" alt="VRI UNAP" className="h-24 md:h-40 w-auto object-contain mx-auto" />
+                            <a href="#" onClick={() => window.scrollTo(0, 0)} className="block transition-transform hover:scale-105 active:scale-95">
+                                <img src="src/assets/vrionly.png" alt="VRI UNAP" className="h-24 md:h-40 w-auto object-contain mx-auto border-none outline-none" />
+                            </a>
                         </div>
                         <p className="text-sm leading-relaxed mb-6 text-slate-400 max-w-xs">
                             Liderando la investigación científica en el altiplano peruano para el mundo. Innovación, ética y compromiso social.

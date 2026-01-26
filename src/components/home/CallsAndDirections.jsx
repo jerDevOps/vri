@@ -76,7 +76,7 @@ const CallsAndDirections = () => {
                                 {MOCK_DATA.directions.map((dir) => (
                                     <a
                                         key={dir.id}
-                                        href="#"
+                                        href={dir.url || "#"}
                                         className="flex items-center p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all group border border-transparent hover:border-unap-blue/20"
                                     >
                                         <div className="w-10 h-10 rounded-full bg-blue-50 text-unap-blue flex items-center justify-center group-hover:bg-unap-blue group-hover:text-white transition-colors mr-4">
