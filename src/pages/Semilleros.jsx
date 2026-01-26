@@ -75,7 +75,7 @@ const Semilleros = () => {
             <section className="relative h-[60vh] flex items-center justify-center overflow-hidden pt-20">
                 <div className="absolute inset-0 z-0">
                     <img
-                        src="/src/assets/portada_semilleros.jpg"
+                        src="src/assets/portada_semilleros.jpg"
                         alt="Fondo Semilleros"
                         className="w-full h-full object-cover"
                     />
