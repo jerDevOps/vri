@@ -16,6 +16,7 @@ import EventsSection from './components/home/EventsSection';
 
 // Pages
 import ResearchInstitute from './pages/ResearchInstitute';
+import ResearchGroups from './pages/ResearchGroups';
 
 // UI Components
 import SearchModal from './components/ui/SearchModal';
@@ -33,6 +34,9 @@ function App() {
       if (hash === '#idi') {
         setCurrentPage('idi');
         window.scrollTo(0, 0);
+      } else if (hash === '#grupos') {
+        setCurrentPage('groups');
+        window.scrollTo(0, 0);
       } else {
         setCurrentPage('home');
       }
@@ -48,12 +52,12 @@ function App() {
     <div className="flex flex-col min-h-screen">
       <Header
         onSearchClick={() => setSearchOpen(true)}
-        theme={currentPage === 'idi' ? 'idi' : 'default'}
+        theme={(currentPage === 'idi' || currentPage === 'groups') ? 'idi' : 'default'}
       />
       <SearchModal isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
 
       <main className="flex-grow">
-        {currentPage === 'home' ? (
+        {currentPage === 'home' && (
           <>
             <Hero />
             <AboutSection />
@@ -63,9 +67,9 @@ function App() {
             <InstitutionalStats />
             <EventsSection />
           </>
-        ) : (
-          <ResearchInstitute />
         )}
+        {currentPage === 'idi' && <ResearchInstitute />}
+        {currentPage === 'groups' && <ResearchGroups />}
       </main>
 
       <Footer />

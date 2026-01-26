@@ -1,30 +1,97 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { DII_SERVICES, DII_STATS, DII_METHODOLOGY } from '../data/diiData';
 
-const ResearchInstitute = () => {
-    const services = [
-        {
-            title: "PGI",
-            subtitle: "Plataforma de Gestión de la Investigación",
-            desc: "Sistema centralizado para el seguimiento y gestión de proyectos de investigación científica.",
-            color: "#149C68"
-        },
-        {
-            title: "Sub Unidad de Publicaciones",
-            subtitle: "Editorial Universitaria",
-            desc: "Gestión y difusión de la producción científica y académica de la universidad.",
-            color: "#38C958"
-        },
-        {
-            title: "Repositorio",
-            subtitle: "Acceso Abierto",
-            desc: "Almacenamiento y preservación digital de la producción intelectual de la comunidad UNA.",
-            color: "#AEE637"
-        }
-    ];
+const ServiceCard = ({ item }) => {
+    const [activeTab, setActiveTab] = useState(null);
+
+    const toggleTab = (tab) => {
+        setActiveTab(activeTab === tab ? null : tab);
+    };
 
     return (
+        <div className="bg-white rounded-3xl shadow-xl overflow-hidden group hover:-translate-y-2 transition-all duration-500 border border-gray-100 flex flex-col h-full transform-gpu">
+            <div className="p-8 flex-grow">
+                <div className="w-16 h-16 rounded-2xl mb-6 flex items-center justify-center bg-white shadow-md transition-transform group-hover:scale-110 p-2 overflow-hidden border border-gray-50">
+                    <img src={item.logo} alt={item.title} className="w-full h-full object-contain" />
+                </div>
+                <h3 className="text-2xl font-bold text-[#383939] mb-2">{item.title}</h3>
+                <p className="text-sm font-bold text-[#149C68] mb-4 uppercase tracking-tighter">{item.subtitle}</p>
+
+                <p className="text-gray-600 text-sm leading-relaxed mb-8">
+                    {item.desc}
+                </p>
+
+                <div className="space-y-3">
+                    {/* Sección Quiénes Somos */}
+                    <div className="space-y-2">
+                        <button
+                            onClick={() => toggleTab('about')}
+                            className={`w-full py-3 px-5 rounded-xl text-xs font-bold border flex items-center justify-between transition-all duration-300 ${activeTab === 'about' ? 'bg-[#149C68] text-white border-[#149C68]' : 'border-gray-100 hover:border-[#149C68]/30 hover:bg-gray-50 text-gray-700'}`}
+                        >
+                            <span>¿Quiénes somos?</span>
+                            <i className={`fas ${activeTab === 'about' ? 'fa-chevron-up' : 'fa-chevron-right'} text-[10px] opacity-70`}></i>
+                        </button>
+                        <div className={`overflow-hidden transition-all duration-300 ease-in-out ${activeTab === 'about' ? 'max-h-40 opacity-100 mb-4' : 'max-h-0 opacity-0'}`}>
+                            <div className="bg-gray-50 p-4 rounded-xl border border-gray-100 text-gray-600 text-sm leading-relaxed">
+                                {item.links.about}
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Sección Página Oficial */}
+                    <div className="space-y-2">
+                        <button
+                            onClick={() => toggleTab('official')}
+                            className={`w-full py-3 px-5 rounded-xl text-xs font-bold border flex items-center justify-between transition-all duration-300 ${activeTab === 'official' ? 'bg-[#149C68] text-white border-[#149C68]' : 'border-gray-100 hover:border-[#149C68]/30 hover:bg-gray-50 text-gray-700'}`}
+                        >
+                            <span>Página Oficial</span>
+                            <i className={`fas ${activeTab === 'official' ? 'fa-chevron-up' : 'fa-globe'} text-[10px] opacity-70`}></i>
+                        </button>
+                        <div className={`overflow-hidden transition-all duration-300 ease-in-out ${activeTab === 'official' ? 'max-h-40 opacity-100 mb-4' : 'max-h-0 opacity-0'}`}>
+                            <div className="bg-gray-50 p-4 rounded-xl border border-gray-100 text-gray-600 text-sm leading-relaxed">
+                                {item.links.official}
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Sección Contáctanos */}
+                    <div className="space-y-2">
+                        <button
+                            onClick={() => toggleTab('contact')}
+                            className={`w-full py-3 px-5 rounded-xl text-xs font-bold border flex items-center justify-between transition-all duration-300 ${activeTab === 'contact' ? 'bg-[#149C68] text-white border-[#149C68]' : 'border-gray-100 hover:border-[#149C68]/30 hover:bg-gray-50 text-gray-700'}`}
+                        >
+                            <span>Contáctanos</span>
+                            <i className={`fas ${activeTab === 'contact' ? 'fa-chevron-up' : 'fa-envelope'} text-[10px] opacity-70`}></i>
+                        </button>
+                        <div className={`overflow-hidden transition-all duration-300 ease-in-out ${activeTab === 'contact' ? 'max-h-40 opacity-100 mb-4' : 'max-h-0 opacity-0'}`}>
+                            <div className="bg-gray-50 p-4 rounded-xl border border-gray-100 text-gray-600 font-medium text-sm flex items-center">
+                                <i className="fas fa-envelope mr-3 text-[#149C68]"></i>
+                                {item.links.contact}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="p-8 pt-0 mt-6">
+                <a
+                    href={item.links.portal}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center w-full py-4 bg-[#383939] text-white rounded-xl font-bold text-xs uppercase tracking-widest hover:bg-[#149C68] transition-all shadow-xl hover:shadow-[#149C68]/30 group/btn"
+                >
+                    Ir al portal
+                    <i className="fas fa-external-link-alt ml-2 text-[10px] transition-transform group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1"></i>
+                </a>
+            </div>
+        </div>
+    );
+};
+
+const ResearchInstitute = () => {
+    return (
         <div className="bg-[#FFFEDB]/30 min-h-screen">
-            {/* Hero Section - Restored as per Image */}
+            {/* Hero Section */}
             <section className="relative h-[85vh] lg:h-[90vh] flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 z-0">
                     <img
@@ -61,17 +128,12 @@ const ResearchInstitute = () => {
                 <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white/20 to-transparent"></div>
             </section>
 
-            {/* Quick Stats - Restored as per Image */}
+            {/* Quick Stats */}
             <section className="py-12 -mt-16 lg:-mt-20 relative z-20">
                 <div className="container mx-auto px-4">
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-                        {[
-                            { label: 'Investigadores', value: '450+', icon: 'fa-user-graduate' },
-                            { label: 'Proyectos Activos', value: '120+', icon: 'fa-microscope' },
-                            { label: 'Publicaciones 2024', value: '320+', icon: 'fa-book' },
-                            { label: 'Patentes', value: '15+', icon: 'fa-lightbulb' }
-                        ].map((stat, idx) => (
-                            <div key={idx} className="bg-white p-6 rounded-2xl shadow-xl border-b-4 border-[#149C68] transform hover:-translate-y-1 transition-all">
+                        {DII_STATS.map((stat) => (
+                            <div key={stat.id} className="bg-white p-6 rounded-2xl shadow-xl border-b-4 border-[#149C68] transform hover:-translate-y-1 transition-all">
                                 <div className="flex items-center gap-4">
                                     <div className="w-12 h-12 rounded-lg bg-[#AEE637]/20 flex items-center justify-center text-[#149C68]">
                                         <i className={`fas ${stat.icon} text-2xl`}></i>
@@ -87,8 +149,8 @@ const ResearchInstitute = () => {
                 </div>
             </section>
 
-            {/* Quiénes Somos Section - Added as requested */}
-            <section className="py-24 bg-white">
+            {/* Quiénes Somos Section */}
+            <section className="py-24 bg-white overflow-hidden">
                 <div className="container mx-auto px-4">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         <div>
@@ -105,11 +167,11 @@ const ResearchInstitute = () => {
                                 </p>
                             </div>
                         </div>
-                        <div className="relative">
+                        <div className="relative group">
                             <div className="absolute inset-0 bg-[#AEE637] rounded-3xl rotate-3 scale-[1.02] opacity-20 transition-transform group-hover:rotate-0"></div>
                             <img
-                                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop"
-                                className="relative z-10 rounded-3xl shadow-2xl object-cover aspect-video"
+                                src="src/assets/dii_electronica.jpg"
+                                className="relative z-10 rounded-3xl shadow-2xl object-cover aspect-video transition-transform duration-500 group-hover:scale-[1.02]"
                                 alt="Equipo de investigación"
                             />
                         </div>
@@ -117,50 +179,22 @@ const ResearchInstitute = () => {
                 </div>
             </section>
 
-            {/* 3 Column Services - Added as requested */}
+            {/* Strategic Services */}
             <section className="py-24 bg-[#FFFEDB]/40">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-16">
                         <h2 className="text-4xl font-bold text-[#383939] mb-4 tracking-tight">Servicios Estratégicos</h2>
                         <div className="w-20 h-1.5 bg-[#AEE637] mx-auto rounded-full"></div>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {services.map((item, idx) => (
-                            <div key={idx} className="bg-white rounded-3xl shadow-xl overflow-hidden group hover:-translate-y-2 transition-all duration-500 border border-gray-100">
-                                <div className="p-8">
-                                    <div className="w-16 h-16 rounded-2xl mb-6 flex items-center justify-center text-white" style={{ backgroundColor: item.color }}>
-                                        <i className={`fas ${idx === 0 ? 'fa-laptop-code' : idx === 1 ? 'fa-book-open' : 'fa-database'} text-2xl`}></i>
-                                    </div>
-                                    <h3 className="text-2xl font-bold text-[#383939] mb-2">{item.title}</h3>
-                                    <p className="text-sm font-bold text-[#149C68] mb-4 uppercase tracking-tighter">{item.subtitle}</p>
-                                    <p className="text-gray-600 text-sm leading-relaxed mb-8">
-                                        {item.desc}
-                                    </p>
-                                    <div className="space-y-3">
-                                        <button className="w-full py-2.5 px-4 rounded-xl text-xs font-bold border border-gray-100 hover:bg-gray-50 flex items-center justify-between transition-colors">
-                                            <span>¿Quiénes somos?</span>
-                                            <i className="fas fa-arrow-right text-[10px] opacity-30"></i>
-                                        </button>
-                                        <button className="w-full py-2.5 px-4 rounded-xl text-xs font-bold border border-gray-100 hover:bg-gray-50 flex items-center justify-between transition-colors">
-                                            <span>Página Oficial</span>
-                                            <i className="fas fa-globe text-[10px] opacity-30"></i>
-                                        </button>
-                                        <button className="w-full py-2.5 px-4 rounded-xl text-xs font-bold border border-gray-100 hover:bg-gray-50 flex items-center justify-between transition-colors">
-                                            <span>Contáctanos</span>
-                                            <i className="fas fa-envelope text-[10px] opacity-30"></i>
-                                        </button>
-                                        <a href="#" className="flex items-center justify-center w-full py-3 bg-[#383939] text-white rounded-xl font-bold text-xs uppercase tracking-widest mt-6 hover:bg-[#149C68] transition-all">
-                                            Ir al portal
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+                        {DII_SERVICES.map((item) => (
+                            <ServiceCard key={item.id} item={item} />
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* Cómo Investigamos - Restored/Adjusted */}
+            {/* Cómo Investigamos */}
             <section className="py-24 bg-white relative">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-16">
@@ -168,56 +202,27 @@ const ResearchInstitute = () => {
                         <div className="w-20 h-1.5 bg-[#AEE637] mx-auto rounded-full"></div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {/* Grupos */}
-                        <div className="group bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all border border-gray-100 relative overflow-hidden">
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-[#149C68]/5 rounded-bl-full -mr-10 -mt-10 group-hover:bg-[#149C68]/10 transition-colors"></div>
-                            <div className="w-16 h-16 rounded-2xl bg-[#149C68] text-white flex items-center justify-center mb-6 shadow-lg shadow-[#149C68]/30">
-                                <i className="fas fa-users text-2xl"></i>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        {DII_METHODOLOGY.map((method) => (
+                            <div key={method.id} className="group bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all border border-gray-100 relative overflow-hidden flex flex-col h-full">
+                                <div className="absolute top-0 right-0 w-32 h-32 rounded-bl-full -mr-10 -mt-10 group-hover:scale-110 transition-transform duration-500" style={{ backgroundColor: `${method.color}10` }}></div>
+                                <div className="w-16 h-16 rounded-2xl text-white flex items-center justify-center mb-6 shadow-lg shadow-black/5" style={{ backgroundColor: method.color }}>
+                                    <i className={`fas ${method.icon} text-2xl`}></i>
+                                </div>
+                                <h3 className="text-2xl font-bold text-[#383939] mb-4">{method.title}</h3>
+                                <p className="text-gray-600 mb-6 leading-relaxed">
+                                    {method.desc}
+                                </p>
+                                <a href={method.link} className="inline-flex items-center font-bold hover:gap-3 transition-all mt-auto pt-4" style={{ color: method.color }}>
+                                    {method.linkText} <i className="fas fa-arrow-right ml-2 text-sm"></i>
+                                </a>
                             </div>
-                            <h3 className="text-2xl font-bold text-[#383939] mb-4">Grupos</h3>
-                            <p className="text-gray-600 mb-6 leading-relaxed">
-                                Unidades operativas formadas por docentes e investigadores líderes en diversas áreas del conocimiento.
-                            </p>
-                            <a href="#" className="inline-flex items-center text-[#149C68] font-bold hover:gap-3 transition-all">
-                                Ver Grupos 2025 <i className="fas fa-arrow-right ml-2 text-sm"></i>
-                            </a>
-                        </div>
-
-                        {/* Semilleros */}
-                        <div className="group bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all border border-gray-100 relative overflow-hidden">
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-[#38C958]/5 rounded-bl-full -mr-10 -mt-10 group-hover:bg-[#38C958]/10 transition-colors"></div>
-                            <div className="w-16 h-16 rounded-2xl bg-[#38C958] text-white flex items-center justify-center mb-6 shadow-lg shadow-[#38C958]/30">
-                                <i className="fas fa-seedling text-2xl"></i>
-                            </div>
-                            <h3 className="text-2xl font-bold text-[#383939] mb-4">Semilleros</h3>
-                            <p className="text-gray-600 mb-6 leading-relaxed">
-                                Espacios de formación para estudiantes que dan sus primeros pasos en la investigación científica.
-                            </p>
-                            <a href="#" className="inline-flex items-center text-[#38C958] font-bold hover:gap-3 transition-all">
-                                Unirse a Semillero <i className="fas fa-arrow-right ml-2 text-sm"></i>
-                            </a>
-                        </div>
-
-                        {/* Institutos */}
-                        <div className="group bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all border border-gray-100 relative overflow-hidden">
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-[#AEE637]/5 rounded-bl-full -mr-10 -mt-10 group-hover:bg-[#AEE637]/10 transition-colors"></div>
-                            <div className="w-16 h-16 rounded-2xl bg-[#AEE637] text-white flex items-center justify-center mb-6 shadow-lg shadow-[#AEE637]/30">
-                                <i className="fas fa-university text-2xl"></i>
-                            </div>
-                            <h3 className="text-2xl font-bold text-[#383939] mb-4">Institutos</h3>
-                            <p className="text-gray-600 mb-6 leading-relaxed">
-                                Centros de excelencia con infraestructura especializada para proyectos de gran envergadura.
-                            </p>
-                            <a href="#" className="inline-flex items-center text-[#AEE637] font-bold hover:gap-3 transition-all">
-                                Lista de Institutos <i className="fas fa-arrow-right ml-2 text-sm"></i>
-                            </a>
-                        </div>
+                        ))}
                     </div>
                 </div>
             </section>
 
-            {/* Featured Projects - Restored */}
+            {/* Featured Projects */}
             <section className="py-24 bg-[#149C68] text-white overflow-hidden relative">
                 <div className="container mx-auto px-4 relative z-10">
                     <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
@@ -237,7 +242,7 @@ const ResearchInstitute = () => {
                             <div key={item} className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl overflow-hidden group">
                                 <div className="h-56 relative overflow-hidden">
                                     <img
-                                        src={`https://images.unsplash.com/photo-${1500000000000 + item}?q=80&w=800&auto=format&fit=crop`}
+                                        src={`https://images.unsplash.com/photo-${1500000000000 + item * 100}?q=80&w=800&auto=format&fit=crop`}
                                         alt="Proyecto"
                                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                                     />
@@ -253,8 +258,8 @@ const ResearchInstitute = () => {
                                         Desarrollo de sensores IoT para la detección temprana de metales pesados en ecosistemas altoandinos.
                                     </p>
                                     <div className="flex items-center justify-between pt-6 border-t border-white/10">
-                                        <span className="text-xs font-medium text-[#AEE637] uppercase tracking-wider text-white/50">Facultad de Ingeniería</span>
-                                        <button className="text-white hover:text-[#AEE637] transition-colors translate-y-1">
+                                        <span className="text-xs font-medium text-[#AEE637] uppercase tracking-wider">Facultad de Ingeniería</span>
+                                        <button className="text-white hover:text-[#AEE637] transition-colors">
                                             <i className="fas fa-plus-circle text-2xl"></i>
                                         </button>
                                     </div>
@@ -265,7 +270,7 @@ const ResearchInstitute = () => {
                 </div>
             </section>
 
-            {/* Eventos Section - Added as requested */}
+            {/* Eventos Section */}
             <section className="py-24 bg-[#FFFEDB]/20">
                 <div className="container mx-auto px-4">
                     <div className="flex flex-col md:flex-row justify-between items-center mb-16 gap-6">
