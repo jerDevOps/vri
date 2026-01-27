@@ -211,7 +211,7 @@ const AboutPage = () => {
                             lastName="Velazco"
                             role="Vicerrector de Investigación"
                             colorClass="bg-gradient-to-br from-[#02416D] to-[#0A5483]"
-                            image="/src/assets/encargados/jefe_vri.png"
+                            image="src/assets/encargados/jefe_vri.png"
                         />
                     </div>
 
