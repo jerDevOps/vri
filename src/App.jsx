@@ -20,6 +20,7 @@ import Institutos from './pages/Institutos';
 import ResearchGroups from './pages/ResearchGroups';
 import Semilleros from './pages/Semilleros';
 import Renacyt from './pages/Renacyt';
+import AboutPage from './pages/AboutPage';
 
 // UI Components
 import SearchModal from './components/ui/SearchModal';
@@ -43,6 +44,8 @@ function App() {
         setCurrentPage('semilleros');
       } else if (hash === '#renacyt') {
         setCurrentPage('renacyt');
+      } else if (hash === '#nosotros') {
+        setCurrentPage('about');
       } else {
         // Cualquier otro hash o hash vacío vuelve al home
         setCurrentPage('home');
@@ -83,6 +86,7 @@ function App() {
         {currentPage === 'groups' && <ResearchGroups />}
         {currentPage === 'semilleros' && <Semilleros />}
         {currentPage === 'renacyt' && <Renacyt />}
+        {currentPage === 'about' && <AboutPage />}
       </main>
 
       <Footer />

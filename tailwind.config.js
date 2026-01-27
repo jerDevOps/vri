@@ -24,6 +24,15 @@ export default {
           accent: '#38C958',      // Vibrant Green
           lime: '#AEE637',        // Lime
           cream: '#FFFEDB',       // Pale Yellow
+        },
+        'vri-system': {
+          cream: '#F8F8EC',
+          lime: '#AEDD2B',
+          blue: {
+            500: '#066699',
+            700: '#0A5483',
+            900: '#02416D',
+          }
         }
       },
       fontFamily: {

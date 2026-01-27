@@ -103,7 +103,7 @@ const Header = ({ onSearchClick, theme = 'default' }) => {
                 { label: 'Noticias y Eventos', href: '#' }
             ]
         },
-        { label: 'Nosotros', href: '#' },
+        { label: 'Nosotros', href: '#nosotros' },
         { label: 'Convocatorias', href: '#' },
         {
             label: 'Direcciones',
