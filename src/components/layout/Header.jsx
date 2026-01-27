@@ -86,7 +86,7 @@ const Header = ({ onSearchClick, theme = 'default' }) => {
 
     const navLinks = [
         { label: 'Inicio', href: '#/' },
-        { label: 'Publicaciones', href: '#', hasDropdown: true, dropdownItems: [{ label: 'Revistas Científicas', href: '#' }] },
+        { label: 'Publicaciones', href: '#', hasDropdown: true, dropdownItems: [{ label: 'Revistas Científicas', href: '#revistas' }] },
         {
             label: 'VRI',
             href: '#',

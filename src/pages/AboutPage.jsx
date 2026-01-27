@@ -136,7 +136,7 @@ const AboutPage = () => {
     ];
 
     const ethicsMembers = [
-        { title: "DR.", firstName: "Roberto", lastName: "Castro", role: "Presidente", color: "bg-[#02416D]", image: "src/assets/investigador_vertical.png" },
+        { title: "DRA.", firstName: "Edith", lastName: "Tello Castro", role: "Presidente", color: "bg-[#02416D]", image: "src/assets/encargados/jefe_etica.png" },
         { title: "DRA.", firstName: "Carmen", lastName: "Vargas", role: "Secretaria Técnica", color: "bg-[#0A5483]" },
         { title: "ABOG.", firstName: "Miguel", lastName: "Sanchez", role: "Asesor Legal", color: "bg-[#066699]" },
     ];
@@ -149,7 +149,7 @@ const AboutPage = () => {
     ];
 
     const tiMembers = [
-        { title: "ING.", firstName: "Jefe", lastName: "TI", role: "Director TI", color: "bg-[#0A5483]", image: "src/assets/encargados/jefe_ti.png" },
+        { title: "ING.", firstName: "Romel Percy", lastName: "Melgarejo Bolivar", role: "Director TI", color: "bg-[#0A5483]", image: "src/assets/encargados/jefe_ti.png" },
         { title: "ING.", firstName: "Desarrollador", lastName: "Web", color: "bg-[#066699]", role: "Desarrollador" },
         { title: "TEC.", firstName: "Redes", lastName: "Sistemas", color: "bg-[#066699]", role: "Infraestructura" },
     ];
