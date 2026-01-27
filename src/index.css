@@ -184,6 +184,63 @@
     /* Firefox */
 }
 
+/* Rotating Border Animation */
+@keyframes border-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-border-spin {
+    animation: border-spin 4s linear infinite;
+}
+
+.card-border-container {
+    position: relative;
+    padding: 5px;
+    /* Más grueso para que se note */
+    background: transparent;
+    overflow: hidden;
+    border-radius: 2.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-border-glow {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(from 0deg,
+            transparent 0%,
+            transparent 30%,
+            #AEDD2B 45%,
+            #ffffff 50%,
+            #AEDD2B 55%,
+            transparent 70%,
+            transparent 100%);
+    filter: blur(2px);
+    /* Un poco de desenfoque para efecto neón */
+}
+
+/* Shine Animation for Cards */
+@keyframes shine {
+    100% {
+        left: 125%;
+        opacity: 1;
+    }
+}
+
+.group:hover .group-hover\:animate-shine {
+    animation: shine 0.8s ease-in-out;
+}
+
 /* Responsive adjustments for animations */
 @media (max-width: 768px) {
     .reveal {

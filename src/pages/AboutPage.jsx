@@ -2,56 +2,58 @@ import React, { useEffect } from 'react';
 
 // Componente de Tarjeta Moderna con Foto al Final
 const ModernTeamCard = ({ title, firstName, lastName, role, colorClass = "bg-[#02416D]", image }) => (
-    <div className={`relative ${colorClass} rounded-3xl p-8 overflow-hidden shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_60px_rgba(0,0,0,0.3)] group`}>
+    <div className="card-border-container w-[280px] flex-shrink-0 group">
+        {/* Border Glow Animation */}
+        <div className="card-border-glow animate-border-spin group-hover:duration-700"></div>
 
-        {/* Decoración de Fondo Animada */}
-        <div className="absolute -top-20 -right-20 w-40 h-40 bg-white/10 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
-        <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-black/10 rounded-full blur-2xl group-hover:scale-125 transition-transform duration-700"></div>
-
-        {/* Línea decorativa superior */}
-        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#AEDD2B] to-transparent opacity-70"></div>
-
-        {/* Contenido de Texto */}
-        <div className="relative z-10 text-center mb-6">
-            {/* Título Profesional */}
-            <div className="inline-block mb-3">
-                <span className="text-[#AEDD2B] font-black text-sm tracking-[0.3em] uppercase px-4 py-1.5 bg-white/10 rounded-full border border-[#AEDD2B]/30 backdrop-blur-sm">
-                    {title}
-                </span>
-            </div>
-
-            {/* Nombre Completo */}
-            <h3 className="text-2xl md:text-3xl font-black text-white leading-tight mb-3 group-hover:scale-105 transition-transform duration-300">
-                {firstName}
-                <br />
-                {lastName}
-            </h3>
-
-            {/* Cargo/Rol */}
-            <div className="flex items-center justify-center gap-2 mb-6">
-                <div className="h-px w-8 bg-white/30"></div>
-                <p className="text-white/90 font-semibold text-sm uppercase tracking-wider">
-                    {role}
-                </p>
-                <div className="h-px w-8 bg-white/30"></div>
-            </div>
-        </div>
-
-        {/* Foto al Final */}
-        <div className="relative z-10 flex justify-center">
-            <div className="w-40 h-40 rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20 group-hover:border-[#AEDD2B]/50 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3">
+        {/* Main Card Content */}
+        <div className={`relative w-full ${colorClass} rounded-[2rem] overflow-hidden shadow-lg transition-all duration-700 hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)] cursor-pointer z-10`}>
+            {/* Imagen Vertical con Zoom en Hover - Original Oscuro */}
+            <div className="relative h-[420px] overflow-hidden bg-[#0a1128]">
                 {image ? (
-                    <img src={image} alt={`${firstName} ${lastName}`} className="w-full h-full object-cover" />
+                    <img
+                        src={image}
+                        alt={`${firstName} ${lastName}`}
+                        className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 group-hover:rotate-1"
+                    />
                 ) : (
-                    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200 text-gray-400">
-                        <i className="fas fa-user-circle text-7xl"></i>
+                    <div className="w-full h-full flex flex-col items-center justify-center text-white/10">
+                        <i className="fas fa-user-circle text-8xl mb-4 group-hover:scale-110 transition-transform duration-700"></i>
+                        <span className="text-[10px] font-black tracking-[0.3em] uppercase">Investigador</span>
                     </div>
                 )}
-            </div>
-        </div>
 
-        {/* Efecto de brillo en hover */}
-        <div className="absolute inset-0 bg-gradient-to-t from-white/0 via-white/5 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                {/* Overlay Gradient Premium (Original Oscuro para contraste) */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent opacity-90 group-hover:opacity-80 transition-opacity duration-500"></div>
+
+                {/* Título (GRADO) - AHORA MÁS VISIBLE - IZQUIERDA */}
+                <div className="absolute top-6 left-6 transform group-hover:-translate-y-1 transition-transform duration-500">
+                    <span className="px-5 py-2 rounded-full bg-[#AEDD2B] text-[#02416D] font-black text-xs uppercase tracking-[0.2em] shadow-[0_10px_20px_rgba(174,221,43,0.3)] border border-white/20">
+                        {title}
+                    </span>
+                </div>
+
+                {/* Texto sobre la imagen (IZQUIERDA) */}
+                <div className="absolute bottom-8 left-8 right-8 z-10 text-left transform group-hover:translate-x-2 transition-all duration-500">
+                    <div className="mb-3 overflow-hidden">
+                        <h3 className="text-2xl font-black text-white leading-tight tracking-tight">
+                            <span className="block transform translate-y-0 group-hover:-translate-y-1 transition-transform duration-500">{firstName}</span>
+                            <span className="text-[#AEDD2B] block transform translate-y-0 group-hover:translate-y-1 transition-transform duration-500 opacity-90">{lastName}</span>
+                        </h3>
+                    </div>
+
+                    <div className="flex flex-col items-start gap-2">
+                        <div className="w-12 h-0.5 bg-gradient-to-r from-[#AEDD2B] to-transparent group-hover:w-24 transition-all duration-700"></div>
+                        <p className="text-white/70 font-bold text-[10px] uppercase tracking-[0.25em]">
+                            {role}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            {/* Efecto de Escaneo de Brillo al pasar el cursor */}
+            <div className="absolute -inset-full h-full w-1/2 z-20 block transform -skew-x-12 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:animate-shine pointer-events-none"></div>
+        </div>
     </div>
 );
 
@@ -61,50 +63,47 @@ const OfficeSection = ({ title, description, members, icon, accentColor = "text-
     const staff = members.slice(1);
 
     return (
-        <div className="mb-24 last:mb-0">
-            {/* Header de Sección con Diseño Moderno */}
-            <div className={`${bgColor} rounded-3xl p-8 md:p-12 shadow-xl mb-12 relative overflow-hidden`}>
-                <div className={`absolute top-0 right-0 w-64 h-64 ${accentColor.replace('text-', 'bg-')}/5 rounded-full -translate-y-1/2 translate-x-1/2`}></div>
+        <div className="mb-20 last:mb-0">
+            {/* Header de Sección más delegado/fino */}
+            <div className={`${bgColor} rounded-[2rem] p-6 md:p-8 shadow-lg mb-10 relative overflow-hidden border border-gray-100`}>
+                <div className={`absolute top-0 right-0 w-32 h-32 ${accentColor.replace('text-', 'bg-')}/5 rounded-full -translate-y-1/2 translate-x-1/2`}></div>
 
-                <div className="relative z-10 flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
-                    <div className={`w-20 h-20 rounded-2xl ${accentColor.replace('text-', 'bg-')} shadow-2xl flex items-center justify-center text-white text-3xl flex-shrink-0 transform hover:rotate-12 transition-transform duration-300`}>
+                <div className="relative z-10 flex flex-col md:flex-row items-center gap-6">
+                    <div className={`w-14 h-14 rounded-xl ${accentColor.replace('text-', 'bg-')} shadow-lg flex items-center justify-center text-white text-xl flex-shrink-0 transform hover:rotate-6 transition-transform duration-300`}>
                         <i className={`fas ${icon}`}></i>
                     </div>
-                    <div className="flex-1">
-                        <h3 className="text-3xl md:text-4xl font-black text-[#02416D] mb-3">{title}</h3>
-                        <p className="text-gray-600 text-lg leading-relaxed">{description}</p>
+                    <div className="flex-1 text-center md:text-left">
+                        <h3 className="text-2xl font-black text-[#02416D] mb-1">{title}</h3>
+                        <p className="text-gray-500 text-sm leading-relaxed max-w-2xl">{description}</p>
                     </div>
                 </div>
             </div>
 
-            {/* Jefe de Oficina (Centrado y Destacado) */}
-            <div className="flex justify-center mb-12">
-                <div className="w-full max-w-sm">
-                    <ModernTeamCard
-                        title={leader.title}
-                        firstName={leader.firstName}
-                        lastName={leader.lastName}
-                        role={leader.role}
-                        colorClass={leader.color}
-                        image={leader.image}
-                    />
-                </div>
+            {/* Jefe de Oficina (Más cerca del equipo) */}
+            <div className="flex justify-center mb-4 text-center">
+                <ModernTeamCard
+                    title={leader.title}
+                    firstName={leader.firstName}
+                    lastName={leader.lastName}
+                    role={leader.role}
+                    colorClass={leader.color}
+                    image={leader.image}
+                />
             </div>
 
-            {/* Grid de Miembros (Flex para centrado perfecto) */}
+            {/* Grid de Miembros (Ahora Juntos) */}
             {staff.length > 0 && (
-                <div className="flex flex-wrap justify-center gap-8">
+                <div className="flex flex-wrap justify-center gap-2">
                     {staff.map((member, idx) => (
-                        <div key={idx} className="w-full max-w-sm">
-                            <ModernTeamCard
-                                title={member.title}
-                                firstName={member.firstName}
-                                lastName={member.lastName}
-                                role={member.role}
-                                colorClass={member.color}
-                                image={member.image}
-                            />
-                        </div>
+                        <ModernTeamCard
+                            key={idx}
+                            title={member.title}
+                            firstName={member.firstName}
+                            lastName={member.lastName}
+                            role={member.role}
+                            colorClass={member.color}
+                            image={member.image}
+                        />
                     ))}
                 </div>
             )}
@@ -119,65 +118,63 @@ const AboutPage = () => {
 
     // Datos con formato mejorado: título, nombre, apellido, cargo
     const repoMembers = [
-        { title: "LIC.", firstName: "Juan", lastName: "Pérez", role: "Jefe de Repositorio", color: "bg-[#066699]" },
+        { title: "ING.", firstName: "Alain Paul", lastName: "Herrera Urtiaga", role: "Jefe de Repositorio Institucional", color: "bg-[#066699]", image: "/src/assets/encargados/jefe_repo.png" },
         { title: "ING.", firstName: "Maria", lastName: "Lopez", role: "Analista de Metadatos", color: "bg-[#0A5483]" },
         { title: "TEC.", firstName: "Carlos", lastName: "Ruiz", role: "Soporte Digital", color: "bg-[#02416D]" },
     ];
 
     const magazineMembers = [
-        { title: "DRA.", firstName: "Ana", lastName: "Torres", role: "Editora Jefe", color: "bg-[#066699]" },
+        { title: "DR.", firstName: "Geny Francisco", lastName: "Cardenas P.", role: "Director de la Revista de Investigación", color: "bg-[#066699]", image: "/src/assets/encargados/jefe_publi.png" },
         { title: "LIC.", firstName: "Pedro", lastName: "Diaz", role: "Corrector de Estilo", color: "bg-[#0A5483]" },
     ];
 
     const pgiMembers = [
-        { title: "MSC.", firstName: "Luis", lastName: "Ramos", role: "Coordinador PGI", color: "bg-[#02416D]" },
+        { title: "ING.", firstName: "Julio César", lastName: "Tisnado Ramos", role: "Jefe de la Sub Unidad de Plataforma de Investigación y Desarrollo", color: "bg-[#02416D]", image: "/src/assets/encargados/jefe_pgi.png" },
         { title: "ECO.", firstName: "Sofia", lastName: "Mendoza", role: "Monitor de Proyectos", color: "bg-[#066699]" },
         { title: "CONT.", firstName: "Jorge", lastName: "Torres", role: "Gestor Financiero", color: "bg-[#0A5483]" },
         { title: "ASIST.", firstName: "Elena", lastName: "Paredes", role: "Secretaria", color: "bg-[#066699]" },
     ];
 
     const ethicsMembers = [
-        { title: "DR.", firstName: "Roberto", lastName: "Castro", role: "Presidente", color: "bg-[#02416D]" },
+        { title: "DR.", firstName: "Roberto", lastName: "Castro", role: "Presidente", color: "bg-[#02416D]", image: "/src/assets/investigador_vertical.png" },
         { title: "DRA.", firstName: "Carmen", lastName: "Vargas", role: "Secretaria Técnica", color: "bg-[#0A5483]" },
         { title: "ABOG.", firstName: "Miguel", lastName: "Sanchez", role: "Asesor Legal", color: "bg-[#066699]" },
     ];
 
     const diiMembers = [
-        { title: "DR.", firstName: "Director", lastName: "DII", role: "Director General", color: "bg-[#02416D]" },
+        { title: "DR.", firstName: "Israel", lastName: "Lima Medina", role: "Director del Instituto de Investigación", color: "bg-[#02416D]", image: "/src/assets/encargados/jefe_idi.png" },
         { title: "LIC.", firstName: "Jefe", lastName: "Gestión", role: "Gestión Administrativa", color: "bg-[#0A5483]" },
         { title: "ING.", firstName: "Soporte", lastName: "IDI", role: "Jefe Area IDI", color: "bg-[#066699]" },
         { title: "LIC.", firstName: "Comunicaciones", lastName: "VRI", role: "Imagen Institucional", color: "bg-[#0A5483]" },
     ];
 
     const tiMembers = [
-        { title: "ING.", firstName: "Jefe", lastName: "TI", role: "Director TI", color: "bg-[#0A5483]" },
-        { title: "ING.", firstName: "Desarrollador", lastName: "Web", role: "Desarrollador", color: "bg-[#066699]" },
-        { title: "TEC.", firstName: "Redes", lastName: "Sistemas", role: "Infraestructura", color: "bg-[#066699]" },
+        { title: "ING.", firstName: "Jefe", lastName: "TI", role: "Director TI", color: "bg-[#0A5483]", image: "/src/assets/encargados/jefe_ti.png" },
+        { title: "ING.", firstName: "Desarrollador", lastName: "Web", color: "bg-[#066699]", role: "Desarrollador" },
+        { title: "TEC.", firstName: "Redes", lastName: "Sistemas", color: "bg-[#066699]", role: "Infraestructura" },
     ];
 
     return (
         <div className="pb-24 bg-[#F8F8EC] min-h-screen font-sans">
 
-            {/* Header Ultra Moderno con Gradiente Azul */}
-            <div className="relative bg-gradient-to-br from-[#02416D] via-[#0A5483] to-[#066699] pt-48 pb-32 overflow-hidden mb-20">
+            {/* Header Ultra Moderno con Gradiente Azul - Más Compacto */}
+            <div className="relative bg-gradient-to-br from-[#02416D] via-[#0A5483] to-[#066699] pt-32 pb-20 overflow-hidden mb-12">
                 {/* Elementos decorativos animados */}
-                <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#AEDD2B] rounded-full mix-blend-overlay filter blur-[150px] opacity-20 animate-pulse"></div>
-                <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#066699] rounded-full mix-blend-overlay filter blur-[120px] opacity-30"></div>
+                <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#AEDD2B] rounded-full mix-blend-overlay filter blur-[100px] opacity-20 animate-pulse"></div>
+                <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#066699] rounded-full mix-blend-overlay filter blur-[80px] opacity-30"></div>
 
                 {/* Patrón de puntos */}
                 <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '30px 30px' }}></div>
 
                 <div className="container mx-auto px-4 relative z-10 text-center">
-                    <div className="inline-block mb-6 animate-fade-in">
-                        <span className="py-2 px-6 rounded-full bg-[#AEDD2B]/20 border-2 border-[#AEDD2B]/40 text-[#AEDD2B] font-black tracking-[0.3em] uppercase text-xs backdrop-blur-sm">
+                    <div className="inline-block mb-4 animate-fade-in">
+                        <span className="py-1 px-4 rounded-full bg-[#AEDD2B]/10 border border-[#AEDD2B]/30 text-[#AEDD2B] font-black tracking-[0.3em] uppercase text-[10px] backdrop-blur-sm">
                             Vicerrectorado de Investigación
                         </span>
                     </div>
 
-                    <h1 className="text-6xl md:text-8xl font-black text-white mb-8 tracking-tight leading-none">
-                        Nuestro
-                        <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#AEDD2B] to-white">Equipo</span>
+                    <h1 className="text-5xl md:text-6xl font-black text-white mb-6 tracking-tight leading-none">
+                        Nuestro <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#AEDD2B] to-white">Equipo</span>
                     </h1>
 
                     <div className="flex items-center justify-center gap-4 mb-8">
@@ -195,25 +192,26 @@ const AboutPage = () => {
             <div className="container mx-auto px-4 max-w-7xl">
 
                 {/* 01. NIVEL DIRECTIVO */}
-                <section className="mb-32">
-                    <div className="text-center mb-16 relative">
-                        <span className="text-9xl font-black text-[#02416D]/5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 select-none">01</span>
+                <section className="mb-24">
+                    <div className="text-center mb-12 relative">
+                        <span className="text-7xl font-black text-[#02416D]/5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 select-none">01</span>
                         <div className="inline-block relative">
-                            <h2 className="text-5xl font-black text-[#02416D] relative z-10 mb-4">
+                            <h2 className="text-4xl font-black text-[#02416D] relative z-10 mb-2">
                                 Nivel Directivo
                             </h2>
-                            <div className="h-2 w-32 bg-gradient-to-r from-[#AEDD2B] to-[#066699] mx-auto rounded-full"></div>
+                            <div className="h-1.5 w-20 bg-gradient-to-r from-[#AEDD2B] to-[#066699] mx-auto rounded-full"></div>
                         </div>
                     </div>
 
-                    {/* Vicerrector - Destacado */}
-                    <div className="max-w-md mx-auto mb-16">
+                    {/* Vicerrector - Destacado (Fino) */}
+                    <div className="mb-12 flex justify-center">
                         <ModernTeamCard
                             title="DR."
-                            firstName="Vicerrector"
-                            lastName="Investigación"
-                            role="Alta Dirección"
+                            firstName="Ariel"
+                            lastName="Velazco"
+                            role="Vicerrector de Investigación"
                             colorClass="bg-gradient-to-br from-[#02416D] to-[#0A5483]"
+                            image="/src/assets/encargados/jefe_vri.png"
                         />
                     </div>
 
@@ -233,19 +231,18 @@ const AboutPage = () => {
 
                         {/* Jefe TI Centrado */}
                         <div className="flex justify-center mb-8">
-                            <div className="w-full max-w-sm">
-                                <ModernTeamCard
-                                    title={tiMembers[0].title}
-                                    firstName={tiMembers[0].firstName}
-                                    lastName={tiMembers[0].lastName}
-                                    role={tiMembers[0].role}
-                                    colorClass={tiMembers[0].color}
-                                />
-                            </div>
+                            <ModernTeamCard
+                                title={tiMembers[0].title}
+                                firstName={tiMembers[0].firstName}
+                                lastName={tiMembers[0].lastName}
+                                role={tiMembers[0].role}
+                                colorClass={tiMembers[0].color}
+                                image={tiMembers[0].image}
+                            />
                         </div>
 
-                        {/* Resto del equipo TI */}
-                        <div className="grid md:grid-cols-2 gap-8 justify-center max-w-4xl mx-auto">
+                        {/* Resto del equipo TI (Ahora Juntos) */}
+                        <div className="flex flex-wrap justify-center gap-2 max-w-6xl mx-auto">
                             {tiMembers.slice(1).map((member, i) => (
                                 <ModernTeamCard
                                     key={i}
@@ -261,32 +258,31 @@ const AboutPage = () => {
                 </section>
 
                 {/* 02. DIRECCIÓN DE INSTITUTOS */}
-                <section className="mb-32">
-                    <div className="text-center mb-16 relative">
-                        <span className="text-9xl font-black text-[#02416D]/5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 select-none">02</span>
+                <section className="mb-24">
+                    <div className="text-center mb-12 relative">
+                        <span className="text-7xl font-black text-[#02416D]/5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 select-none">02</span>
                         <div className="inline-block relative">
-                            <h2 className="text-5xl font-black text-[#02416D] relative z-10 mb-4">
-                                Dirección de Institutos
+                            <h2 className="text-4xl font-black text-[#02416D] relative z-10 mb-2">
+                                Instituto de Investigación
                             </h2>
-                            <div className="h-2 w-32 bg-gradient-to-r from-[#066699] to-[#0A5483] mx-auto rounded-full"></div>
+                            <div className="h-1.5 w-24 bg-gradient-to-r from-[#066699] to-[#0A5483] mx-auto rounded-full"></div>
                         </div>
                     </div>
 
                     {/* Director DII Centrado */}
-                    <div className="flex justify-center mb-12">
-                        <div className="w-full max-w-sm">
-                            <ModernTeamCard
-                                title={diiMembers[0].title}
-                                firstName={diiMembers[0].firstName}
-                                lastName={diiMembers[0].lastName}
-                                role={diiMembers[0].role}
-                                colorClass={diiMembers[0].color}
-                            />
-                        </div>
+                    <div className="flex justify-center mb-10">
+                        <ModernTeamCard
+                            title={diiMembers[0].title}
+                            firstName={diiMembers[0].firstName}
+                            lastName={diiMembers[0].lastName}
+                            role={diiMembers[0].role}
+                            colorClass={diiMembers[0].color}
+                            image={diiMembers[0].image}
+                        />
                     </div>
 
-                    {/* Resto del equipo DII */}
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    {/* Resto del equipo DII - Juntos */}
+                    <div className="flex flex-wrap justify-center gap-2">
                         {diiMembers.slice(1).map((member, i) => (
                             <ModernTeamCard
                                 key={i}
@@ -295,6 +291,7 @@ const AboutPage = () => {
                                 lastName={member.lastName}
                                 role={member.role}
                                 colorClass={member.color}
+                                image={member.image}
                             />
                         ))}
                     </div>
@@ -302,13 +299,13 @@ const AboutPage = () => {
 
                 {/* 03. OFICINAS DE PRODUCCIÓN CIENTÍFICA */}
                 <section>
-                    <div className="text-center mb-20 relative">
-                        <span className="text-9xl font-black text-[#02416D]/5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 select-none">03</span>
+                    <div className="text-center mb-16 relative">
+                        <span className="text-7xl font-black text-[#02416D]/5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 select-none">03</span>
                         <div className="inline-block relative">
-                            <h2 className="text-5xl font-black text-[#02416D] relative z-10 mb-4">
+                            <h2 className="text-4xl font-black text-[#02416D] relative z-10 mb-2">
                                 Producción Científica
                             </h2>
-                            <div className="h-2 w-32 bg-gradient-to-r from-[#AEDD2B] to-[#066699] mx-auto rounded-full"></div>
+                            <div className="h-1.5 w-28 bg-gradient-to-r from-[#AEDD2B] to-[#066699] mx-auto rounded-full"></div>
                         </div>
                     </div>
 

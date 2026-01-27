@@ -124,7 +124,7 @@ const Institutos = () => {
                         Institutos de <span className="text-[#AEE637]">Investigación</span>
                     </h1>
                     <p className="text-xl md:text-2xl text-white/90 font-medium italic animate-fade-in">
-                        "Impulsan la investigación y el conocimiento universitario"
+                        "I  mpulsan la investigación y el conocimiento universitario"
                     </p>
                 </div>
             </section>
