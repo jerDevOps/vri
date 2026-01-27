@@ -118,38 +118,38 @@ const AboutPage = () => {
 
     // Datos con formato mejorado: título, nombre, apellido, cargo
     const repoMembers = [
-        { title: "ING.", firstName: "Alain Paul", lastName: "Herrera Urtiaga", role: "Jefe de Repositorio Institucional", color: "bg-[#066699]", image: "/src/assets/encargados/jefe_repo.png" },
+        { title: "ING.", firstName: "Alain Paul", lastName: "Herrera Urtiaga", role: "Jefe de Repositorio Institucional", color: "bg-[#066699]", image: "src/assets/encargados/jefe_repo.png" },
         { title: "ING.", firstName: "Maria", lastName: "Lopez", role: "Analista de Metadatos", color: "bg-[#0A5483]" },
         { title: "TEC.", firstName: "Carlos", lastName: "Ruiz", role: "Soporte Digital", color: "bg-[#02416D]" },
     ];
 
     const magazineMembers = [
-        { title: "DR.", firstName: "Geny Francisco", lastName: "Cardenas P.", role: "Director de la Revista de Investigación", color: "bg-[#066699]", image: "/src/assets/encargados/jefe_publi.png" },
+        { title: "DR.", firstName: "Geny Francisco", lastName: "Cardenas P.", role: "Director de la Revista de Investigación", color: "bg-[#066699]", image: "src/assets/encargados/jefe_publi.png" },
         { title: "LIC.", firstName: "Pedro", lastName: "Diaz", role: "Corrector de Estilo", color: "bg-[#0A5483]" },
     ];
 
     const pgiMembers = [
-        { title: "ING.", firstName: "Julio César", lastName: "Tisnado Ramos", role: "Jefe de la Sub Unidad de Plataforma de Investigación y Desarrollo", color: "bg-[#02416D]", image: "/src/assets/encargados/jefe_pgi.png" },
+        { title: "ING.", firstName: "Julio César", lastName: "Tisnado Ramos", role: "Jefe de la Sub Unidad de Plataforma de Investigación y Desarrollo", color: "bg-[#02416D]", image: "src/assets/encargados/jefe_pgi.png" },
         { title: "ECO.", firstName: "Sofia", lastName: "Mendoza", role: "Monitor de Proyectos", color: "bg-[#066699]" },
         { title: "CONT.", firstName: "Jorge", lastName: "Torres", role: "Gestor Financiero", color: "bg-[#0A5483]" },
         { title: "ASIST.", firstName: "Elena", lastName: "Paredes", role: "Secretaria", color: "bg-[#066699]" },
     ];
 
     const ethicsMembers = [
-        { title: "DR.", firstName: "Roberto", lastName: "Castro", role: "Presidente", color: "bg-[#02416D]", image: "/src/assets/investigador_vertical.png" },
+        { title: "DR.", firstName: "Roberto", lastName: "Castro", role: "Presidente", color: "bg-[#02416D]", image: "src/assets/investigador_vertical.png" },
         { title: "DRA.", firstName: "Carmen", lastName: "Vargas", role: "Secretaria Técnica", color: "bg-[#0A5483]" },
         { title: "ABOG.", firstName: "Miguel", lastName: "Sanchez", role: "Asesor Legal", color: "bg-[#066699]" },
     ];
 
     const diiMembers = [
-        { title: "DR.", firstName: "Israel", lastName: "Lima Medina", role: "Director del Instituto de Investigación", color: "bg-[#02416D]", image: "/src/assets/encargados/jefe_idi.png" },
+        { title: "DR.", firstName: "Israel", lastName: "Lima Medina", role: "Director del Instituto de Investigación", color: "bg-[#02416D]", image: "src/assets/encargados/jefe_idi.png" },
         { title: "LIC.", firstName: "Jefe", lastName: "Gestión", role: "Gestión Administrativa", color: "bg-[#0A5483]" },
         { title: "ING.", firstName: "Soporte", lastName: "IDI", role: "Jefe Area IDI", color: "bg-[#066699]" },
         { title: "LIC.", firstName: "Comunicaciones", lastName: "VRI", role: "Imagen Institucional", color: "bg-[#0A5483]" },
     ];
 
     const tiMembers = [
-        { title: "ING.", firstName: "Jefe", lastName: "TI", role: "Director TI", color: "bg-[#0A5483]", image: "/src/assets/encargados/jefe_ti.png" },
+        { title: "ING.", firstName: "Jefe", lastName: "TI", role: "Director TI", color: "bg-[#0A5483]", image: "src/assets/encargados/jefe_ti.png" },
         { title: "ING.", firstName: "Desarrollador", lastName: "Web", color: "bg-[#066699]", role: "Desarrollador" },
         { title: "TEC.", firstName: "Redes", lastName: "Sistemas", color: "bg-[#066699]", role: "Infraestructura" },
     ];
