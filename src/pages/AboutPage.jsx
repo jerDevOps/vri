@@ -73,7 +73,7 @@ const OfficeSection = ({ title, description, members, icon, accentColor = "text-
                         <i className={`fas ${icon}`}></i>
                     </div>
                     <div className="flex-1 text-center md:text-left">
-                        <h3 className="text-2xl font-black text-[#02416D] mb-1">{title}</h3>
+                        <h3 className="text-2xl font-bold text-[#030D4F] mb-1">{title}</h3>
                         <p className="text-gray-500 text-sm leading-relaxed max-w-2xl">{description}</p>
                     </div>
                 </div>
@@ -118,88 +118,95 @@ const AboutPage = () => {
 
     // Datos con formato mejorado: título, nombre, apellido, cargo
     const repoMembers = [
-        { title: "ING.", firstName: "Alain Paul", lastName: "Herrera Urtiaga", role: "Jefe de Repositorio Institucional", color: "bg-[#066699]", image: "src/assets/encargados/jefe_repo.png" },
-        { title: "ING.", firstName: "Maria", lastName: "Lopez", role: "Analista de Metadatos", color: "bg-[#0A5483]" },
-        { title: "TEC.", firstName: "Carlos", lastName: "Ruiz", role: "Soporte Digital", color: "bg-[#02416D]" },
+        { title: "ING.", firstName: "Alain Paul", lastName: "Herrera Urtiaga", role: "Jefe de Repositorio Institucional", color: "bg-[#030D4F]", image: "src/assets/encargados/jefe_repo.png" },
+        { title: "ING.", firstName: "Maria", lastName: "Lopez", role: "Analista de Metadatos", color: "bg-[#051675]" },
+        { title: "TEC.", firstName: "Carlos", lastName: "Ruiz", role: "Soporte Digital", color: "bg-[#030D4F]" },
     ];
 
     const magazineMembers = [
-        { title: "DR.", firstName: "Geny Francisco", lastName: "Cardenas P.", role: "Director de la Revista de Investigación", color: "bg-[#066699]", image: "src/assets/encargados/jefe_publi.png" },
-        { title: "LIC.", firstName: "Pedro", lastName: "Diaz", role: "Corrector de Estilo", color: "bg-[#0A5483]" },
+        { title: "DR.", firstName: "Geny Francisco", lastName: "Cardenas P.", role: "Director de la Revista de Investigación", color: "bg-[#030D4F]", image: "src/assets/encargados/jefe_publi.png" },
+        { title: "LIC.", firstName: "Pedro", lastName: "Diaz", role: "Corrector de Estilo", color: "bg-[#051675]" },
     ];
 
     const pgiMembers = [
-        { title: "ING.", firstName: "Julio César", lastName: "Tisnado Ramos", role: "Jefe de la Sub Unidad de Plataforma de Investigación y Desarrollo", color: "bg-[#02416D]", image: "src/assets/encargados/jefe_pgi.png" },
-        { title: "ECO.", firstName: "Sofia", lastName: "Mendoza", role: "Monitor de Proyectos", color: "bg-[#066699]" },
-        { title: "CONT.", firstName: "Jorge", lastName: "Torres", role: "Gestor Financiero", color: "bg-[#0A5483]" },
-        { title: "ASIST.", firstName: "Elena", lastName: "Paredes", role: "Secretaria", color: "bg-[#066699]" },
+        { title: "ING.", firstName: "Julio César", lastName: "Tisnado Ramos", role: "Jefe de la Sub Unidad de Plataforma de Investigación y Desarrollo", color: "bg-[#030D4F]", image: "src/assets/encargados/jefe_pgi.png" },
+        { title: "ECO.", firstName: "Sofia", lastName: "Mendoza", role: "Monitor de Proyectos", color: "bg-[#030D4F]" },
+        { title: "CONT.", firstName: "Jorge", lastName: "Torres", role: "Gestor Financiero", color: "bg-[#051675]" },
+        { title: "ASIST.", firstName: "Elena", lastName: "Paredes", role: "Secretaria", color: "bg-[#030D4F]" },
     ];
 
     const ethicsMembers = [
-        { title: "DRA.", firstName: "Edith", lastName: "Tello Castro", role: "Presidente", color: "bg-[#02416D]", image: "src/assets/encargados/jefe_etica.png" },
-        { title: "DRA.", firstName: "Carmen", lastName: "Vargas", role: "Secretaria Técnica", color: "bg-[#0A5483]" },
-        { title: "ABOG.", firstName: "Miguel", lastName: "Sanchez", role: "Asesor Legal", color: "bg-[#066699]" },
+        { title: "DRA.", firstName: "Edith", lastName: "Tello Castro", role: "Presidente", color: "bg-[#030D4F]", image: "src/assets/encargados/jefe_etica.png" },
+        { title: "DRA.", firstName: "Carmen", lastName: "Vargas", role: "Secretaria Técnica", color: "bg-[#051675]" },
+        { title: "ABOG.", firstName: "Miguel", lastName: "Sanchez", role: "Asesor Legal", color: "bg-[#030D4F]" },
     ];
 
     const diiMembers = [
-        { title: "DR.", firstName: "Israel", lastName: "Lima Medina", role: "Director del Instituto de Investigación", color: "bg-[#02416D]", image: "src/assets/encargados/jefe_idi.png" },
-        { title: "LIC.", firstName: "Jefe", lastName: "Gestión", role: "Gestión Administrativa", color: "bg-[#0A5483]" },
-        { title: "ING.", firstName: "Soporte", lastName: "IDI", role: "Jefe Area IDI", color: "bg-[#066699]" },
-        { title: "LIC.", firstName: "Comunicaciones", lastName: "VRI", role: "Imagen Institucional", color: "bg-[#0A5483]" },
+        { title: "DR.", firstName: "Israel", lastName: "Lima Medina", role: "Director del Instituto de Investigación", color: "bg-[#030D4F]", image: "src/assets/encargados/jefe_idi.png" },
+        { title: "LIC.", firstName: "Jefe", lastName: "Gestión", role: "Gestión Administrativa", color: "bg-[#051675]" },
+        { title: "ING.", firstName: "Soporte", lastName: "IDI", role: "Jefe Area IDI", color: "bg-[#030D4F]" },
+        { title: "LIC.", firstName: "Comunicaciones", lastName: "VRI", role: "Imagen Institucional", color: "bg-[#051675]" },
     ];
 
     const tiMembers = [
-        { title: "ING.", firstName: "Romel Percy", lastName: "Melgarejo Bolivar", role: "Director TI", color: "bg-[#0A5483]", image: "src/assets/encargados/jefe_ti.png" },
-        { title: "ING.", firstName: "Desarrollador", lastName: "Web", color: "bg-[#066699]", role: "Desarrollador" },
-        { title: "TEC.", firstName: "Redes", lastName: "Sistemas", color: "bg-[#066699]", role: "Infraestructura" },
+        { title: "ING.", firstName: "Romel Percy", lastName: "Melgarejo Bolivar", role: "Director TI", color: "bg-[#030D4F]", image: "src/assets/encargados/jefe_ti.png" },
+        { title: "ING.", firstName: "Desarrollador", lastName: "Web", color: "bg-[#051675]", role: "Desarrollador" },
+        { title: "TEC.", firstName: "Redes", lastName: "Sistemas", color: "bg-[#051675]", role: "Infraestructura" },
     ];
 
     return (
-        <div className="pb-24 bg-[#F8F8EC] min-h-screen font-sans">
+        <div className="pb-24 bg-white min-h-screen font-sans">
 
-            {/* Header Ultra Moderno con Gradiente Azul - Más Compacto */}
-            <div className="relative bg-gradient-to-br from-[#02416D] via-[#0A5483] to-[#066699] pt-32 pb-20 overflow-hidden mb-12">
-                {/* Elementos decorativos animados */}
-                <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#AEDD2B] rounded-full mix-blend-overlay filter blur-[100px] opacity-20 animate-pulse"></div>
-                <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#066699] rounded-full mix-blend-overlay filter blur-[80px] opacity-30"></div>
+            {/* Header Ultra Moderno con Imagen y Superposición Azul - Recto */}
+            <section className="relative h-[60vh] flex items-center justify-center overflow-hidden bg-[#030D4F] mb-12">
+                {/* Background Image & Overlay */}
+                <div className="absolute inset-0 z-0">
+                    <img
+                        src="src/assets/logos.png"
+                        alt="Nuestro Equipo Background"
+                        className="w-full h-full object-cover opacity-100 transition-opacity duration-1000"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#030D4F]/90 via-[#030D4F]/60 to-[#030D4F]/30"></div>
+                </div>
 
-                {/* Patrón de puntos */}
-                <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '30px 30px' }}></div>
+                {/* Decorative Celeste Glows */}
+                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-sky-400/20 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 z-10"></div>
+                <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-sky-300/10 rounded-full blur-[80px] translate-y-1/2 -translate-x-1/2 z-10"></div>
 
-                <div className="container mx-auto px-4 relative z-10 text-center">
+                <div className="container mx-auto px-4 relative z-20 text-center">
                     <div className="inline-block mb-4 animate-fade-in">
-                        <span className="py-1 px-4 rounded-full bg-[#AEDD2B]/10 border border-[#AEDD2B]/30 text-[#AEDD2B] font-black tracking-[0.3em] uppercase text-[10px] backdrop-blur-sm">
+                        <span className="py-1.5 px-5 rounded-full bg-white/10 border border-white/20 text-white font-black tracking-[0.3em] uppercase text-[10px] backdrop-blur-md">
                             Vicerrectorado de Investigación
                         </span>
                     </div>
 
-                    <h1 className="text-5xl md:text-6xl font-black text-white mb-6 tracking-tight leading-none">
-                        Nuestro <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#AEDD2B] to-white">Equipo</span>
+                    <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight leading-none animate-modern-reveal">
+                        Nuestro <span className="text-[#AEDD2B]">Equipo</span>
                     </h1>
 
                     <div className="flex items-center justify-center gap-4 mb-8">
-                        <div className="h-px w-16 bg-white/30"></div>
+                        <div className="h-px w-16 bg-white/20"></div>
                         <i className="fas fa-users text-[#AEDD2B] text-2xl"></i>
-                        <div className="h-px w-16 bg-white/30"></div>
+                        <div className="h-px w-16 bg-white/20"></div>
                     </div>
 
-                    <p className="text-blue-100 text-xl md:text-2xl max-w-3xl mx-auto font-light leading-relaxed">
-                        El talento humano que impulsa la <span className="text-[#AEDD2B] font-semibold">excelencia científica</span> y el <span className="text-[#AEDD2B] font-semibold">desarrollo tecnológico</span> de la Universidad Nacional del Altiplano.
+                    <p className="text-blue-50 text-xl md:text-2xl max-w-3xl mx-auto font-light leading-relaxed animate-slide-up">
+                        El talento humano que impulsa la <span className="text-[#AEDD2B] font-semibold">excelencia científica</span> y el <span className="text-[#AEDD2B] font-semibold">desarrollo tecnológico</span> institucional.
                     </p>
                 </div>
-            </div>
+            </section>
 
             <div className="container mx-auto px-4 max-w-7xl">
 
                 {/* 01. NIVEL DIRECTIVO */}
                 <section className="mb-24">
                     <div className="text-center mb-12 relative">
-                        <span className="text-7xl font-black text-[#02416D]/5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 select-none">01</span>
+                        <span className="text-7xl font-black text-[#030D4F]/5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 select-none">01</span>
                         <div className="inline-block relative">
-                            <h2 className="text-4xl font-black text-[#02416D] relative z-10 mb-2">
+                            <h2 className="text-3xl md:text-4xl font-bold text-[#030D4F] relative z-10 mb-2">
                                 Nivel Directivo
                             </h2>
-                            <div className="h-1.5 w-20 bg-gradient-to-r from-[#AEDD2B] to-[#066699] mx-auto rounded-full"></div>
+                            <div className="h-1.5 w-20 bg-gradient-to-r from-[#AEDD2B] to-[#030D4F] mx-auto rounded-full"></div>
                         </div>
                     </div>
 
@@ -210,23 +217,23 @@ const AboutPage = () => {
                             firstName="Ariel"
                             lastName="Velazco"
                             role="Vicerrector de Investigación"
-                            colorClass="bg-gradient-to-br from-[#02416D] to-[#0A5483]"
+                            colorClass="bg-gradient-to-br from-[#030D4F] to-[#051675]"
                             image="src/assets/encargados/jefe_vri.png"
                         />
                     </div>
 
                     {/* Área de TI */}
-                    <div className="bg-white rounded-3xl p-10 shadow-2xl relative overflow-hidden">
-                        <div className="absolute top-0 right-0 w-96 h-96 bg-[#066699]/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+                    <div className="bg-white rounded-[2.5rem] p-10 shadow-2xl relative overflow-hidden border border-gray-100">
+                        <div className="absolute top-0 right-0 w-96 h-96 bg-[#030D4F]/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
 
                         <div className="relative z-10 text-center mb-12">
                             <div className="inline-block mb-4">
-                                <div className="w-20 h-20 bg-gradient-to-br from-[#066699] to-[#0A5483] rounded-2xl flex items-center justify-center text-white text-3xl shadow-2xl mx-auto transform hover:rotate-12 transition-transform duration-300">
+                                <div className="w-20 h-20 bg-gradient-to-br from-[#030D4F] to-[#051675] rounded-2xl flex items-center justify-center text-white text-3xl shadow-2xl mx-auto transform hover:rotate-12 transition-transform duration-300">
                                     <i className="fas fa-network-wired"></i>
                                 </div>
                             </div>
-                            <h3 className="text-4xl font-black text-[#02416D] mb-2">Área de TI</h3>
-                            <p className="text-gray-500 font-semibold uppercase tracking-widest text-sm">Soporte Tecnológico Integral</p>
+                            <h3 className="text-3xl md:text-4xl font-bold text-[#030D4F] mb-2">Área de TI</h3>
+                            <p className="text-gray-500 font-bold uppercase tracking-widest text-xs">Soporte Tecnológico Integral</p>
                         </div>
 
                         {/* Jefe TI Centrado */}
@@ -260,12 +267,12 @@ const AboutPage = () => {
                 {/* 02. DIRECCIÓN DE INSTITUTOS */}
                 <section className="mb-24">
                     <div className="text-center mb-12 relative">
-                        <span className="text-7xl font-black text-[#02416D]/5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 select-none">02</span>
+                        <span className="text-7xl font-black text-[#030D4F]/5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 select-none">02</span>
                         <div className="inline-block relative">
-                            <h2 className="text-4xl font-black text-[#02416D] relative z-10 mb-2">
+                            <h2 className="text-3xl md:text-4xl font-bold text-[#030D4F] relative z-10 mb-2">
                                 Instituto de Investigación
                             </h2>
-                            <div className="h-1.5 w-24 bg-gradient-to-r from-[#066699] to-[#0A5483] mx-auto rounded-full"></div>
+                            <div className="h-1.5 w-24 bg-gradient-to-r from-[#030D4F] to-[#051675] mx-auto rounded-full"></div>
                         </div>
                     </div>
 
@@ -300,12 +307,12 @@ const AboutPage = () => {
                 {/* 03. OFICINAS DE PRODUCCIÓN CIENTÍFICA */}
                 <section>
                     <div className="text-center mb-16 relative">
-                        <span className="text-7xl font-black text-[#02416D]/5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 select-none">03</span>
+                        <span className="text-7xl font-black text-[#030D4F]/5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 select-none">03</span>
                         <div className="inline-block relative">
-                            <h2 className="text-4xl font-black text-[#02416D] relative z-10 mb-2">
+                            <h2 className="text-3xl md:text-4xl font-bold text-[#030D4F] relative z-10 mb-2">
                                 Producción Científica
                             </h2>
-                            <div className="h-1.5 w-28 bg-gradient-to-r from-[#AEDD2B] to-[#066699] mx-auto rounded-full"></div>
+                            <div className="h-1.5 w-28 bg-gradient-to-r from-[#AEDD2B] to-[#030D4F] mx-auto rounded-full"></div>
                         </div>
                     </div>
 
