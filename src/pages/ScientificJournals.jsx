@@ -51,9 +51,9 @@ const ScientificJournals = () => {
 
     const [currentSlide, setCurrentSlide] = useState(0);
     const carouselImages = [
-        "https://images.unsplash.com/photo-1544640808-32ca72ac7f67?auto=format&fit=crop&q=80&w=1200",
-        "https://images.unsplash.com/photo-1524178232363-1fb28f74b0cc?auto=format&fit=crop&q=80&w=1200",
-        "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=1200",
+        "https://scontent.flim26-1.fna.fbcdn.net/v/t39.30808-6/543300981_1183067023854441_8790105001484600733_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFvnX4r1yH9xth02v7AK0lG5tDLA-RYI5Hm0MsD5FgjkdPxu_AhptrgIXcOw6EvXIWKF2yJHdxWKN-IiSu50l5w&_nc_ohc=7olI9NFR7IQQ7kNvwG4p5ew&_nc_oc=Adm4jT9xzTaPXtGOMGAnWmzNLDH3cGeZTatoPuddgac3hh0iWJHceL6o4OUopt589Wk&_nc_zt=23&_nc_ht=scontent.flim26-1.fna&_nc_gid=NWPvU1R4LeLSkjKcjmnhBg&oh=00_Afo1t2b56SiR1BtncGHorDCfgjVdo8ipPi27uogUTf3TRg&oe=6982A234",
+        "https://scontent.flim26-1.fna.fbcdn.net/v/t39.30808-6/543077190_1183067183854425_4510730984227246259_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHMDy4JZo-90H7CA_OdT99mCC1oMWiG3JQILWgxaIbclFV28yJ4Ho6SUCKVRjtmnTItPdL5Bi5WWYBZQgRo8puP&_nc_ohc=uUMvAZa6THQQ7kNvwGRAuRz&_nc_oc=AdlxCpekpI_y3nukze1q2-o00uelDkXx2wNb6sZ3dUC7ZmgpViPboXgDVx07YQ7en9c&_nc_zt=23&_nc_ht=scontent.flim26-1.fna&_nc_gid=NbtMYZx9mlRUVXww-UPCfQ&oh=00_AfpMK-wHDJgWfx_OiKxI_mepYcYune78_6_Iw5KkPuTI4A&oe=6982C4EF",
+        "https://scontent.flim20-1.fna.fbcdn.net/v/t39.30808-6/540451333_1183065530521257_5475203325510708086_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeH2IpqMRRk4F2WIBodd67WSINiNk8pBm_8g2I2TykGb_3q6oP-Gl_kRqvRycerQfBUVStB81JcyOinH31coo3cP&_nc_ohc=ARShsrG3oSoQ7kNvwG8wDUp&_nc_oc=AdlGBTjs1rT8A_ukXuSbbJw83nEO3FupiBOhe7lrSaqglWrkp3nZpgDXHRmbKaVrCGA&_nc_zt=23&_nc_ht=scontent.flim20-1.fna&_nc_gid=7d1djQVwhTSsOxS0aQ6Cmg&oh=00_AfrB_DfcjKrUS8naWFiuUbJLg2rE3-zAg9-et_HPh6bhsA&oe=6982CE4B",
     ];
 
     useEffect(() => {
@@ -106,15 +106,6 @@ const ScientificJournals = () => {
                         <p className="text-lg md:text-xl text-white/80 mb-12 max-w-2xl mx-auto leading-relaxed animate-slide-up">
                             Promoviendo la excelencia en la investigación y difusión del conocimiento científico institucional.
                         </p>
-
-                        <div className="flex flex-wrap justify-center gap-4 animate-slide-up" style={{ animationDelay: '0.2s' }}>
-                            <button className="px-8 py-4 bg-[#AEDD2B] text-[#030D4F] rounded-xl font-bold hover:bg-[#b8e83b] transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105">
-                                Explorar Revistas
-                            </button>
-                            <button className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-xl font-bold hover:bg-white/20 transition-all duration-300 border border-white/20 hover:border-sky-300/50">
-                                Conocer Más
-                            </button>
-                        </div>
                     </div>
                 </div>
             </section>
@@ -245,8 +236,8 @@ const ScientificJournals = () => {
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
                         {[
                             {
-                                title: "PILAR",
-                                subtitle: "Tesis Pregrado",
+                                title: "PGI",
+                                subtitle: "Gestión de Investigación",
                                 desc: "Sistema integral para la gestión de tesis desde el registro hasta la sustentación",
                                 color: "#030D4F",
                                 icon: "fa-graduation-cap",

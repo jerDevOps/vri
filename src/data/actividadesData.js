@@ -2,7 +2,7 @@
 export const noticiasData = [
     {
         id: 1,
-        title: 'I Expo Investigación Estudiantil - UNA PUNO 2030',
+        title: 'I Expo Investigación Estudiantil - UNA PUNO 2025',
         category: 'Investigación',
         date: '20 Dic, 2025',
         excerpt: 'La Universidad Nacional del Altiplano organiza la Expo Investigación Estudiantil UNA 2025 para divulgar resultados de trabajos estudiantiles.',
@@ -11,13 +11,12 @@ export const noticiasData = [
         Este evento se constituye como la plataforma más importante del sur del país para la exposición de proyectos de investigación formativa desarrollados por estudiantes de nuestras 35 escuelas profesionales. El objetivo central es fomentar una cultura científica desde el pregrado, permitiendo que los futuros profesionales no solo consuman conocimiento, sino que sean protagonistas en su creación.
 
         Durante la jornada inaugural, el Vicerrector de Investigación destacó que 'la investigación no es un complemento de la formación universitaria, sino su eje vertebrador'. Se espera la participación de más de 200 pósteres científicos y prototipos tecnológicos que abordan problemáticas reales de la región Puno, desde la gestión de recursos hídricos en el Titicaca hasta innovaciones en seguridad alimentaria.`,
-        image: 'https://scontent.flim14-1.fna.fbcdn.net/v/t39.30808-6/600354191_1274914568003019_2305140449770710833_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=127cfc&oh=00_AfrBoY6i411DUbkTxPzEHeK81BBh53_EohUfVHNmoFxTqQ&oe=6978BD27',
+        image: 'https://scontent.flim26-1.fna.fbcdn.net/v/t39.30808-6/600354191_1274914568003019_2305140449770710833_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGv-GCGuWk7kCcQm6-mcNxXRUkLdbDYMrBFSQt1sNgysF32v5glibWYBXTfJhKJBYdjNE_D4qse8Sn5caiKi6pR&_nc_ohc=3axzhW8Ku9oQ7kNvwH0rkNm&_nc_oc=AdniYpsTHFWKQz0QUUQ1q-jqYAoywov35WFZYk4gBykGP4ZvcPLWhu-0JGRx8E0i4jw&_nc_zt=23&_nc_ht=scontent.flim26-1.fna&_nc_gid=9Mwaw11gO-va3wSuY0sUlg&oh=00_AfooQZeeDcxf4xvSLFjV3cpxEUroAdFh6E4LcvE_pZXckA&oe=6982A067',
         images: [
-            'https://scontent.flim14-1.fna.fbcdn.net/v/t39.30808-6/600354191_1274914568003019_2305140449770710833_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=127cfc&oh=00_AfrBoY6i411DUbkTxPzEHeK81BBh53_EohUfVHNmoFxTqQ&oe=6978BD27',
-            'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=1200',
-            'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=1200'
+            'https://scontent.flim26-1.fna.fbcdn.net/v/t39.30808-6/600354191_1274914568003019_2305140449770710833_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGv-GCGuWk7kCcQm6-mcNxXRUkLdbDYMrBFSQt1sNgysF32v5glibWYBXTfJhKJBYdjNE_D4qse8Sn5caiKi6pR&_nc_ohc=3axzhW8Ku9oQ7kNvwH0rkNm&_nc_oc=AdniYpsTHFWKQz0QUUQ1q-jqYAoywov35WFZYk4gBykGP4ZvcPLWhu-0JGRx8E0i4jw&_nc_zt=23&_nc_ht=scontent.flim26-1.fna&_nc_gid=9Mwaw11gO-va3wSuY0sUlg&oh=00_AfooQZeeDcxf4xvSLFjV3cpxEUroAdFh6E4LcvE_pZXckA&oe=6982A067',
+            'https://scontent.flim20-1.fna.fbcdn.net/v/t39.30808-6/600310489_1274914384669704_3915397439612256434_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFxeRrZWbDvmyAX0E5RhGxCIjRWz0LDI7EiNFbPQsMjsc8mj5UzW7X_6ldiZq2zT1heoeWIn2QmE0eRdwPUQv_a&_nc_ohc=P_POyBggJzkQ7kNvwGA0Dtf&_nc_oc=Adk8BQkoVdEpiFCKUzclGVe0JveMQbnpMmI09hroI2y5G2_zUXGEcOz-hv21Rt6Ul-s&_nc_zt=23&_nc_ht=scontent.flim20-1.fna&_nc_gid=SHgpOTEsoNuh8bIq8KCXNQ&oh=00_AfrTYMBk6nCjdMRLLgdQJYU1NTt6PtOx-yM3U6cK3jEVoA&oe=69829BA5'
         ],
-        videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ', // Ejemplo de video
+        videoUrl: '', // Ejemplo de video
         badgeColor: 'bg-unap-blue',
         url: 'https://vriunap.pe/'
     },
@@ -51,11 +50,11 @@ export const noticiasData = [
         El congreso incluyó mesas redondas sobre la ética en la investigación y el uso de inteligencia artificial en la redacción científica, temas que generaron un intenso debate entre los asistentes. La delegación de la Facultad de Ingeniería de Minas presentó un estudio preliminar sobre remediación de suelos que fue muy elogiado por los especialistas externos.
 
         'Estamos sembrando las bases de lo que será la investigación en el Perú del 2030', afirmó el comité organizador durante la clausura. El evento cerró con el compromiso de publicar las mejores ponencias en una edición especial de las revistas científicas de nuestra casa de estudios.`,
-        image: 'https://scontent.flim20-1.fna.fbcdn.net/v/t39.30808-6/600994171_1295983405900701_1326655095269647153_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=127cfc&oh=00_Afobmpmk-CnPwnGG-IwHXOJ2W6uprtT2gbVeSO2skzLfjQ&oe=69782BC5',
+        image: 'https://scontent.flim20-1.fna.fbcdn.net/v/t39.30808-6/600994171_1295983405900701_1326655095269647153_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=j6FBCN4KEnkQ7kNvwFJ454U&_nc_oc=AdmPiomYe54e9G59zPnHZovdNIbi-UvqyJijA1ph_hnQeBhfdwdn0lPC9E4rZAei0-o&_nc_zt=23&_nc_ht=scontent.flim20-1.fna&_nc_gid=KZ1qk9SmgW0NsAHZxmpIVg&oh=00_AfrOTB4_WMlpz77-NFPhbn4GNQgtbcnq302EPLpVeoIt6w&oe=6982B7C5',
         images: [
-            'https://scontent.flim20-1.fna.fbcdn.net/v/t39.30808-6/600994171_1295983405900701_1326655095269647153_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=127cfc&oh=00_Afobmpmk-CnPwnGG-IwHXOJ2W6uprtT2gbVeSO2skzLfjQ&oe=69782BC5'
+            'https://scontent.flim20-1.fna.fbcdn.net/v/t39.30808-6/600994171_1295983405900701_1326655095269647153_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=j6FBCN4KEnkQ7kNvwFJ454U&_nc_oc=AdmPiomYe54e9G59zPnHZovdNIbi-UvqyJijA1ph_hnQeBhfdwdn0lPC9E4rZAei0-o&_nc_zt=23&_nc_ht=scontent.flim20-1.fna&_nc_gid=KZ1qk9SmgW0NsAHZxmpIVg&oh=00_AfrOTB4_WMlpz77-NFPhbn4GNQgtbcnq302EPLpVeoIt6w&oe=6982B7C5'
         ],
-        videoUrl: 'https://www.youtube.com/embed/9hwvB9_nOqc',
+        videoUrl: '',
         badgeColor: 'bg-unap-gold',
         url: 'https://vriunap.pe/'
     },

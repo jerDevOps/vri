@@ -31,6 +31,7 @@ import Innovacion from './pages/Innovacion';
 
 // UI Components
 import SearchModal from './components/ui/SearchModal';
+import Preloader from './components/ui/Preloader';
 
 function App() {
   const [searchOpen, setSearchOpen] = useState(false);
@@ -84,6 +85,7 @@ function App() {
 
   return (
     <div className="flex flex-col min-h-screen">
+      <Preloader />
       <Header
         onSearchClick={() => setSearchOpen(true)}
         theme={(currentPage === 'idi' || currentPage === 'groups' || currentPage === 'semilleros' || currentPage === 'institutos-lista' || currentPage === 'renacyt') ? 'idi' : 'default'}
