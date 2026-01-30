@@ -36,6 +36,7 @@ import Preloader from './components/ui/Preloader';
 function App() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState('home');
+  const [preloaderComplete, setPreloaderComplete] = useState(false);
   useScrollReveal(currentPage);
 
   useEffect(() => {
@@ -85,7 +86,7 @@ function App() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <Preloader />
+      <Preloader onComplete={() => setPreloaderComplete(true)} />
       <Header
         onSearchClick={() => setSearchOpen(true)}
         theme={(currentPage === 'idi' || currentPage === 'groups' || currentPage === 'semilleros' || currentPage === 'institutos-lista' || currentPage === 'renacyt') ? 'idi' : 'default'}
@@ -95,7 +96,7 @@ function App() {
       <main className="flex-grow">
         {currentPage === 'home' && (
           <>
-            <Hero />
+            <Hero autoPlayVideo={preloaderComplete} />
             <AboutSection />
             <QuickAccess />
             <NewsSection />

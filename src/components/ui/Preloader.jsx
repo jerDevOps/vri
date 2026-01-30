@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const Preloader = () => {
+const Preloader = ({ onComplete }) => {
     const [isVisible, setIsVisible] = useState(true);
     const [shouldRender, setShouldRender] = useState(true);
 
@@ -9,11 +9,14 @@ const Preloader = () => {
         const timer = setTimeout(() => {
             setIsVisible(false);
             // Esperar a que termine la animación de salida para desmontar
-            setTimeout(() => setShouldRender(false), 800);
+            setTimeout(() => {
+                setShouldRender(false);
+                if (onComplete) onComplete(); // Notificar que terminó
+            }, 800);
         }, 2200);
 
         return () => clearTimeout(timer);
-    }, []);
+    }, [onComplete]);
 
     if (!shouldRender) return null;
 

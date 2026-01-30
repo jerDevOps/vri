@@ -1,43 +1,188 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { eventosData } from '../../data/actividadesData';
 
 const EventsSection = () => {
-    // Tomar solo los próximos eventos para la agenda del inicio
-    const agendaEventos = eventosData.filter(evt => evt.estado === 'Próximo').slice(0, 3);
+    const agendaEventos = eventosData.filter(evt => evt.estado === 'Próximo').slice(0, 4);
+    const [activeEvent, setActiveEvent] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setActiveEvent((prev) => (prev + 1) % agendaEventos.length);
+        }, 5000);
+        return () => clearInterval(interval);
+    }, [agendaEventos.length]);
+
+    const typeColors = {
+        'Seminario': 'from-blue-500 to-indigo-600',
+        'Taller': 'from-emerald-500 to-green-600',
+        'Exposición': 'from-purple-500 to-pink-600',
+        'Congreso': 'from-orange-500 to-red-600',
+        'default': 'from-gray-500 to-gray-700'
+    };
 
     return (
-        <section className="py-20 bg-gray-50">
-            <div className="container mx-auto px-4">
-                <div className="text-center mb-16 reveal">
-                    <h2 className="text-3xl font-bold text-gray-800 font-serif">Agenda VRI</h2>
-                    <p className="text-gray-500 mt-2">Participa en nuestros próximos eventos académicos</p>
+        <section className="py-24 bg-white relative overflow-hidden">
+            {/* Background Pattern */}
+            <div className="absolute inset-0 opacity-[0.02]"
+                style={{
+                    backgroundImage: 'radial-gradient(circle at 1px 1px, #030D4F 1px, transparent 0)',
+                    backgroundSize: '40px 40px'
+                }}>
+            </div>
+
+            {/* Decorative Elements */}
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-50 rounded-full blur-[150px] translate-x-1/2 -translate-y-1/2"></div>
+            <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#AEDD2B]/10 rounded-full blur-[120px] -translate-x-1/2 translate-y-1/2"></div>
+
+            <div className="container mx-auto px-4 relative z-10">
+                {/* Section Header */}
+                <div className="text-center mb-20 reveal">
+                    <span className="inline-block px-4 py-2 bg-orange-50 text-orange-600 rounded-full text-xs font-bold uppercase tracking-[0.2em] mb-4">
+                        Próximos Eventos
+                    </span>
+                    <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">
+                        Agenda <span className="text-unap-blue">VRI 2025</span>
+                    </h2>
+                    <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                        Participa en nuestros próximos eventos académicos y científicos
+                    </p>
                 </div>
 
-                <div className="flex flex-col lg:flex-row items-center justify-center gap-12">
-                    <div className="w-full max-w-3xl space-y-6">
-                        {agendaEventos.map((evt) => (
-                            <div key={evt.id} className="bg-white rounded-2xl p-4 md:p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col sm:flex-row items-center gap-6 md:gap-8 group reveal">
+                <div className="grid lg:grid-cols-12 gap-12 items-start max-w-7xl mx-auto">
+                    {/* Timeline (Left) */}
+                    <div className="lg:col-span-5 reveal">
+                        <div className="relative">
+                            {/* Timeline Line */}
+                            <div className="absolute left-[27px] top-0 bottom-0 w-0.5 bg-gradient-to-b from-unap-blue via-purple-500 to-[#AEDD2B]"></div>
 
-                                <div className="flex-shrink-0 w-24 h-24 bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl flex flex-col items-center justify-center border border-gray-200 group-hover:border-unap-blue group-hover:from-unap-blue group-hover:to-blue-700 transition-all group-hover:text-white">
-                                    <span className="text-3xl font-bold leading-none">{evt.day}</span>
-                                    <span className="text-xs font-bold uppercase tracking-widest mt-1">{evt.month}</span>
+                            <div className="space-y-6">
+                                {agendaEventos.map((evt, idx) => (
+                                    <div
+                                        key={evt.id}
+                                        className={`relative flex gap-6 p-4 rounded-2xl cursor-pointer transition-all duration-500 ${activeEvent === idx
+                                                ? 'bg-white shadow-xl scale-[1.02]'
+                                                : 'hover:bg-gray-50'
+                                            }`}
+                                        onClick={() => setActiveEvent(idx)}
+                                    >
+                                        {/* Date Circle */}
+                                        <div className={`relative z-10 flex-shrink-0 w-14 h-14 rounded-full flex flex-col items-center justify-center transition-all duration-300 ${activeEvent === idx
+                                                ? 'bg-unap-blue text-white shadow-lg scale-110'
+                                                : 'bg-white border-2 border-gray-200 text-gray-600'
+                                            }`}>
+                                            <span className="text-lg font-black leading-none">{evt.day}</span>
+                                            <span className="text-[10px] font-bold uppercase">{evt.month}</span>
+                                        </div>
+
+                                        {/* Content */}
+                                        <div className="flex-1 pt-1">
+                                            <span className={`inline-block px-3 py-1 rounded-full text-[10px] font-bold uppercase mb-2 ${activeEvent === idx
+                                                    ? 'bg-unap-blue text-white'
+                                                    : 'bg-gray-100 text-gray-600'
+                                                }`}>
+                                                {evt.tipo}
+                                            </span>
+                                            <h3 className={`font-bold leading-snug transition-colors ${activeEvent === idx ? 'text-unap-blue' : 'text-gray-800'
+                                                }`}>
+                                                {evt.actividad}
+                                            </h3>
+                                            <div className="flex flex-wrap gap-3 mt-2 text-xs text-gray-500">
+                                                <span className="flex items-center gap-1">
+                                                    <i className="far fa-clock text-unap-gold"></i>
+                                                    {evt.hora}
+                                                </span>
+                                                <span className="flex items-center gap-1">
+                                                    <i className="fas fa-map-marker-alt text-unap-gold"></i>
+                                                    {evt.lugar}
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        {/* Active Indicator */}
+                                        {activeEvent === idx && (
+                                            <div className="absolute right-4 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#AEDD2B] flex items-center justify-center text-[#030D4F]">
+                                                <i className="fas fa-arrow-right text-sm"></i>
+                                            </div>
+                                        )}
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Featured Event Card (Right) */}
+                    <div className="lg:col-span-7 reveal" style={{ transitionDelay: '0.2s' }}>
+                        <div className="relative bg-gradient-to-br from-[#030D4F] to-[#061266] rounded-3xl p-8 md:p-12 overflow-hidden shadow-2xl">
+                            {/* Decorative Elements */}
+                            <div className="absolute top-0 right-0 w-64 h-64 bg-sky-500/10 rounded-full blur-[100px]"></div>
+                            <div className="absolute bottom-0 left-0 w-48 h-48 bg-[#AEDD2B]/10 rounded-full blur-[80px]"></div>
+
+                            {/* Content */}
+                            <div className="relative z-10">
+                                {/* Type Badge */}
+                                <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r ${typeColors[agendaEventos[activeEvent]?.tipo] || typeColors.default} text-white text-xs font-bold uppercase mb-6`}>
+                                    <i className="fas fa-calendar-star"></i>
+                                    {agendaEventos[activeEvent]?.tipo}
                                 </div>
 
-                                <div className="flex-1 text-center sm:text-left">
-                                    <span className="inline-block px-3 py-1 bg-indigo-50 text-indigo-600 text-[10px] font-bold uppercase rounded-full mb-2">{evt.tipo}</span>
-                                    <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-unap-blue transition-colors">{evt.actividad}</h3>
-                                    <div className="flex flex-col sm:flex-row gap-4 text-sm text-gray-500">
-                                        <span className="flex items-center justify-center sm:justify-start"><i className="far fa-clock mr-2 text-unap-gold"></i> {evt.hora}</span>
-                                        <span className="flex items-center justify-center sm:justify-start"><i className="fas fa-map-pin mr-2 text-unap-gold"></i> {evt.lugar}</span>
+                                {/* Date */}
+                                <div className="flex items-center gap-6 mb-6">
+                                    <div className="text-center">
+                                        <div className="text-6xl font-black text-white">{agendaEventos[activeEvent]?.day}</div>
+                                        <div className="text-lg font-bold text-[#AEDD2B] uppercase">{agendaEventos[activeEvent]?.month}</div>
+                                    </div>
+                                    <div className="w-px h-20 bg-white/20"></div>
+                                    <div>
+                                        <h3 className="text-2xl md:text-3xl font-black text-white leading-tight mb-4">
+                                            {agendaEventos[activeEvent]?.actividad}
+                                        </h3>
+                                        <div className="flex flex-wrap gap-6 text-white/70">
+                                            <span className="flex items-center gap-2">
+                                                <i className="far fa-clock text-[#AEDD2B]"></i>
+                                                {agendaEventos[activeEvent]?.hora}
+                                            </span>
+                                            <span className="flex items-center gap-2">
+                                                <i className="fas fa-map-marker-alt text-[#AEDD2B]"></i>
+                                                {agendaEventos[activeEvent]?.lugar}
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
 
-                                <a href="#actividades" className="flex-shrink-0 w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 group-hover:bg-unap-blue group-hover:border-unap-blue group-hover:text-white transition-all">
-                                    <i className="fas fa-arrow-right"></i>
-                                </a>
+                                {/* CTA */}
+                                <div className="flex flex-wrap gap-4 mt-8">
+                                    <a href="#actividades" className="px-6 py-3 bg-[#AEDD2B] text-[#030D4F] rounded-xl font-bold hover:bg-[#c4f042] transition-colors flex items-center gap-2">
+                                        <i className="fas fa-calendar-plus"></i>
+                                        Registrarse
+                                    </a>
+                                    <a href="#actividades" className="px-6 py-3 bg-white/10 text-white rounded-xl font-bold hover:bg-white/20 transition-colors border border-white/20 flex items-center gap-2">
+                                        <i className="fas fa-info-circle"></i>
+                                        Más Información
+                                    </a>
+                                </div>
+
+                                {/* Progress Dots */}
+                                <div className="flex gap-2 mt-8">
+                                    {agendaEventos.map((_, idx) => (
+                                        <button
+                                            key={idx}
+                                            onClick={() => setActiveEvent(idx)}
+                                            className={`h-2 rounded-full transition-all duration-300 ${activeEvent === idx ? 'w-8 bg-[#AEDD2B]' : 'w-2 bg-white/30 hover:bg-white/50'
+                                                }`}
+                                        ></button>
+                                    ))}
+                                </div>
                             </div>
-                        ))}
+                        </div>
                     </div>
+                </div>
+
+                {/* View All Events Link */}
+                <div className="text-center mt-16 reveal">
+                    <a href="#actividades" className="inline-flex items-center gap-3 text-unap-blue font-bold hover:gap-4 transition-all text-lg">
+                        Ver Calendario Completo
+                        <i className="fas fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
         </section>
