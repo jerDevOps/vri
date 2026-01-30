@@ -249,28 +249,32 @@ const ScientificJournals = () => {
                                 subtitle: "Tesis Pregrado",
                                 desc: "Sistema integral para la gestión de tesis desde el registro hasta la sustentación",
                                 color: "#030D4F",
-                                icon: "fa-graduation-cap"
+                                icon: "fa-graduation-cap",
+                                link: "https://pgi.vriunap.pe/home"
                             },
                             {
                                 title: "CURSOS",
                                 subtitle: "Recursos Académicos",
                                 desc: "Materiales de referencia y guías metodológicas organizadas por líneas de investigación",
                                 color: "#051675",
-                                icon: "fa-book-reader"
+                                icon: "fa-book-reader",
+                                link: "https://vriunap.pe/cursos/"
                             },
                             {
                                 title: "REPOSITORIO",
                                 subtitle: "Producción Científica",
                                 desc: "Archivo digital de tesis aprobadas y producción académica institucional",
                                 color: "#071f9c",
-                                icon: "fa-database"
+                                icon: "fa-database",
+                                link: "https://repositorio.unap.edu.pe/home"
                             },
                             {
                                 title: "FEDU",
                                 subtitle: "Financiamiento",
                                 desc: "Fondo Especial de Desarrollo Universitario para proyectos de investigación",
                                 color: "#010a3d",
-                                icon: "fa-hand-holding-usd"
+                                icon: "fa-hand-holding-usd",
+                                link: "https://vriunap.pe/fedu/"
                             }
                         ].map((platform, idx) => (
                             <div key={idx} className="group relative bg-white rounded-2xl border-2 border-gray-100 hover:border-sky-400 transition-all duration-300 overflow-hidden hover:shadow-xl">

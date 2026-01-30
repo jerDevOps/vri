@@ -22,6 +22,12 @@ import Semilleros from './pages/Semilleros';
 import Renacyt from './pages/Renacyt';
 import AboutPage from './pages/AboutPage';
 import ScientificJournals from './pages/ScientificJournals';
+import Actividades from './pages/Actividades';
+import NoticiasEventos from './pages/NoticiasEventos';
+import Convocatorias from './pages/Convocatorias';
+import Noticias from './pages/Noticias';
+import NormativaGestion from './pages/NormativaGestion';
+import Innovacion from './pages/Innovacion';
 
 // UI Components
 import SearchModal from './components/ui/SearchModal';
@@ -49,6 +55,18 @@ function App() {
         setCurrentPage('about');
       } else if (hash === '#revistas') {
         setCurrentPage('revistas');
+      } else if (hash === '#actividades') {
+        setCurrentPage('actividades');
+      } else if (hash === '#noticias-eventos') {
+        setCurrentPage('noticias-eventos');
+      } else if (hash === '#convocatorias') {
+        setCurrentPage('convocatorias');
+      } else if (hash === '#noticias') {
+        setCurrentPage('noticias');
+      } else if (hash === '#normativa') {
+        setCurrentPage('normativa');
+      } else if (hash === '#innovacion') {
+        setCurrentPage('innovacion');
       } else {
         // Cualquier otro hash o hash vacío vuelve al home
         setCurrentPage('home');
@@ -91,6 +109,12 @@ function App() {
         {currentPage === 'renacyt' && <Renacyt />}
         {currentPage === 'about' && <AboutPage />}
         {currentPage === 'revistas' && <ScientificJournals />}
+        {currentPage === 'actividades' && <Actividades />}
+        {currentPage === 'noticias-eventos' && <NoticiasEventos />}
+        {currentPage === 'convocatorias' && <Convocatorias />}
+        {currentPage === 'noticias' && <Noticias />}
+        {currentPage === 'normativa' && <NormativaGestion />}
+        {currentPage === 'innovacion' && <Innovacion />}
       </main>
 
       <Footer />

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const MobileMenuItem = ({ item, depth = 0, isIdi }) => {
+const MobileMenuItem = ({ item, depth = 0, isIdi, onNavClick }) => {
     const [isOpen, setIsOpen] = useState(false);
     const hasSubItems = (item.dropdownItems && item.dropdownItems.length > 0) || (item.subItems && item.subItems.length > 0);
     const subItems = item.dropdownItems || item.subItems;
@@ -9,7 +9,7 @@ const MobileMenuItem = ({ item, depth = 0, isIdi }) => {
         <div className="w-full border-b border-gray-50 last:border-0">
             <div
                 className={`flex items-center justify-between px-6 py-3 cursor-pointer hover:bg-gray-50 transition-colors ${depth > 0 ? 'pl-10' : ''}`}
-                onClick={() => hasSubItems && setIsOpen(!isOpen)}
+                onClick={() => hasSubItems ? setIsOpen(!isOpen) : (item.href && item.href !== '#' && onNavClick && onNavClick())}
             >
                 <a
                     href={item.href || '#'}
@@ -17,6 +17,8 @@ const MobileMenuItem = ({ item, depth = 0, isIdi }) => {
                     onClick={(e) => {
                         if (hasSubItems) {
                             e.preventDefault();
+                        } else if (onNavClick) {
+                            onNavClick();
                         }
                     }}
                 >
@@ -29,7 +31,7 @@ const MobileMenuItem = ({ item, depth = 0, isIdi }) => {
             {hasSubItems && isOpen && (
                 <div className="bg-gray-50/50">
                     {subItems.map((sub, idx) => (
-                        <MobileMenuItem key={idx} item={sub} depth={depth + 1} isIdi={isIdi} />
+                        <MobileMenuItem key={idx} item={sub} depth={depth + 1} isIdi={isIdi} onNavClick={onNavClick} />
                     ))}
                 </div>
             )}
@@ -94,23 +96,25 @@ const Header = ({ onSearchClick, theme = 'default' }) => {
             dropdownItems: [
                 {
                     label: 'Actividades',
-                    href: '#',
+                    href: '#actividades',
                     subItems: [
-                        { label: 'Posters', href: '#' },
-                        { label: 'Cronograma de Actividades', href: '#' }
+                        { label: 'Posters', href: '#actividades' },
+                        { label: 'Cronograma de Actividades', href: '#actividades' }
                     ]
                 },
-                { label: 'Noticias y Eventos', href: '#' }
+                { label: 'Noticias y Eventos', href: '#noticias-eventos' }
             ]
         },
         { label: 'Nosotros', href: '#nosotros' },
-        { label: 'Convocatorias', href: '#' },
+        { label: 'Convocatorias', href: '#convocatorias' },
         {
             label: 'Direcciones',
             href: '#',
             hasDropdown: true,
             dropdownItems: [
-                { label: 'Comité Institucional de Ética', href: '#', subItems: [{ label: 'Comité', href: '#' }, { label: 'Reglamentos', href: '#' }, { label: 'Investigación', href: '#' }, { label: 'Cronograma', href: '#' }, { label: 'Proyectos', href: '#' }] },
+                {
+                    label: 'Comité Institucional de Ética', href: 'https://vriunap.pe/etica' //, subItems: [{ label: 'Comité', href: '#' }, { label: 'Reglamentos', href: '#' }, { label: 'Investigación', href: '#' }, { label: 'Cronograma', href: '#' }, { label: 'Proyectos', href: '#' }] 
+                },
                 {
                     label: 'Instituto de Investigación',
                     href: '#idi',
@@ -125,43 +129,43 @@ const Header = ({ onSearchClick, theme = 'default' }) => {
                                 { label: 'RENACYT', href: '#renacyt' }
                             ]
                         },
-                        { label: 'Sub Unidad de publicaciones', href: '#' },
-                        { label: 'Repositorio', href: '#' },
-                        { label: 'Plataforma de Gestión de la Investigación', href: '#' }
+                        { label: 'Sub Unidad de publicaciones', href: 'https://revistas.unap.edu.pe/portal/' },
+                        { label: 'Repositorio', href: 'https://repositorio.unap.edu.pe/home' },
+                        { label: 'Plataforma de Gestión de la Investigación', href: 'https://pgi.vriunap.pe/home' }
                     ]
                 },
                 {
-                    label: 'Innovación y Transferencia', href: '#', subItems: [
-                        { label: 'Patentes', href: '#' }, { label: 'Transferencia', href: '#' }, { label: 'Vinculación Empresarial', href: '#' }]
+                    label: 'Innovación y Transferencia', href: '#innovacion', subItems: [
+                        { label: 'Patentes', href: '#innovacion' }, { label: 'Transferencia', href: '#innovacion' }, { label: 'Vinculación Empresarial', href: '#innovacion' }]
                 },
                 {
-                    label: 'Incubadora de Empresas', href: '#', subItems: [
-                        { label: 'Equipos', href: '#' },
-                        { label: 'Iniciativas', href: '#' }
-                    ]
+                    label: 'Incubadora de Empresas', href: 'https://www.incunalab.com/'//, subItems: [
+                    //     { label: 'Equipos', href: '#' },
+                    //     { label: 'Iniciativas', href: '#' }
+                    // ]
                 }
             ]
         },
         {
             label: 'Normativa y Gestión',
-            href: '#',
-            hasDropdown: true,
-            dropdownItems: [
-                { label: 'Publicaciones', href: '#' },
-                { label: 'Reglamentos', href: '#' }
-            ]
+            href: '#normativa',
+            //hasDropdown: true,
+            //dropdownItems: [
+            //    { label: 'Publicaciones', href: '#normativa' },
+            //    { label: 'Reglamentos', href: '#normativa' }
+            //]
         },
-        { label: 'Noticias', href: '#' },
+        { label: 'Noticias', href: '#noticias' },
         {
             label: 'Servicios',
             href: '#',
             hasDropdown: true,
             dropdownItems: [
-                { label: 'FEDU', href: '#' },
-                { label: 'Repositorio', href: '#' },
-                { label: 'Cursos y Eventos', href: '#' },
-                { label: 'Plataforma de Gestión de la Investigación', href: '#' },
-                { label: 'Turniting', href: '#' }
+                { label: 'FEDU', href: 'https://vriunap.pe/fedu/' },
+                { label: 'Repositorio', href: 'https://repositorio.unap.edu.pe/home' },
+                { label: 'Cursos y Eventos', href: 'https://vriunap.pe/cursos/' },
+                { label: 'Plataforma de Gestión de la Investigación', href: 'https://pgi.vriunap.pe/home' },
+                { label: 'Turniting', href: 'https://unap.turnitin.com/home/sign-in?redirect_to=https:%2F%2Funap.turnitin.com%2F' }
             ]
         }
     ];
@@ -219,7 +223,7 @@ const Header = ({ onSearchClick, theme = 'default' }) => {
             {mobileMenuOpen && (
                 <div className="absolute top-full left-0 w-full bg-white shadow-xl lg:hidden animate-fade-in border-t border-gray-100 flex flex-col py-2 max-h-[80vh] overflow-y-auto">
                     {navLinks.map((link, idx) => (
-                        <MobileMenuItem key={idx} item={link} isIdi={isIdi} />
+                        <MobileMenuItem key={idx} item={link} isIdi={isIdi} onNavClick={() => setMobileMenuOpen(false)} />
                     ))}
                 </div>
             )}

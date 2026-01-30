@@ -1,6 +1,6 @@
 import React from 'react';
 import SectionTitle from '../ui/SectionTitle';
-import { MOCK_DATA } from '../../data/mockData';
+import { noticiasData } from '../../data/actividadesData';
 
 const NewsSection = () => {
     return (
@@ -11,13 +11,13 @@ const NewsSection = () => {
                         title="Noticias Científicas"
                         subtitle="Descubre los últimos avances y logros de nuestra comunidad académica."
                     />
-                    <a href="#" className="hidden md:flex items-center text-unap-blue font-semibold hover:text-blue-700 transition-colors pb-10">
+                    <a href="#noticias-eventos" className="hidden md:flex items-center text-unap-blue font-semibold hover:text-blue-700 transition-colors pb-10">
                         Ver todo <i className="fas fa-arrow-right ml-2"></i>
                     </a>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {MOCK_DATA.news.map((item, idx) => (
+                    {noticiasData.map((item, idx) => (
                         <article
                             key={item.id}
                             className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group reveal"

@@ -2,6 +2,7 @@ import React from 'react';
 import SectionTitle from '../ui/SectionTitle';
 import Button from '../ui/Button';
 import { MOCK_DATA } from '../../data/mockData';
+import { convocatoriasData } from '../../data/actividadesData';
 
 const CallsAndDirections = () => {
     return (
@@ -15,7 +16,7 @@ const CallsAndDirections = () => {
                             subtitle="Postula a fondos concursables y oportunidades de desarrollo."
                         />
                         <div className="space-y-4">
-                            {MOCK_DATA.calls.map((call, idx) => (
+                            {convocatoriasData.map((call, idx) => (
                                 <div
                                     key={call.id}
                                     className="group bg-white border border-gray-100 rounded-2xl p-4 md:p-6 hover:border-unap-blue/30 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col md:flex-row items-center gap-4 md:gap-6 reveal"
