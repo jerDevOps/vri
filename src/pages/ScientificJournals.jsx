@@ -289,9 +289,9 @@ const ScientificJournals = () => {
                                     <p className="text-sm font-semibold text-gray-600 mb-3">{platform.subtitle}</p>
                                     <p className="text-sm text-gray-500 leading-relaxed mb-4">{platform.desc}</p>
 
-                                    <button className="text-sm font-bold flex items-center gap-2 group-hover:gap-3 transition-all" style={{ color: platform.color }}>
+                                    <a href={platform.link} target="_blank" rel="noopener noreferrer" className="text-sm font-bold flex items-center gap-2 group-hover:gap-3 transition-all" style={{ color: platform.color }}>
                                         Acceder <i className="fas fa-arrow-right"></i>
-                                    </button>
+                                    </a>
                                 </div>
 
                                 <div className="absolute top-0 right-0 w-32 h-32 opacity-5 -mr-8 -mt-8" style={{ backgroundColor: platform.color, borderRadius: '50%' }}></div>

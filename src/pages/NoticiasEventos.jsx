@@ -88,7 +88,7 @@ const NoticiasEventos = () => {
                                                     {item.excerpt}
                                                 </p>
                                             </div>
-                                            <a href={item.url} target="_blank" rel="noopener noreferrer" className="text-sm font-bold text-[#030D4F] hover:text-[#AEDD2B] transition-colors flex items-center gap-2 mt-4">
+                                            <a href="#noticias" className="text-sm font-bold text-[#030D4F] hover:text-[#AEDD2B] transition-colors flex items-center gap-2 mt-4">
                                                 Leer más <i className="fas fa-arrow-right text-[10px]"></i>
                                             </a>
                                         </div>

@@ -30,9 +30,14 @@ const Footer = () => {
                             Liderando la investigación científica en el altiplano peruano para el mundo. Innovación, ética y compromiso social.
                         </p>
                         <div className="flex gap-4">
-                            {['facebook-f', 'twitter', 'linkedin-in', 'youtube'].map(icon => (
-                                <a key={icon} href="#" className="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center hover:bg-unap-gold hover:text-white transition-all hover:-translate-y-1">
-                                    <i className={`fab fa-${icon}`}></i>
+                            {[
+                                { icon: 'facebook-f', href: 'https://www.facebook.com/vriunpuno' },
+                                { icon: 'twitter', href: 'https://twitter.com/unapuno' },
+                                { icon: 'linkedin-in', href: 'https://www.linkedin.com/school/universidad-nacional-del-altiplano/' },
+                                { icon: 'youtube', href: 'https://www.youtube.com/@vriunap3317' }
+                            ].map(social => (
+                                <a key={social.icon} href={social.href} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center hover:bg-unap-gold hover:text-white transition-all hover:-translate-y-1">
+                                    <i className={`fab fa-${social.icon}`}></i>
                                 </a>
                             ))}
                         </div>
@@ -45,11 +50,17 @@ const Footer = () => {
                             <span className="absolute -bottom-2 left-0 w-10 h-1 bg-unap-gold rounded-full"></span>
                         </h4>
                         <ul className="space-y-3 text-sm">
-                            {['Plataforma PILAR', 'Repositorio Institucional', 'Reglamento de Investigación', 'Docentes Renacyt', 'Mesa de Partes Virtual'].map(link => (
-                                <li key={link}>
-                                    <a href="#" className="hover:text-unap-gold transition-colors flex items-center group">
+                            {[
+                                { label: 'Plataforma PGI', href: 'https://pgi.vriunap.pe/home' },
+                                { label: 'Repositorio Institucional', href: 'https://repositorio.unap.edu.pe/home' },
+                                { label: 'Reglamentos VRI', href: '#normativa' },
+                                { label: 'Docentes Renacyt', href: '#renacyt' },
+                                { label: 'Mesa de Partes Virtual', href: 'https://tramites.unap.edu.pe/' }
+                            ].map(link => (
+                                <li key={link.label}>
+                                    <a href={link.href} className="hover:text-unap-gold transition-colors flex items-center group">
                                         <i className="fas fa-chevron-right text-[10px] mr-2 opacity-50 group-hover:translate-x-1 transition-transform"></i>
-                                        {link}
+                                        {link.label}
                                     </a>
                                 </li>
                             ))}

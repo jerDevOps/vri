@@ -63,7 +63,7 @@ const CallsAndDirections = () => {
                             ))}
                         </div>
                         <div className="mt-8 text-center md:text-left">
-                            <a href="#" className="inline-flex items-center font-semibold text-unap-blue hover:text-unap-gold transition-colors">
+                            <a href="#convocatorias" className="inline-flex items-center font-semibold text-unap-blue hover:text-unap-gold transition-colors">
                                 Ver histórico de convocatorias <i className="fas fa-long-arrow-alt-right ml-2"></i>
                             </a>
                         </div>
@@ -94,7 +94,7 @@ const CallsAndDirections = () => {
                             <div className="mt-8 p-4 bg-unap-blue/5 rounded-xl border border-unap-blue/10">
                                 <h4 className="font-bold text-unap-blue mb-2 text-sm"><i className="fas fa-headset mr-2"></i>¿Necesitas ayuda?</h4>
                                 <p className="text-xs text-gray-600 mb-3">Contacta con nuestra mesa de ayuda para investigadores.</p>
-                                <a href="#" className="text-xs font-bold text-unap-blue hover:underline">Ir a Soporte</a>
+                                <a href="https://vriunap.pe/mesa-partes/" target="_blank" rel="noopener noreferrer" className="text-xs font-bold text-unap-blue hover:underline">Ir a Soporte</a>
                             </div>
                         </div>
                     </div>

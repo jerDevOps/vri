@@ -38,7 +38,7 @@ const Hero = () => {
                     <div className="group/dock flex flex-nowrap items-center justify-start lg:justify-start gap-3 sm:gap-6 mt-4 lg:mt-12 relative px-2 lg:px-0 overflow-x-auto pb-6 lg:pb-0 scrollbar-hide lg:overflow-x-visible w-full">
                         {[
                             { name: 'Instituto de Investigación', link: '#idi', icon: 'src/assets/dii.png' },
-                            { name: 'Innovación y Transferencia', link: 'https://transparencia.unap.edu.pe/web/', icon: 'src/assets/innova.png' },
+                            { name: 'Innovación y Transferencia', link: '#innovacion', icon: 'src/assets/innova.png' },
                             { name: 'INCUNALAB', link: 'https://www.incunalab.com/', icon: 'src/assets/incunalab.png' },
                             { name: 'Bienes y Servicios', link: 'https://www.facebook.com/dpbsunap/?locale=hi_IN', icon: 'src/assets/bienes.png' },
                             { name: 'PGI', link: 'https://pgi.vriunap.pe/home', icon: 'src/assets/pgi.png' },

@@ -39,7 +39,7 @@ function App() {
 
   useEffect(() => {
     const handleHashChange = () => {
-      const hash = window.location.hash;
+      const hash = window.location.hash.replace('#/', '#'); // Normalizar #/ a #
 
       if (hash === '#idi') {
         setCurrentPage('idi');

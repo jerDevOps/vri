@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { DII_SERVICES, DII_STATS, DII_METHODOLOGY } from '../data/diiData';
-import { MOCK_DATA } from '../data/mockData';
+import { noticiasData, eventosData } from '../data/actividadesData';
 
 const ServiceCard = ({ item }) => {
     const [activeTab, setActiveTab] = useState(null);
@@ -239,7 +239,7 @@ const ResearchInstitute = () => {
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {MOCK_DATA.news.slice(0, 3).map((item) => (
+                        {noticiasData.slice(0, 3).map((item) => (
                             <div key={item.id} className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl overflow-hidden group">
                                 <div className="h-56 relative overflow-hidden">
                                     <img
@@ -308,17 +308,17 @@ const ResearchInstitute = () => {
                                     Próximos Eventos
                                 </h3>
                                 <div className="space-y-4">
-                                    {MOCK_DATA.events.slice(0, 3).map((event) => (
+                                    {eventosData.slice(0, 3).map((event) => (
                                         <div key={event.id} className="flex items-center gap-4 bg-white p-4 rounded-2xl text-[#383939] group hover:bg-[#AEE637] transition-all cursor-pointer">
                                             <div className="w-16 h-16 rounded-xl bg-gray-100 flex flex-col items-center justify-center group-hover:bg-white transition-colors">
                                                 <span className="text-xs font-bold text-gray-400 group-hover:text-[#149C68] uppercase">{event.month}</span>
                                                 <span className="text-xl font-black text-[#149C68]">{event.day}</span>
                                             </div>
                                             <div className="flex-grow">
-                                                <h4 className="font-bold leading-tight line-clamp-1">{event.title}</h4>
+                                                <h4 className="font-bold leading-tight line-clamp-1">{event.actividad}</h4>
                                                 <div className="flex items-center gap-3 text-xs text-gray-500 font-medium mt-1">
-                                                    <span><i className="far fa-clock mr-1"></i> {event.time}</span>
-                                                    <span><i className="fas fa-map-marker-alt mr-1"></i> {event.location}</span>
+                                                    <span><i className="far fa-clock mr-1"></i> {event.hora}</span>
+                                                    <span><i className="fas fa-map-marker-alt mr-1"></i> {event.lugar}</span>
                                                 </div>
                                             </div>
                                         </div>

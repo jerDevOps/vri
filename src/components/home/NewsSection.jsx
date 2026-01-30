@@ -11,7 +11,7 @@ const NewsSection = () => {
                         title="Noticias Científicas"
                         subtitle="Descubre los últimos avances y logros de nuestra comunidad académica."
                     />
-                    <a href="#noticias-eventos" className="hidden md:flex items-center text-unap-blue font-semibold hover:text-blue-700 transition-colors pb-10">
+                    <a href="#noticias" className="hidden md:flex items-center text-unap-blue font-semibold hover:text-blue-700 transition-colors pb-10">
                         Ver todo <i className="fas fa-arrow-right ml-2"></i>
                     </a>
                 </div>
@@ -49,9 +49,7 @@ const NewsSection = () => {
                                     {item.excerpt}
                                 </p>
                                 <a
-                                    href={item.url || "#"}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
+                                    href="#noticias"
                                     className="text-unap-blue text-sm font-bold uppercase tracking-wider hover:underline decoration-2 underline-offset-4 inline-block"
                                 >
                                     Leer noticia completa

@@ -5,31 +5,48 @@ const MobileMenuItem = ({ item, depth = 0, isIdi, onNavClick }) => {
     const hasSubItems = (item.dropdownItems && item.dropdownItems.length > 0) || (item.subItems && item.subItems.length > 0);
     const subItems = item.dropdownItems || item.subItems;
 
+    const handleLabelClick = (e) => {
+        if (item.href && item.href !== '#') {
+            if (onNavClick) onNavClick();
+        } else if (hasSubItems) {
+            e.preventDefault();
+            setIsOpen(!isOpen);
+        }
+    };
+
+    const handleArrowClick = (e) => {
+        e.stopPropagation();
+        setIsOpen(!isOpen);
+    };
+
     return (
-        <div className="w-full border-b border-gray-50 last:border-0">
+        <div className="w-full border-b border-gray-50 last:border-0 font-sans">
             <div
-                className={`flex items-center justify-between px-6 py-3 cursor-pointer hover:bg-gray-50 transition-colors ${depth > 0 ? 'pl-10' : ''}`}
-                onClick={() => hasSubItems ? setIsOpen(!isOpen) : (item.href && item.href !== '#' && onNavClick && onNavClick())}
+                className={`flex items-center justify-between px-6 py-4 cursor-pointer hover:bg-gray-50 transition-colors ${depth > 0 ? 'pl-10' : ''}`}
+                onClick={handleLabelClick}
             >
                 <a
                     href={item.href || '#'}
-                    className={`text-gray-700 font-medium ${isIdi ? 'hover:text-[#149C68]' : 'hover:text-unap-blue'} ${depth > 0 ? 'text-sm' : ''}`}
+                    className={`text-gray-700 font-bold ${isIdi ? 'hover:text-[#149C68]' : 'hover:text-unap-blue'} ${depth > 0 ? 'text-sm' : 'text-base'}`}
                     onClick={(e) => {
-                        if (hasSubItems) {
+                        if (!item.href || item.href === '#') {
                             e.preventDefault();
-                        } else if (onNavClick) {
-                            onNavClick();
                         }
                     }}
                 >
                     {item.label}
                 </a>
                 {hasSubItems && (
-                    <i className={`fas fa-chevron-down text-xs transition-transform duration-300 ${isOpen ? 'rotate-180' : ''} opacity-40`}></i>
+                    <button
+                        onClick={handleArrowClick}
+                        className={`w-10 h-10 -mr-2 flex items-center justify-center rounded-full hover:bg-gray-100 transition-all ${isOpen ? 'rotate-180 bg-gray-50' : ''}`}
+                    >
+                        <i className="fas fa-chevron-down text-xs opacity-40"></i>
+                    </button>
                 )}
             </div>
             {hasSubItems && isOpen && (
-                <div className="bg-gray-50/50">
+                <div className="bg-gray-50/50 border-t border-gray-100/50">
                     {subItems.map((sub, idx) => (
                         <MobileMenuItem key={idx} item={sub} depth={depth + 1} isIdi={isIdi} onNavClick={onNavClick} />
                     ))}
@@ -87,7 +104,7 @@ const Header = ({ onSearchClick, theme = 'default' }) => {
     }, []);
 
     const navLinks = [
-        { label: 'Inicio', href: '#/' },
+        { label: 'Inicio', href: '#' },
         { label: 'Publicaciones', href: '#', hasDropdown: true, dropdownItems: [{ label: 'Revistas Científicas', href: '#revistas' }] },
         {
             label: 'VRI',
