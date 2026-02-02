@@ -55,6 +55,7 @@ const NewsSection = () => {
                                     <img
                                         src={featuredNews?.image}
                                         alt={featuredNews?.title}
+                                        loading="lazy"
                                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                     />
                                 </div>
@@ -101,8 +102,8 @@ const NewsSection = () => {
                                     key={item.id}
                                     onMouseEnter={() => handleNewsHover(idx)}
                                     className={`flex gap-5 p-4 rounded-2xl cursor-pointer transition-all duration-300 ease-out ${activeNews === idx
-                                            ? 'bg-white shadow-xl border-l-4 border-unap-blue scale-[1.02]'
-                                            : 'bg-white shadow-sm hover:shadow-md border-l-4 border-transparent'
+                                        ? 'bg-white shadow-xl border-l-4 border-unap-blue scale-[1.02]'
+                                        : 'bg-white shadow-sm hover:shadow-md border-l-4 border-transparent'
                                         }`}
                                 >
                                     {/* Thumbnail */}
@@ -110,6 +111,7 @@ const NewsSection = () => {
                                         <img
                                             src={item.image}
                                             alt={item.title}
+                                            loading="lazy"
                                             className={`w-full h-full object-cover transition-transform duration-500 ${activeNews === idx ? 'scale-110' : 'scale-100'}`}
                                         />
                                     </div>
@@ -132,8 +134,8 @@ const NewsSection = () => {
 
                                     {/* Arrow */}
                                     <div className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center self-center transition-all duration-300 ${activeNews === idx
-                                            ? 'bg-unap-blue text-white scale-110'
-                                            : 'bg-gray-100 text-gray-400'
+                                        ? 'bg-unap-blue text-white scale-110'
+                                        : 'bg-gray-100 text-gray-400'
                                         }`}>
                                         <i className={`fas fa-arrow-right text-sm transition-transform duration-300 ${activeNews === idx ? 'translate-x-0.5' : ''}`}></i>
                                     </div>

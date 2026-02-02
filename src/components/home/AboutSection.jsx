@@ -117,7 +117,7 @@ const AboutSection = () => {
 
                                 <div className="flex items-center gap-4 mb-8">
                                     <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-lg border border-gray-100 p-2">
-                                        <img src="src/assets/vrionly.png" alt="VRI Logo" className="w-full h-full object-contain" />
+                                        <img src="src/assets/vrionly.png" alt="VRI Logo" loading="lazy" className="w-full h-full object-contain" />
                                     </div>
                                     <div>
                                         <h3 className="text-2xl font-black text-gray-900">Identidad Digital VRI</h3>

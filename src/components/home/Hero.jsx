@@ -54,7 +54,7 @@ const Hero = ({ autoPlayVideo = false }) => {
 
     // Estrellas y estructura galáctica
     const galaxyStars = useMemo(() => {
-        const backgroundStars = Array.from({ length: 300 }).map((_, i) => ({
+        const backgroundStars = Array.from({ length: 50 }).map((_, i) => ({
             id: `bg-${i}`,
             x: Math.random() * 100,
             y: Math.random() * 100,
@@ -64,7 +64,7 @@ const Hero = ({ autoPlayVideo = false }) => {
             animationDuration: Math.random() * 5 + 3,
         }));
 
-        const nebulaStars = Array.from({ length: 900 }).map((_, i) => {
+        const nebulaStars = Array.from({ length: 150 }).map((_, i) => {
             const x = Math.random() * 100;
             const yCenter = (x * 0.5) + 20;
             let dispersion = (Math.random() - 0.5) * 50;
@@ -343,31 +343,7 @@ const Hero = ({ autoPlayVideo = false }) => {
                 </div>
             </div>
 
-            <style jsx>{`
-                @keyframes twinkle {
-                    0%, 100% { opacity: 0.3; transform: scale(1); }
-                    50% { opacity: 1; transform: scale(1.1); }
-                }
-                @keyframes float {
-                    0%, 100% { transform: translateY(0); }
-                    50% { transform: translateY(-8px); }
-                }
-                @keyframes slow-spin {
-                    from { transform: rotate(0deg); }
-                    to { transform: rotate(360deg); }
-                }
-                @keyframes shooting-star {
-                    0% { transform: translate(0, 0) rotate(25deg); opacity: 1; }
-                    100% { transform: translate(800px, 400px) rotate(25deg); opacity: 0; }
-                }
-                @keyframes slide-up {
-                    from { opacity: 0; transform: translateY(30px); }
-                    to { opacity: 1; transform: translateY(0); }
-                }
-                .animate-slide-up { animation: slide-up 0.8s ease-out forwards; }
-                .animate-float { animation: float 6s ease-in-out infinite; }
-                .animate-slow-spin { animation: slow-spin 20s linear infinite; }
-            `}</style>
+
         </section>
     );
 };

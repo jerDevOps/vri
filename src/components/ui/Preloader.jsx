@@ -69,23 +69,7 @@ const Preloader = ({ onComplete }) => {
                 UNA PUNO • {new Date().getFullYear()}
             </div>
 
-            <style jsx>{`
-                @keyframes progress-loading {
-                    0% { width: 0%; transform: translateX(-100%); }
-                    50% { width: 100%; transform: translateX(0%); }
-                    100% { width: 0%; transform: translateX(100%); }
-                }
-                .animate-progress-loading {
-                    animation: progress-loading 2s infinite ease-in-out;
-                }
-                @keyframes fade-in-up {
-                    from { opacity: 0; transform: translateY(20px); }
-                    to { opacity: 1; transform: translateY(0); }
-                }
-                .animate-fade-in-up {
-                    animation: fade-in-up 1s ease-out forwards;
-                }
-            `}</style>
+
         </div>
     );
 };
